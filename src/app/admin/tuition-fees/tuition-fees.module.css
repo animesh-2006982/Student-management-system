@@ -1,0 +1,1373 @@
+
+/* =========================================================
+   STUDY ARENA — TUITION FEES
+   Light Classic | Square Cards | No Decorative Circles
+   File: src/app/admin/tuition-fees/tuition-fees.module.css
+========================================================= */
+
+.page {
+  width: 100%;
+  min-height: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #f3f6fc;
+  color: #17203c;
+  animation: pageEnter 0.45s ease both;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+
+.pageHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  color: #5267ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.1;
+  color: #151b35;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.pageHeader h1 span { color: #5968ff; }
+
+.pageHeader p {
+  max-width: 600px;
+  margin: 15px 0 0;
+  color: #6d7695;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.exportButton,
+.addButton {
+  min-height: 62px;
+  min-width: 100px;
+  padding: 12px 20px;
+  border: 1px solid #dce3f0;
+  border-radius: 0;
+  background: #fff;
+  color: #17203c;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.exportButton:hover,
+.addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(45, 56, 130, .12);
+}
+
+.exportButton span,
+.addButton span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.addButton {
+  background: #5868f7;
+  color: #fff;
+  border-color: #5868f7;
+  box-shadow: 0 8px 18px rgba(88, 104, 247, .17);
+}
+
+/* STAT CARDS */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 145px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-left: 3px solid #5968ff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-sizing: border-box;
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: cardEnter .45s ease both;
+}
+
+/* IMPORTANT: remove the decorative circle completely */
+.statCard::before,
+.statCard::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: none !important;
+}
+
+.statCard:nth-child(1) { animation-delay: .04s; }
+.statCard:nth-child(2) { animation-delay: .08s; }
+.statCard:nth-child(3) { animation-delay: .12s; }
+.statCard:nth-child(4) { animation-delay: .16s; }
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 24px rgba(34, 44, 90, .08);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 850;
+  font-size: 20px;
+}
+
+.purpleCard .statIcon { background: #ecebff; color: #5a65ff; }
+.greenCard .statIcon { background: #ddf8f0; color: #08ae84; }
+.orangeCard .statIcon { background: #fff0d6; color: #f29a00; }
+.blueCard .statIcon { background: #def3ff; color: #049ed8; }
+
+.statCard p {
+  margin: 0 0 7px;
+  color: #667493;
+  font-size: 12px;
+}
+
+.statCard strong {
+  display: block;
+  color: #17203c;
+  font-size: 27px;
+  line-height: 1.15;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+.statCard small {
+  display: block;
+  color: #8792ac;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+/* DIRECTORY */
+
+.directory {
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-radius: 0;
+  overflow: hidden;
+  animation: directoryEnter .5s ease both;
+  animation-delay: .12s;
+}
+
+.directory::before,
+.directory::after {
+  content: none !important;
+  display: none !important;
+}
+
+@keyframes directoryEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.directoryHeader {
+  padding: 28px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.directoryHeader h2 {
+  margin: 0;
+  color: #17203c;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.directoryHeader p {
+  margin: 7px 0 0;
+  color: #7c88a3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.recordButton {
+  border: 1px solid #5868f7;
+  background: #5868f7;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 0;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 7px 16px rgba(88, 104, 247, .15);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.recordButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(88, 104, 247, .2);
+}
+
+/* FILTER BAR */
+
+.filterBar {
+  min-height: 72px;
+  border-top: 1px solid #edf0f6;
+  border-bottom: 1px solid #edf0f6;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.filters {
+  display: flex;
+  gap: 5px;
+}
+
+.filterButton,
+.activeFilter {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 11px 15px;
+  border-radius: 0;
+  cursor: pointer;
+  color: #7b84a0;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.activeFilter {
+  background: #eeefff;
+  color: #5664f5;
+  border-color: #dcdfff;
+  font-weight: 800;
+}
+
+.filterButton:hover { background: #f5f6fb; }
+
+.select,
+.search {
+  height: 42px;
+  border: 1px solid #dce1ed;
+  border-radius: 0;
+  background: #fff;
+  outline: none;
+  color: #4e5b78;
+  padding: 0 12px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.select { margin-left: auto; }
+.search { width: 210px; }
+
+.search:focus,
+.select:focus {
+  border-color: #5868f7;
+  box-shadow: 0 0 0 2px rgba(88, 104, 247, .1);
+}
+
+/* EMPTY STATE */
+
+.emptyState {
+  padding: 65px 25px;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  border-radius: 0;
+  background: #eff0ff;
+  color: #5868f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 850;
+}
+
+.emptyState h3 {
+  margin: 0;
+  color: #1a223d;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.emptyState p {
+  max-width: 430px;
+  margin: 9px auto 20px;
+  color: #7f8aa5;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.emptyButton {
+  border: 1px solid #5868f7;
+  background: #5868f7;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+/* MODAL */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 14, 35, .55);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlayIn .2s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  width: min(500px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #dce3ef;
+  border-radius: 0;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, .2);
+  animation: modalIn .25s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  padding: 23px 25px;
+  border-bottom: 1px solid #edf0f5;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modalHeader span {
+  color: #5968f7;
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 850;
+}
+
+.modalHeader h2 {
+  margin: 5px 0 0;
+  color: #18203b;
+  font-weight: 800;
+}
+
+.closeButton {
+  flex: 0 0 35px;
+  border: 1px solid #e0e4ef;
+  background: #f2f3f8;
+  color: #28334d;
+  width: 35px;
+  height: 35px;
+  border-radius: 0;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.form { padding: 25px; }
+
+.inputGroup { margin-bottom: 17px; }
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  color: #59627d;
+  font-weight: 750;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  border: 1px solid #dce1ec;
+  border-radius: 0;
+  padding: 10px 12px;
+  outline: none;
+  background: #fff;
+  color: #17203c;
+}
+
+.inputGroup textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  border-color: #5968f7;
+  box-shadow: 0 0 0 2px rgba(89, 104, 247, .1);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cancelButton,
+.saveButton {
+  border: 1px solid #dce1ec;
+  padding: 12px 18px;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.cancelButton {
+  background: #f0f1f6;
+  color: #59627d;
+}
+
+.saveButton {
+  background: #5868f7;
+  color: #fff;
+  border-color: #5868f7;
+}
+
+/* NOTIFICATION / ERROR BANNERS, IF PRESENT */
+
+.error,
+.errorMessage,
+.success,
+.successMessage,
+.alert,
+.alertError,
+.alertSuccess {
+  border-radius: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .statsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .page { padding: 20px; }
+
+  .pageHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .headerActions { width: 100%; }
+
+  .exportButton,
+  .addButton {
+    flex: 1;
+    min-width: 0;
+    min-height: 58px;
+  }
+
+  .directoryHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .recordButton { width: 100%; }
+
+  .filterBar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .select {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .search { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .page { padding: 14px; }
+
+  .pageHeader h1 {
+    font-size: 36px;
+    letter-spacing: -1.3px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .statCard {
+    min-height: 118px;
+    padding: 18px;
+  }
+
+  .directoryHeader { padding: 22px 18px; }
+  .filterBar { padding: 12px; }
+  .emptyState { padding: 45px 18px; }
+  .form { padding: 18px; }
+  .modalHeader { padding: 18px; }
+
+  .modalActions > button { flex: 1; }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .page,
+  .statCard,
+  .directory,
+  .modal,
+  .modalOverlay {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =====================================================
+   STUDY ARENA — TUITION FEES FINAL UI OVERRIDES
+   Rounded cards + working button styles
+===================================================== */
+
+/* Cards: remove decorative circles but keep rounded corners */
+.statCard {
+  border-radius: 16px !important;
+  border: 1px solid #dce4f2 !important;
+  border-left: 3px solid #5968ff !important;
+  overflow: hidden;
+  background: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(25, 40, 80, 0.035);
+}
+
+.statCard::before,
+.statCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(25, 40, 80, 0.09);
+}
+
+/* Icon tiles */
+.statIcon {
+  border-radius: 12px !important;
+}
+
+/* Directory and modal */
+.directory {
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+
+.modal {
+  border-radius: 16px !important;
+  overflow: auto;
+}
+
+.directory::before,
+.directory::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* All main action buttons */
+.addButton,
+.recordButton,
+.emptyButton,
+.saveButton {
+  background: linear-gradient(135deg, #5968ff 0%, #4778ef 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #5968ff !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.addButton:hover,
+.recordButton:hover,
+.emptyButton:hover,
+.saveButton:hover {
+  background: linear-gradient(135deg, #4856ed 0%, #3268df 100%) !important;
+  box-shadow: 0 8px 20px rgba(76, 96, 238, 0.23) !important;
+  transform: translateY(-2px);
+}
+
+/* Export and cancel buttons */
+.exportButton,
+.cancelButton {
+  background: #ffffff !important;
+  color: #273451 !important;
+  border: 1px solid #d7dfed !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+}
+
+.exportButton:hover,
+.cancelButton:hover {
+  background: #f0f3ff !important;
+  border-color: #aebaff !important;
+}
+
+/* Filter buttons */
+.filterButton,
+.activeFilter {
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-weight: 700;
+}
+
+.activeFilter {
+  background: #eeefff !important;
+  color: #4f5ff0 !important;
+  border: 1px solid #d9ddff !important;
+}
+
+.filterButton:hover {
+  background: #f2f4fb !important;
+  color: #4f5ff0 !important;
+}
+
+/* Search, dropdown and form controls */
+.search,
+.select,
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  border-radius: 9px !important;
+  border: 1px solid #d7dfed !important;
+  background: #ffffff !important;
+  color: #17203c !important;
+  box-sizing: border-box;
+}
+
+.search:focus,
+.select:focus,
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  border-color: #5968ff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(89, 104, 255, 0.11) !important;
+}
+
+/* Close button */
+.closeButton {
+  border-radius: 9px !important;
+  cursor: pointer !important;
+}
+
+/* Empty-state icon */
+.emptyIcon {
+  border-radius: 12px !important;
+}
+
+/* Refresh button: if rendered as a plain button in the directory */
+.directory button {
+  cursor: pointer;
+}
+
+.directory button:focus-visible,
+.headerActions button:focus-visible,
+.modal button:focus-visible {
+  outline: 3px solid rgba(89, 104, 255, 0.35);
+  outline-offset: 2px;
+}
+
+/* Keep mobile layout intact */
+@media (max-width: 560px) {
+  .statCard {
+    border-radius: 13px !important;
+  }
+
+  .directory {
+    border-radius: 14px !important;
+  }
+
+  .addButton,
+  .exportButton,
+  .recordButton,
+  .emptyButton,
+  .saveButton,
+  .cancelButton {
+    min-height: 44px;
+  }
+}
+
+
+/* =========================================
+   TUITION FEES — FINAL CARD & BUTTON FIX
+========================================= */
+
+/* Stat cards: rounded corners, no decorative circles */
+.statCard {
+  position: relative;
+  border: 1px solid #dce4f2 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(25, 40, 80, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard::before,
+.statCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(25, 40, 80, 0.08);
+}
+
+.statIcon {
+  border-radius: 10px !important;
+}
+
+/* Main content panel */
+.directory {
+  border: 1px solid #dce4f2 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: #ffffff !important;
+}
+
+/* Primary action buttons */
+.addButton,
+.recordButton,
+.emptyButton,
+.saveButton,
+.paymentButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 18px;
+  border: 1px solid #5968f7 !important;
+  border-radius: 9px !important;
+  background: #5968f7 !important;
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.addButton:hover,
+.recordButton:hover,
+.emptyButton:hover,
+.saveButton:hover,
+.paymentButton:hover {
+  background: #4655e8 !important;
+  box-shadow: 0 6px 16px rgba(89, 104, 247, 0.2);
+  transform: translateY(-1px);
+}
+
+.addButton:disabled,
+.recordButton:disabled,
+.saveButton:disabled,
+.paymentButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Header action buttons */
+.headerActions {
+  display: flex;
+  gap: 12px;
+}
+
+.exportButton,
+.headerActions .addButton {
+  min-height: 58px;
+  min-width: 100px;
+  border-radius: 9px !important;
+  font-weight: 700;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid #dce4f2 !important;
+  background: #ffffff !important;
+  color: #17203c !important;
+  cursor: pointer;
+}
+
+.exportButton:hover {
+  background: #f3f5ff !important;
+  border-color: #bfc8ff !important;
+}
+
+/* Refresh button — class used in page.tsx */
+.refreshButton {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 16px;
+  border: 1px solid #dce4f2 !important;
+  border-radius: 9px !important;
+  background: #f5f6ff !important;
+  color: #4555e8 !important;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.refreshButton:hover {
+  background: #e9ecff !important;
+  border-color: #aeb9ff !important;
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Edit and Cancel buttons */
+.secondaryButton,
+.cancelButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid #dce4f2 !important;
+  border-radius: 9px !important;
+  background: #ffffff !important;
+  color: #34415f !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondaryButton:hover,
+.cancelButton:hover {
+  background: #f3f5ff !important;
+  border-color: #bfc8ff !important;
+}
+
+/* Delete action */
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid #ffd4d8 !important;
+  border-radius: 9px !important;
+  background: #fff5f5 !important;
+  color: #d93649 !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background: #ffe8eb !important;
+}
+
+/* Filter tabs */
+.filterButton,
+.activeFilter {
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: 8px !important;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.filterButton {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #74809c;
+}
+
+.filterButton:hover {
+  background: #f3f5ff;
+  color: #4655e8;
+}
+
+.activeFilter {
+  border: 1px solid #d9ddff;
+  background: #eeefff;
+  color: #4f5ff0;
+}
+
+/* Inputs and dropdowns */
+.search,
+.select,
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  min-height: 44px;
+  border: 1px solid #d7dfed !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  color: #17203c !important;
+  box-sizing: border-box;
+}
+
+.search,
+.select {
+  padding: 0 12px;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.search:focus,
+.select:focus,
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  outline: none !important;
+  border-color: #5968f7 !important;
+  box-shadow: 0 0 0 3px rgba(89, 104, 247, 0.1);
+}
+
+/* Fee record cards */
+.feeCard {
+  border: 1px solid #dce4f2;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.feeCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Modal */
+.modal {
+  border-radius: 14px !important;
+  overflow: auto;
+  background: #ffffff;
+}
+
+.closeButton {
+  border-radius: 8px !important;
+  cursor: pointer;
+}
+
+/* Error and success messages */
+.alertError,
+.alertSuccess {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+}
+
+.alertError {
+  border: 1px solid #ffd4d8;
+  background: #fff5f5;
+  color: #a82436;
+}
+
+.alertSuccess {
+  border: 1px solid #bcebd8;
+  background: #effbf5;
+  color: #087b58;
+}
+
+.alertError button,
+.alertSuccess button {
+  margin-left: auto;
+  min-width: 30px;
+  min-height: 30px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Keyboard accessibility */
+.page button:focus-visible {
+  outline: 3px solid rgba(89, 104, 247, 0.28);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .headerActions {
+    width: 100%;
+  }
+
+  .headerActions .exportButton,
+  .headerActions .addButton {
+    flex: 1;
+  }
+
+  .filterBar {
+    gap: 10px;
+  }
+
+  .refreshButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .statCard {
+    min-height: 120px;
+    padding: 18px !important;
+    border-radius: 12px !important;
+  }
+
+  .directory {
+    border-radius: 12px !important;
+  }
+
+  .headerActions {
+    gap: 8px;
+  }
+
+  .headerActions .exportButton,
+  .headerActions .addButton {
+    min-width: 0;
+    min-height: 48px;
+  }
+
+  .feeCardActions > button {
+    flex: 1;
+  }
+}
+
+
+/* =========================================
+   TUITION FEES — RECORD CARD LAYOUT FIX
+========================================= */
+
+.feeList {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.feeCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  padding: 20px;
+  gap: 18px;
+  box-sizing: border-box;
+  border: 1px solid #dce4f2 !important;
+  border-left: 4px solid #5968f7 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  overflow: visible;
+}
+
+.feeCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.feeCardTop > div {
+  min-width: 0;
+}
+
+.feeLabel {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #5968f7;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.feeCardTop h3 {
+  margin: 0 0 7px;
+  color: #17203c;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.feeCardTop p {
+  margin: 0;
+  color: #74809c;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.paid {
+  color: #087b58;
+  background: #e8f8f0;
+}
+
+.pending {
+  color: #b66a00;
+  background: #fff3d9;
+}
+
+.partial {
+  color: #4f5fe8;
+  background: #eceeff;
+}
+
+.feeMetrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid #edf0f6;
+  border-bottom: 1px solid #edf0f6;
+}
+
+.feeMetrics > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.feeMetrics small {
+  color: #8490aa;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.feeMetrics strong {
+  color: #17203c;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.feeMetrics .paidValue {
+  color: #07966e;
+}
+
+.feeMetrics .pendingValue {
+  color: #d97706;
+}
+
+.feeCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+}
+
+.feeCardActions button {
+  min-height: 42px;
+  padding: 10px 15px;
+  border-radius: 8px !important;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.feeCardActions .paymentButton {
+  border: 1px solid #5968f7 !important;
+  background: #5968f7 !important;
+  color: #ffffff !important;
+}
+
+.feeCardActions .secondaryButton {
+  border: 1px solid #dce4f2 !important;
+  background: #ffffff !important;
+  color: #34415f !important;
+}
+
+.feeCardActions .deleteButton {
+  border: 1px solid #ffd4d8 !important;
+  background: #fff5f5 !important;
+  color: #d93649 !important;
+}
+
+.feeCardActions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.directoryFooter {
+  padding: 15px 20px;
+  border-top: 1px solid #edf0f6;
+  color: #74809c;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.directoryFooter strong {
+  color: #17203c;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .feeMetrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .feeList {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .feeCard {
+    padding: 15px;
+    gap: 14px;
+    border-radius: 10px !important;
+  }
+
+  .feeCardTop h3 {
+    font-size: 17px;
+  }
+
+  .feeMetrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 10px;
+    padding: 14px 0;
+  }
+
+  .feeMetrics > div {
+    padding: 0;
+  }
+
+  .feeCardActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .feeCardActions .paymentButton {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .feeCardActions .secondaryButton,
+  .feeCardActions .deleteButton {
+    width: 100%;
+  }
+}

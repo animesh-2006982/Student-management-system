@@ -1,0 +1,996 @@
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #f6f8fc;
+  color: #121a30;
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+/* ================= BACKGROUND ================= */
+
+.backgroundGrid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.4;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(110, 120, 150, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(110, 120, 150, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+}
+
+.backgroundGlowOne,
+.backgroundGlowTwo {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(5px);
+}
+
+.backgroundGlowOne {
+  width: 500px;
+  height: 500px;
+
+  top: -220px;
+  left: -180px;
+
+  background: rgba(100, 90, 255, 0.1);
+}
+
+.backgroundGlowTwo {
+  width: 480px;
+  height: 480px;
+
+  bottom: -220px;
+  right: -170px;
+
+  background: rgba(37, 170, 218, 0.1);
+}
+
+/* ================= BACK BUTTON ================= */
+
+.backButton {
+  position: absolute;
+
+  top: 27px;
+  left: 35px;
+
+  z-index: 20;
+
+  border: 0;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #68738b;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.backButton span {
+  font-size: 17px;
+}
+
+.backButton:hover {
+  color: #5e57ef;
+
+  transform: translateX(-3px);
+}
+
+/* ================= MAIN CARD ================= */
+
+.loginWrapper {
+  position: relative;
+  z-index: 5;
+
+  width: min(1120px, 100%);
+
+  min-height: 680px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  background: white;
+
+  border: 1px solid #e4e8f0;
+
+  border-radius: 32px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 35px 90px rgba(24, 35, 65, 0.12),
+    0 8px 25px rgba(24, 35, 65, 0.04);
+
+  animation: cardAppear 0.7s ease both;
+}
+
+/* ================= LEFT PANEL ================= */
+
+.brandPanel {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 55px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(102, 91, 255, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 10% 85%,
+      rgba(36, 181, 216, 0.1),
+      transparent 28%
+    ),
+    #111a31;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.brandPanel::before {
+  content: "";
+
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+
+  right: -150px;
+  top: 150px;
+
+  animation: rotateCircle 20s linear infinite;
+}
+
+.brandPanel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 50%;
+
+  right: -70px;
+  top: 225px;
+}
+
+.brandContent {
+  position: relative;
+
+  z-index: 2;
+}
+
+/* ================= LOGO ================= */
+
+.logoRow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7064ff,
+      #319bdc
+    );
+
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 12px 30px rgba(91, 83, 255, 0.28);
+}
+
+.logoRow h1 {
+  margin: 0;
+
+  font-size: 19px;
+
+  font-weight: 700;
+}
+
+.logoRow p {
+  margin: 4px 0 0;
+
+  color: #8e9ab4;
+
+  font-size: 10px;
+}
+
+/* ================= BRAND HEADING ================= */
+
+.brandHeading {
+  margin-top: 95px;
+}
+
+.smallLabel,
+.formLabel {
+  display: inline-block;
+
+  color: #877fff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.brandHeading h2 {
+  margin: 17px 0 20px;
+
+  font-size: clamp(39px, 4vw, 55px);
+
+  line-height: 1.02;
+
+  letter-spacing: -2.8px;
+
+  font-weight: 700;
+}
+
+.brandHeading h2 span {
+  background:
+    linear-gradient(
+      90deg,
+      #8c7fff,
+      #39c6df
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+.brandHeading > p {
+  max-width: 455px;
+
+  color: #9ca7bc;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+/* ================= FEATURES ================= */
+
+.featureList {
+  margin-top: 40px;
+
+  display: grid;
+
+  gap: 16px;
+}
+
+.featureItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.featureIcon {
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 35px;
+
+  border-radius: 10px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: #8b81ff;
+
+  font-size: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.featureItem strong,
+.featureItem span {
+  display: block;
+}
+
+.featureItem strong {
+  font-size: 12px;
+}
+
+.featureItem span {
+  margin-top: 3px;
+
+  color: #79859e;
+
+  font-size: 10px;
+}
+
+/* ================= PANEL FOOTER ================= */
+
+.panelBottom {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #68748e;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.formPanel {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 55px;
+
+  background: #ffffff;
+}
+
+.formBox {
+  width: min(410px, 100%);
+
+  animation: formAppear 0.8s 0.12s ease both;
+}
+
+/* ================= MOBILE LOGO ================= */
+
+.mobileLogo {
+  display: none;
+}
+
+/* ================= FORM HEADING ================= */
+
+.formHeading {
+  margin-bottom: 35px;
+}
+
+.formHeading h2 {
+  margin: 12px 0 10px;
+
+  font-size: 31px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.2px;
+}
+
+.formHeading p {
+  margin: 0;
+
+  color: #7c879c;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* ================= FORM ================= */
+
+.form {
+  display: grid;
+
+  gap: 23px;
+}
+
+.field {
+  display: grid;
+
+  gap: 9px;
+}
+
+.field label,
+.labelRow label {
+  color: #2d3750;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.labelRow {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.forgotButton {
+  border: 0;
+
+  background: transparent;
+
+  padding: 0;
+
+  color: #6259ef;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.forgotButton:hover {
+  text-decoration: underline;
+}
+
+/* ================= INPUT ================= */
+
+.inputWrapper {
+  height: 54px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  border: 1px solid #dfe4ed;
+
+  border-radius: 13px;
+
+  background: #fbfcfe;
+
+  transition: 0.25s ease;
+}
+
+.inputWrapper:focus-within {
+  border-color: #756dff;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(101, 91, 255, 0.08);
+}
+
+.inputIcon {
+  width: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #909aae;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.inputWrapper input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #1b243a;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  padding: 0 15px 0 0;
+}
+
+.inputWrapper input::placeholder {
+  color: #a4adbd;
+}
+
+/* ================= PASSWORD ================= */
+
+.passwordToggle {
+  border: 0;
+
+  background: transparent;
+
+  color: #655cf0;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  padding: 10px;
+
+  margin-right: 4px;
+}
+
+.passwordToggle:hover {
+  color: #4038d8;
+}
+
+/* ================= REMEMBER ================= */
+
+.rememberRow {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #69748b;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  width: fit-content;
+}
+
+.rememberRow input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.customCheckbox {
+  width: 16px;
+  height: 16px;
+
+  border: 1px solid #cfd5e0;
+
+  border-radius: 5px;
+
+  background: white;
+
+  transition: 0.2s ease;
+}
+
+.rememberRow input:checked + .customCheckbox {
+  background: #6259f1;
+
+  border-color: #6259f1;
+
+  box-shadow:
+    inset 0 0 0 3px white;
+}
+
+/* ================= LOGIN BUTTON ================= */
+
+.loginButton {
+  width: 100%;
+
+  height: 55px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #655bf4,
+      #398fdc
+    );
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 15px 30px rgba(94, 84, 244, 0.22);
+
+  transition: 0.3s ease;
+}
+
+.loginButton:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 40px rgba(94, 84, 244, 0.3);
+}
+
+.loginButton:active {
+  transform: translateY(-1px);
+}
+
+.loginArrow {
+  font-size: 17px;
+
+  transition: 0.25s ease;
+}
+
+.loginButton:hover .loginArrow {
+  transform: translateX(5px);
+}
+
+/* ================= SECURITY ================= */
+
+.securityNote {
+  margin-top: 27px;
+
+  padding: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border: 1px solid #e7ebf1;
+
+  background: #fafbfc;
+
+  border-radius: 13px;
+}
+
+.lockIcon {
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  border-radius: 9px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: #e9f9f3;
+
+  color: #12a974;
+
+  font-size: 12px;
+}
+
+.securityNote strong,
+.securityNote span {
+  display: block;
+}
+
+.securityNote strong {
+  color: #303a51;
+
+  font-size: 10px;
+}
+
+.securityNote span {
+  margin-top: 3px;
+
+  color: #8b95a7;
+
+  font-size: 9px;
+}
+
+/* ================= SIGN UP FOOTER ================= */
+
+.formFooter {
+  margin-top: 27px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #edf0f4;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #8a94a7;
+
+  font-size: 10px;
+}
+
+.formFooter button {
+  border: 0;
+
+  background: transparent;
+
+  padding: 0;
+
+  color: #6058ed;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.formFooter button:hover {
+  text-decoration: underline;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+  .page {
+    padding: 80px 25px 30px;
+  }
+
+  .loginWrapper {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .brandPanel {
+    padding: 40px;
+  }
+
+  .formPanel {
+    padding: 40px;
+  }
+
+  .brandHeading {
+    margin-top: 70px;
+  }
+
+  .brandHeading h2 {
+    font-size: 42px;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+  .page {
+    min-height: 100vh;
+
+    padding: 75px 15px 25px;
+
+    display: block;
+  }
+
+  .backButton {
+    top: 23px;
+
+    left: 18px;
+  }
+
+  .loginWrapper {
+    width: 100%;
+
+    min-height: auto;
+
+    display: block;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+  }
+
+  .brandPanel {
+    display: none;
+  }
+
+  .formPanel {
+    min-height: calc(100vh - 100px);
+
+    padding: 35px 23px;
+
+    display: flex;
+
+    align-items: center;
+  }
+
+  .formBox {
+    width: 100%;
+  }
+
+  .mobileLogo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 45px;
+  }
+
+  .mobileLogo .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobileLogo strong {
+    font-size: 18px;
+  }
+
+  .formHeading {
+    text-align: center;
+
+    margin-bottom: 30px;
+  }
+
+  .formHeading h2 {
+    font-size: 28px;
+  }
+
+  .formHeading p {
+    font-size: 12px;
+  }
+
+  .labelRow label {
+    font-size: 11px;
+  }
+
+  .forgotButton {
+    font-size: 10px;
+  }
+
+  .securityNote {
+    margin-top: 23px;
+  }
+
+  .formFooter {
+    flex-wrap: wrap;
+
+    line-height: 1.7;
+
+    text-align: center;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 400px) {
+  .page {
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+  .formPanel {
+    padding: 30px 18px;
+  }
+
+  .formHeading h2 {
+    font-size: 25px;
+  }
+
+  .inputWrapper {
+    height: 51px;
+  }
+
+  .loginButton {
+    height: 52px;
+  }
+}

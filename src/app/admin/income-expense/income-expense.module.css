@@ -1,0 +1,5326 @@
+.page {
+
+  min-height: 100%;
+
+  padding: 28px;
+
+  background: #f5f7fc;
+
+  color: #17203a;
+
+  animation: pageEnter 0.5s ease both;
+
+}
+
+
+
+.header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+
+}
+
+
+
+.headerLeft {
+
+  min-width: 0;
+
+}
+
+
+
+.breadcrumb {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 0 0 18px;
+
+  color: #7c86a4;
+
+  font-size: 13px;
+
+}
+
+
+
+.breadcrumb span {
+
+  color: #5665ff;
+
+}
+
+
+
+.breadcrumb b {
+
+  color: #b1b7ca;
+
+}
+
+
+
+.breadcrumb strong {
+
+  color: #27304b;
+
+}
+
+
+
+.titleRow {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+}
+
+
+
+.titleIcon {
+
+  width: 46px;
+
+  height: 46px;
+
+  border-radius: 14px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: #e9edff;
+
+  color: #5665ff;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+}
+
+
+
+.titleRow h1 {
+
+  margin: 0;
+
+  font-size: clamp(26px, 3vw, 38px);
+
+  letter-spacing: -1px;
+
+}
+
+
+
+.titleRow p {
+
+  margin: 5px 0 0;
+
+  color: #78819e;
+
+  font-size: 14px;
+
+}
+
+
+
+.headerActions {
+
+  display: flex;
+
+  gap: 10px;
+
+}
+
+
+
+.incomeButton,
+
+.expenseButton,
+
+.recordButton,
+
+.saveIncome,
+
+.saveExpense {
+
+  border: 0;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-weight: 700;
+
+  border-radius: 11px;
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    opacity 0.2s ease;
+
+}
+
+
+
+.incomeButton:hover,
+
+.expenseButton:hover,
+
+.recordButton:hover,
+
+.saveIncome:hover,
+
+.saveExpense:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+
+.incomeButton:active,
+
+.expenseButton:active,
+
+.recordButton:active,
+
+.saveIncome:active,
+
+.saveExpense:active {
+
+  transform: scale(0.97);
+
+}
+
+
+
+.incomeButton {
+
+  background: #20b56c;
+
+  padding: 12px 17px;
+
+  box-shadow: 0 8px 20px rgba(32, 181, 108, 0.18);
+
+}
+
+
+
+.expenseButton {
+
+  background: #ef5963;
+
+  padding: 12px 17px;
+
+  box-shadow: 0 8px 20px rgba(239, 89, 99, 0.18);
+
+}
+
+
+
+.incomeButton span,
+
+.expenseButton span {
+
+  margin-right: 6px;
+
+  font-size: 18px;
+
+}
+
+
+
+/* STATS */
+
+
+
+.statsGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 16px;
+
+}
+
+
+
+.statCard {
+
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 180px;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background: white;
+
+  border: 1px solid #e2e6f0;
+
+  box-shadow: 0 8px 30px rgba(34, 45, 85, 0.05);
+
+  animation: cardEnter 0.55s ease both;
+
+  transition:
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease;
+
+}
+
+
+
+.statCard::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+
+  height: 110px;
+
+  right: -38px;
+
+  bottom: -48px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  opacity: 0.05;
+
+}
+
+
+
+.statCard:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 18px 38px rgba(34, 45, 85, 0.1);
+
+}
+
+
+
+.incomeCard {
+
+  border-left: 4px solid #20b56c;
+
+  color: #20b56c;
+
+}
+
+
+
+.expenseCard {
+
+  border-left: 4px solid #ef5963;
+
+  color: #ef5963;
+
+}
+
+
+
+.profitCard {
+
+  border-left: 4px solid #5665ff;
+
+  color: #5665ff;
+
+}
+
+
+
+.statTop {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: #73809e;
+
+  font-size: 13px;
+
+}
+
+
+
+.statIcon {
+
+  width: 36px;
+
+  height: 36px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: #f1f3fa;
+
+  font-weight: 800;
+
+  font-size: 18px;
+
+}
+
+
+
+.statCard strong {
+
+  display: block;
+
+  margin-top: 12px;
+
+  color: #19213a;
+
+  font-size: 30px;
+
+  letter-spacing: -1px;
+
+}
+
+
+
+.statCard small {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: #929ab0;
+
+}
+
+
+
+.statCard button {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 16px;
+
+  padding: 7px 10px;
+
+  background: white;
+
+  border: 1px solid currentColor;
+
+  border-radius: 7px;
+
+  color: currentColor;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+}
+
+
+
+/* TODAY */
+
+
+
+.todayGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 16px;
+
+}
+
+
+
+.todayCard {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 75px;
+
+  padding: 17px 20px;
+
+  border-radius: 13px;
+
+  border: 1px solid #e2e6f0;
+
+  background: white;
+
+  transition: transform 0.2s ease;
+
+}
+
+
+
+.todayCard:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+
+.todayCard span {
+
+  display: block;
+
+  color: #8992aa;
+
+  font-size: 12px;
+
+}
+
+
+
+.todayCard strong {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #1b2440;
+
+  font-size: 18px;
+
+}
+
+
+
+.calendarIcon {
+
+  color: #66708d;
+
+  font-size: 19px;
+
+}
+
+
+
+/* RECENT */
+
+
+
+.recentGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 16px;
+
+}
+
+
+
+.listCard,
+
+.categoryCard,
+
+.transactionsCard {
+
+  overflow: hidden;
+
+  border: 1px solid #e2e6f0;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow: 0 8px 30px rgba(34, 45, 85, 0.04);
+
+}
+
+
+
+.listHeader {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #edf0f6;
+
+}
+
+
+
+.listHeader h2 {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 0;
+
+  font-size: 16px;
+
+}
+
+
+
+.listHeader p {
+
+  margin: 5px 0 0;
+
+  color: #8a93aa;
+
+  font-size: 12px;
+
+}
+
+
+
+.listHeader button {
+
+  border: 1px solid #dce1ef;
+
+  border-radius: 7px;
+
+  padding: 6px 10px;
+
+  background: white;
+
+  color: #5665ff;
+
+  cursor: pointer;
+
+  font-size: 11px;
+
+}
+
+
+
+.incomeDot,
+
+.expenseDot {
+
+  width: 27px;
+
+  height: 27px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 8px;
+
+}
+
+
+
+.incomeDot {
+
+  background: #e6f8ef;
+
+  color: #20b56c;
+
+}
+
+
+
+.expenseDot {
+
+  background: #ffebed;
+
+  color: #ef5963;
+
+}
+
+
+
+.recentItem {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 13px 20px;
+
+  border-bottom: 1px solid #f0f2f7;
+
+  transition: background 0.2s ease;
+
+}
+
+
+
+.recentItem:hover {
+
+  background: #fafbff;
+
+}
+
+
+
+.recentItem strong {
+
+  display: block;
+
+  color: #26304b;
+
+  font-size: 12px;
+
+}
+
+
+
+.recentItem span {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9aa1b4;
+
+  font-size: 10px;
+
+}
+
+
+
+.incomeAmount {
+
+  color: #17a866 !important;
+
+}
+
+
+
+.expenseAmount {
+
+  color: #ed4d59 !important;
+
+}
+
+
+
+.emptyRecent {
+
+  min-height: 160px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 25px;
+
+}
+
+
+
+.emptyRecent div {
+
+  width: 42px;
+
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 10px;
+
+  border-radius: 12px;
+
+  background: #f1f3fb;
+
+  color: #6672ff;
+
+  font-weight: 800;
+
+}
+
+
+
+.emptyRecent strong {
+
+  color: #4b5570;
+
+  font-size: 13px;
+
+}
+
+
+
+.emptyRecent span {
+
+  margin-top: 4px;
+
+  color: #9aa2b7;
+
+  font-size: 11px;
+
+}
+
+
+
+/* CATEGORY */
+
+
+
+.categoryGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 16px;
+
+}
+
+
+
+.categoryCard {
+
+  min-height: 190px;
+
+  padding: 20px;
+
+}
+
+
+
+.categoryTitle {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+}
+
+
+
+.categoryTitle > span {
+
+  width: 36px;
+
+  height: 36px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: #edf0ff;
+
+  color: #5665ff;
+
+  font-weight: 800;
+
+}
+
+
+
+.categoryTitle h2 {
+
+  margin: 0;
+
+  font-size: 15px;
+
+}
+
+
+
+.categoryTitle p {
+
+  margin: 4px 0 0;
+
+  color: #9aa2b6;
+
+  font-size: 11px;
+
+}
+
+
+
+.categoryEmpty {
+
+  min-height: 105px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.categoryEmpty strong {
+
+  font-size: 25px;
+
+  color: #202943;
+
+}
+
+
+
+.categoryEmpty span {
+
+  margin-top: 4px;
+
+  color: #9aa2b6;
+
+  font-size: 11px;
+
+}
+
+
+
+/* TRANSACTIONS */
+
+
+
+.transactionsCard {
+
+  margin-bottom: 30px;
+
+}
+
+
+
+.transactionsHeader {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px;
+
+}
+
+
+
+.sectionLabel {
+
+  color: #5665ff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+}
+
+
+
+.transactionsHeader h2 {
+
+  margin: 6px 0 4px;
+
+  font-size: 22px;
+
+}
+
+
+
+.transactionsHeader p {
+
+  margin: 0;
+
+  color: #8b94aa;
+
+  font-size: 12px;
+
+}
+
+
+
+.recordButton {
+
+  background: #5665ff;
+
+  padding: 12px 18px;
+
+  box-shadow: 0 10px 22px rgba(86, 101, 255, 0.2);
+
+}
+
+
+
+.filters {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #edf0f5;
+
+  border-bottom: 1px solid #edf0f5;
+
+}
+
+
+
+.tabs {
+
+  display: flex;
+
+  gap: 4px;
+
+}
+
+
+
+.tabs button {
+
+  border: 0;
+
+  border-radius: 8px;
+
+  padding: 9px 13px;
+
+  background: transparent;
+
+  color: #8a93aa;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+}
+
+
+
+.tabs button span {
+
+  margin-left: 4px;
+
+}
+
+
+
+.tabs .activeTab {
+
+  background: #eef0ff;
+
+  color: #5665ff;
+
+  font-weight: 700;
+
+}
+
+
+
+.select,
+
+.searchBox {
+
+  height: 40px;
+
+  border: 1px solid #dce1ec;
+
+  border-radius: 9px;
+
+  background: white;
+
+}
+
+
+
+.select {
+
+  padding: 0 12px;
+
+  color: #66708d;
+
+  outline: none;
+
+}
+
+
+
+.searchBox {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 210px;
+
+  padding: 0 12px;
+
+  margin-left: auto;
+
+}
+
+
+
+.searchBox span {
+
+  color: #9098ad;
+
+}
+
+
+
+.searchBox input {
+
+  width: 100%;
+
+  border: 0;
+
+  outline: 0;
+
+  color: #333c55;
+
+  background: transparent;
+
+  font-size: 12px;
+
+}
+
+
+
+.tableWrapper {
+
+  overflow-x: auto;
+
+}
+
+
+
+.table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 780px;
+
+}
+
+
+
+.table th {
+
+  padding: 13px 18px;
+
+  background: #fafbfe;
+
+  color: #8992aa;
+
+  text-align: left;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.table td {
+
+  padding: 14px 18px;
+
+  border-top: 1px solid #eef0f5;
+
+  color: #5c6680;
+
+  font-size: 12px;
+
+}
+
+
+
+.table td strong {
+
+  display: block;
+
+  color: #28314c;
+
+}
+
+
+
+.table td small {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #9ca3b6;
+
+}
+
+
+
+.incomeBadge,
+
+.expenseBadge {
+
+  display: inline-flex;
+
+  padding: 5px 8px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+
+
+.incomeBadge {
+
+  background: #e8f9f0;
+
+  color: #159b5d;
+
+}
+
+
+
+.expenseBadge {
+
+  background: #ffebed;
+
+  color: #df4a56;
+
+}
+
+
+
+.deleteButton {
+
+  border: 1px solid #f0cdd0;
+
+  border-radius: 7px;
+
+  padding: 6px 9px;
+
+  background: white;
+
+  color: #e0525d;
+
+  cursor: pointer;
+
+  font-size: 10px;
+
+}
+
+
+
+.tableEmpty {
+
+  height: 220px;
+
+  text-align: center !important;
+
+}
+
+
+
+.tableEmpty > div {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+
+.tableEmpty span {
+
+  width: 48px;
+
+  height: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 10px;
+
+  border-radius: 14px;
+
+  background: #eef0ff;
+
+  color: #5665ff;
+
+  font-weight: 800;
+
+}
+
+
+
+.tableEmpty strong {
+
+  color: #4b5570 !important;
+
+  font-size: 14px !important;
+
+}
+
+
+
+.tableEmpty small {
+
+  color: #9aa2b7 !important;
+
+}
+
+
+
+/* MODAL */
+
+
+
+.modalOverlay {
+
+  position: fixed;
+
+  z-index: 9999;
+
+  inset: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  background: rgba(12, 18, 35, 0.55);
+
+  backdrop-filter: blur(5px);
+
+  animation: fadeIn 0.2s ease;
+
+}
+
+
+
+.modal {
+
+  width: min(520px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+
+  animation: modalEnter 0.3s ease;
+
+}
+
+
+
+.modalHeader {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  padding: 22px;
+
+  border-bottom: 1px solid #edf0f5;
+
+}
+
+
+
+.modalHeader > div:first-child {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+}
+
+
+
+.modalHeader h2 {
+
+  margin: 0;
+
+  font-size: 19px;
+
+}
+
+
+
+.modalHeader p {
+
+  margin: 4px 0 0;
+
+  color: #9199ad;
+
+  font-size: 11px;
+
+}
+
+
+
+.modalIncomeIcon,
+
+.modalExpenseIcon {
+
+  width: 42px;
+
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 12px;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+}
+
+
+
+.modalIncomeIcon {
+
+  background: #e7f8ef;
+
+  color: #18a765;
+
+}
+
+
+
+.modalExpenseIcon {
+
+  background: #ffebed;
+
+  color: #e6535e;
+
+}
+
+
+
+.closeButton {
+
+  width: 34px;
+
+  height: 34px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  background: #f3f4f8;
+
+  color: #68718b;
+
+  cursor: pointer;
+
+  font-size: 21px;
+
+}
+
+
+
+.form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  padding: 22px;
+
+}
+
+
+
+.form label {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  color: #4d5772;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+
+.form input,
+
+.form select,
+
+.form textarea {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dce1ec;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: white;
+
+  color: #27314b;
+
+  padding: 11px 12px;
+
+  font: inherit;
+
+  font-size: 12px;
+
+  transition:
+
+    border 0.2s ease,
+
+    box-shadow 0.2s ease;
+
+}
+
+
+
+.form textarea {
+
+  resize: vertical;
+
+}
+
+
+
+.form input:focus,
+
+.form select:focus,
+
+.form textarea:focus {
+
+  border-color: #6672ff;
+
+  box-shadow: 0 0 0 3px rgba(102, 114, 255, 0.1);
+
+}
+
+
+
+.formRow {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+}
+
+
+
+.modalActions {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  margin-top: 4px;
+
+}
+
+
+
+.cancelButton {
+
+  border: 1px solid #dce1ec;
+
+  border-radius: 9px;
+
+  padding: 11px 16px;
+
+  background: white;
+
+  color: #66708a;
+
+  cursor: pointer;
+
+}
+
+
+
+.saveIncome,
+
+.saveExpense {
+
+  padding: 11px 17px;
+
+}
+
+
+
+.saveIncome {
+
+  background: #20b56c;
+
+}
+
+
+
+.saveExpense {
+
+  background: #ef5963;
+
+}
+
+
+
+/* ANIMATIONS */
+
+
+
+@keyframes pageEnter {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+@keyframes cardEnter {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+
+
+
+@keyframes modalEnter {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(18px) scale(0.97);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+  }
+
+}
+
+
+
+/* TABLET */
+
+
+
+@media (max-width: 1000px) {
+
+  .page {
+
+    padding: 20px;
+
+  }
+
+
+
+  .statsGrid {
+
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+
+
+  .profitCard {
+
+    grid-column: span 2;
+
+  }
+
+}
+
+
+
+/* MOBILE */
+
+
+
+@media (max-width: 700px) {
+
+  .page {
+
+    padding: 14px;
+
+  }
+
+
+
+  .header {
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+  }
+
+
+
+  .headerActions {
+
+    width: 100%;
+
+  }
+
+
+
+  .incomeButton,
+
+  .expenseButton {
+
+    flex: 1;
+
+  }
+
+
+
+  .titleRow h1 {
+
+    font-size: 26px;
+
+  }
+
+
+
+  .statsGrid,
+
+  .todayGrid,
+
+  .recentGrid,
+
+  .categoryGrid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .profitCard {
+
+    grid-column: auto;
+
+  }
+
+
+
+  .statCard {
+
+    min-height: 155px;
+
+  }
+
+
+
+  .transactionsHeader {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+
+
+  .recordButton {
+
+    width: 100%;
+
+  }
+
+
+
+  .filters {
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+  }
+
+
+
+  .tabs {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+  }
+
+
+
+  .tabs button {
+
+    flex: 1;
+
+    white-space: nowrap;
+
+  }
+
+
+
+  .select {
+
+    width: 100%;
+
+  }
+
+
+
+  .searchBox {
+
+    width: 100%;
+
+    min-width: 0;
+
+    margin-left: 0;
+
+    box-sizing: border-box;
+
+  }
+
+
+
+  .formRow {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+
+  .modalOverlay {
+
+    padding: 10px;
+
+  }
+
+
+
+  .modal {
+
+    max-height: calc(100vh - 20px);
+
+    border-radius: 16px;
+
+  }
+
+
+
+  .modalActions {
+
+    flex-direction: column-reverse;
+
+  }
+
+
+
+  .cancelButton,
+
+  .saveIncome,
+
+  .saveExpense {
+
+    width: 100%;
+
+  }
+
+}
+
+
+
+@media (max-width: 420px) {
+
+  .page {
+
+    padding: 10px;
+
+  }
+
+
+
+  .headerActions {
+
+    flex-direction: column;
+
+  }
+
+
+
+  .statCard {
+
+    padding: 17px;
+
+  }
+
+
+
+  .statCard strong {
+
+    font-size: 26px;
+
+  }
+
+
+
+  .listHeader {
+
+    padding: 15px;
+
+  }
+
+
+
+  .recentItem {
+
+    padding: 12px 15px;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   INCOME / EXPENSE MODAL FIX
+
+   ========================================= */
+
+
+
+.modalOverlay {
+
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+
+  height: 100vh !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+
+
+  padding: 24px !important;
+
+  box-sizing: border-box !important;
+
+
+
+  background: rgba(15, 23, 42, 0.58) !important;
+
+  backdrop-filter: blur(7px) !important;
+
+  -webkit-backdrop-filter: blur(7px) !important;
+
+
+
+  z-index: 99999 !important;
+
+
+
+  overflow-y: auto !important;
+
+  overflow-x: hidden !important;
+
+}
+
+
+
+.modal {
+
+  position: relative !important;
+
+
+
+  width: min(560px, calc(100vw - 48px)) !important;
+
+  max-width: 560px !important;
+
+
+
+  max-height: calc(100vh - 48px) !important;
+
+
+
+  margin: auto !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  border-radius: 24px !important;
+
+
+
+  box-shadow:
+
+    0 30px 80px rgba(15, 23, 42, 0.25),
+
+    0 10px 30px rgba(15, 23, 42, 0.12) !important;
+
+
+
+  overflow-y: auto !important;
+
+  overflow-x: hidden !important;
+
+
+
+  z-index: 100000 !important;
+
+
+
+  transform: none !important;
+
+  left: auto !important;
+
+  right: auto !important;
+
+  top: auto !important;
+
+  bottom: auto !important;
+
+}
+
+
+
+/* Modal header */
+
+
+
+.modalHeader {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+
+
+  gap: 20px !important;
+
+
+
+  padding: 26px 28px 20px !important;
+
+
+
+  border-bottom: 1px solid #eef0f6 !important;
+
+}
+
+
+
+.modalHeader > div:first-child {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 14px !important;
+
+}
+
+
+
+.modalHeader h2 {
+
+  margin: 0 !important;
+
+
+
+  font-size: 24px !important;
+
+  font-weight: 800 !important;
+
+
+
+  color: #17213f !important;
+
+}
+
+
+
+.modalHeader p {
+
+  margin: 5px 0 0 !important;
+
+
+
+  font-size: 13px !important;
+
+
+
+  color: #7d89aa !important;
+
+}
+
+
+
+/* Income / Expense icon */
+
+
+
+.modalIncomeIcon,
+
+.modalExpenseIcon {
+
+  width: 46px !important;
+
+  height: 46px !important;
+
+
+
+  min-width: 46px !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+
+
+  border-radius: 14px !important;
+
+
+
+  font-size: 22px !important;
+
+  font-weight: 800 !important;
+
+}
+
+
+
+.modalIncomeIcon {
+
+  background: #e9fbf3 !important;
+
+  color: #00a86b !important;
+
+}
+
+
+
+.modalExpenseIcon {
+
+  background: #fff0f0 !important;
+
+  color: #ef4444 !important;
+
+}
+
+
+
+/* Close button */
+
+
+
+.closeButton {
+
+  width: 40px !important;
+
+  height: 40px !important;
+
+
+
+  min-width: 40px !important;
+
+
+
+  border: 0 !important;
+
+  border-radius: 12px !important;
+
+
+
+  background: #f4f6fb !important;
+
+
+
+  color: #56617e !important;
+
+
+
+  font-size: 24px !important;
+
+  line-height: 1 !important;
+
+
+
+  cursor: pointer !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+}
+
+
+
+.closeButton:hover {
+
+  background: #eceff7 !important;
+
+}
+
+
+
+/* Form */
+
+
+
+.form {
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+
+
+  gap: 18px !important;
+
+
+
+  padding: 24px 28px 28px !important;
+
+}
+
+
+
+.form label {
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+
+
+  gap: 8px !important;
+
+
+
+  color: #283452 !important;
+
+
+
+  font-size: 13px !important;
+
+  font-weight: 700 !important;
+
+}
+
+
+
+.form input,
+
+.form select,
+
+.form textarea {
+
+  width: 100% !important;
+
+
+
+  box-sizing: border-box !important;
+
+
+
+  border: 1px solid #dfe4ef !important;
+
+
+
+  border-radius: 12px !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  color: #1b2541 !important;
+
+
+
+  padding: 13px 14px !important;
+
+
+
+  font-size: 14px !important;
+
+
+
+  outline: none !important;
+
+}
+
+
+
+.form input,
+
+.form select {
+
+  min-height: 48px !important;
+
+}
+
+
+
+.form textarea {
+
+  resize: vertical !important;
+
+  min-height: 90px !important;
+
+}
+
+
+
+.form input:focus,
+
+.form select:focus,
+
+.form textarea:focus {
+
+  border-color: #5366ff !important;
+
+
+
+  box-shadow:
+
+    0 0 0 3px rgba(83, 102, 255, 0.10) !important;
+
+}
+
+
+
+.formRow {
+
+  display: grid !important;
+
+
+
+  grid-template-columns: 1fr 1fr !important;
+
+
+
+  gap: 16px !important;
+
+}
+
+
+
+/* Bottom buttons */
+
+
+
+.modalActions {
+
+  display: flex !important;
+
+
+
+  justify-content: flex-end !important;
+
+
+
+  gap: 12px !important;
+
+
+
+  padding-top: 6px !important;
+
+}
+
+
+
+.cancelButton,
+
+.saveIncome,
+
+.saveExpense {
+
+  min-height: 46px !important;
+
+
+
+  padding: 0 22px !important;
+
+
+
+  border-radius: 12px !important;
+
+
+
+  font-size: 14px !important;
+
+  font-weight: 700 !important;
+
+
+
+  cursor: pointer !important;
+
+}
+
+
+
+.cancelButton {
+
+  border: 1px solid #dfe4ef !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  color: #53617f !important;
+
+}
+
+
+
+.cancelButton:hover {
+
+  background: #f6f7fb !important;
+
+}
+
+
+
+.saveIncome {
+
+  border: 0 !important;
+
+
+
+  background: #08a86b !important;
+
+
+
+  color: #ffffff !important;
+
+
+
+  box-shadow:
+
+    0 8px 20px rgba(8, 168, 107, 0.20) !important;
+
+}
+
+
+
+.saveExpense {
+
+  border: 0 !important;
+
+
+
+  background: #ef4444 !important;
+
+
+
+  color: #ffffff !important;
+
+
+
+  box-shadow:
+
+    0 8px 20px rgba(239, 68, 68, 0.20) !important;
+
+}
+
+
+
+.saveIncome:disabled,
+
+.saveExpense:disabled {
+
+  opacity: 0.6 !important;
+
+  cursor: not-allowed !important;
+
+}
+
+
+
+/* Mobile */
+
+
+
+@media (max-width: 640px) {
+
+  .modalOverlay {
+
+    padding: 14px !important;
+
+  }
+
+
+
+  .modal {
+
+    width: calc(100vw - 28px) !important;
+
+
+
+    max-height: calc(100vh - 28px) !important;
+
+
+
+    border-radius: 20px !important;
+
+  }
+
+
+
+  .modalHeader {
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .form {
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .formRow {
+
+    grid-template-columns: 1fr !important;
+
+  }
+
+
+
+  .modalActions {
+
+    flex-direction: column-reverse !important;
+
+  }
+
+
+
+  .cancelButton,
+
+  .saveIncome,
+
+  .saveExpense {
+
+    width: 100% !important;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   FINAL MODAL
+
+   ========================================= */
+
+
+
+.modalOverlay {
+
+  position: fixed !important;
+
+  inset: 0 !important;
+
+
+
+  width: 100vw !important;
+
+  height: 100vh !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+
+
+  padding: 24px !important;
+
+  box-sizing: border-box !important;
+
+
+
+  background: rgba(15, 23, 42, 0.58) !important;
+
+
+
+  backdrop-filter: blur(7px) !important;
+
+  -webkit-backdrop-filter: blur(7px) !important;
+
+
+
+  z-index: 999999 !important;
+
+
+
+  overflow-y: auto !important;
+
+}
+
+
+
+.modal {
+
+  position: relative !important;
+
+
+
+  width: 100% !important;
+
+  max-width: 620px !important;
+
+
+
+  max-height: calc(100vh - 48px) !important;
+
+
+
+  margin: auto !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  border-radius: 24px !important;
+
+
+
+  box-shadow:
+
+    0 30px 80px rgba(15, 23, 42, 0.28),
+
+    0 10px 30px rgba(15, 23, 42, 0.12) !important;
+
+
+
+  overflow-y: auto !important;
+
+  overflow-x: hidden !important;
+
+
+
+  box-sizing: border-box !important;
+
+
+
+  flex-shrink: 0 !important;
+
+}
+
+
+
+/* HEADER */
+
+
+
+.modalHeader {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: space-between !important;
+
+
+
+  gap: 20px !important;
+
+
+
+  padding: 24px 28px !important;
+
+
+
+  border-bottom: 1px solid #edf0f6 !important;
+
+
+
+  box-sizing: border-box !important;
+
+}
+
+
+
+.modalHeader > div:first-child {
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  gap: 14px !important;
+
+
+
+  min-width: 0 !important;
+
+}
+
+
+
+.modalHeader h2 {
+
+  margin: 0 !important;
+
+
+
+  font-size: 24px !important;
+
+  line-height: 1.2 !important;
+
+
+
+  font-weight: 800 !important;
+
+
+
+  color: #17213f !important;
+
+}
+
+
+
+.modalHeader p {
+
+  margin: 5px 0 0 !important;
+
+
+
+  font-size: 13px !important;
+
+
+
+  color: #7d89aa !important;
+
+}
+
+
+
+/* ICON */
+
+
+
+.modalIncomeIcon,
+
+.modalExpenseIcon {
+
+  width: 48px !important;
+
+  height: 48px !important;
+
+
+
+  min-width: 48px !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+
+
+  border-radius: 14px !important;
+
+
+
+  font-size: 22px !important;
+
+  font-weight: 800 !important;
+
+}
+
+
+
+.modalIncomeIcon {
+
+  background: #e8faf2 !important;
+
+  color: #00a86b !important;
+
+}
+
+
+
+.modalExpenseIcon {
+
+  background: #fff0f0 !important;
+
+  color: #ef4444 !important;
+
+}
+
+
+
+/* CLOSE */
+
+
+
+.closeButton {
+
+  width: 42px !important;
+
+  height: 42px !important;
+
+
+
+  min-width: 42px !important;
+
+
+
+  border: 0 !important;
+
+  border-radius: 12px !important;
+
+
+
+  background: #f3f5fa !important;
+
+
+
+  color: #52607e !important;
+
+
+
+  font-size: 24px !important;
+
+  line-height: 1 !important;
+
+
+
+  cursor: pointer !important;
+
+
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+
+
+  flex-shrink: 0 !important;
+
+}
+
+
+
+.closeButton:hover {
+
+  background: #e9ecf4 !important;
+
+}
+
+
+
+/* FORM */
+
+
+
+.form {
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+
+
+  gap: 18px !important;
+
+
+
+  padding: 24px 28px 28px !important;
+
+
+
+  box-sizing: border-box !important;
+
+}
+
+
+
+.form label {
+
+  display: flex !important;
+
+  flex-direction: column !important;
+
+
+
+  gap: 8px !important;
+
+
+
+  font-size: 13px !important;
+
+  font-weight: 700 !important;
+
+
+
+  color: #283452 !important;
+
+}
+
+
+
+.form input,
+
+.form select,
+
+.form textarea {
+
+  width: 100% !important;
+
+
+
+  box-sizing: border-box !important;
+
+
+
+  border: 1px solid #dfe4ef !important;
+
+
+
+  border-radius: 12px !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  color: #1b2541 !important;
+
+
+
+  font-size: 14px !important;
+
+
+
+  outline: none !important;
+
+}
+
+
+
+.form input,
+
+.form select {
+
+  height: 50px !important;
+
+
+
+  padding: 0 14px !important;
+
+}
+
+
+
+.form textarea {
+
+  min-height: 90px !important;
+
+
+
+  padding: 13px 14px !important;
+
+
+
+  resize: vertical !important;
+
+}
+
+
+
+.form input:focus,
+
+.form select:focus,
+
+.form textarea:focus {
+
+  border-color: #5868ff !important;
+
+
+
+  box-shadow:
+
+    0 0 0 3px rgba(88, 104, 255, 0.10) !important;
+
+}
+
+
+
+/* CATEGORY + DATE */
+
+
+
+.formRow {
+
+  display: grid !important;
+
+
+
+  grid-template-columns: 1fr 1fr !important;
+
+
+
+  gap: 16px !important;
+
+}
+
+
+
+/* ACTIONS */
+
+
+
+.modalActions {
+
+  display: flex !important;
+
+
+
+  align-items: center !important;
+
+  justify-content: flex-end !important;
+
+
+
+  gap: 12px !important;
+
+
+
+  padding-top: 4px !important;
+
+}
+
+
+
+.cancelButton,
+
+.saveIncome,
+
+.saveExpense {
+
+  min-height: 46px !important;
+
+
+
+  padding: 0 22px !important;
+
+
+
+  border-radius: 12px !important;
+
+
+
+  font-size: 14px !important;
+
+  font-weight: 700 !important;
+
+
+
+  cursor: pointer !important;
+
+}
+
+
+
+.cancelButton {
+
+  border: 1px solid #dfe4ef !important;
+
+
+
+  background: #ffffff !important;
+
+
+
+  color: #53617f !important;
+
+}
+
+
+
+.cancelButton:hover {
+
+  background: #f5f7fb !important;
+
+}
+
+
+
+.saveIncome {
+
+  border: 0 !important;
+
+
+
+  background: #08a86b !important;
+
+
+
+  color: #ffffff !important;
+
+}
+
+
+
+.saveExpense {
+
+  border: 0 !important;
+
+
+
+  background: #ef4444 !important;
+
+
+
+  color: #ffffff !important;
+
+}
+
+
+
+/* MOBILE */
+
+
+
+@media (max-width: 640px) {
+
+  .modalOverlay {
+
+    padding: 12px !important;
+
+  }
+
+
+
+  .modal {
+
+    max-width: 100% !important;
+
+    max-height: calc(100vh - 24px) !important;
+
+
+
+    border-radius: 20px !important;
+
+  }
+
+
+
+  .modalHeader {
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .form {
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .formRow {
+
+    grid-template-columns: 1fr !important;
+
+  }
+
+
+
+  .modalActions {
+
+    flex-direction: column-reverse !important;
+
+  }
+
+
+
+  .cancelButton,
+
+  .saveIncome,
+
+  .saveExpense {
+
+    width: 100% !important;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   TABLET RESPONSIVE
+
+   ========================================= */
+
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+
+
+
+  .modalOverlay {
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .modal {
+
+    width: min(580px, calc(100vw - 40px)) !important;
+
+    max-width: 580px !important;
+
+    max-height: calc(100vh - 40px) !important;
+
+    border-radius: 22px !important;
+
+  }
+
+
+
+  .modalHeader {
+
+    padding: 22px 24px !important;
+
+  }
+
+
+
+  .modalHeader h2 {
+
+    font-size: 22px !important;
+
+  }
+
+
+
+  .form {
+
+    padding: 22px 24px 24px !important;
+
+    gap: 16px !important;
+
+  }
+
+
+
+  .formRow {
+
+    grid-template-columns: 1fr 1fr !important;
+
+    gap: 14px !important;
+
+  }
+
+
+
+  .form input,
+
+  .form select {
+
+    height: 48px !important;
+
+  }
+
+
+
+  .form textarea {
+
+    min-height: 85px !important;
+
+  }
+
+
+
+  .modalActions {
+
+    padding-top: 4px !important;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================
+
+   MOBILE RESPONSIVE
+
+   ========================================= */
+
+
+
+@media (max-width: 640px) {
+
+
+
+  .modalOverlay {
+
+    position: fixed !important;
+
+    inset: 0 !important;
+
+
+
+    width: 100vw !important;
+
+    height: 100dvh !important;
+
+
+
+    padding: 10px !important;
+
+
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+
+
+    overflow-y: auto !important;
+
+  }
+
+
+
+  .modal {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+
+
+    max-height: calc(100dvh - 20px) !important;
+
+
+
+    border-radius: 18px !important;
+
+
+
+    margin: auto !important;
+
+  }
+
+
+
+  /* HEADER */
+
+
+
+  .modalHeader {
+
+    padding: 17px 18px !important;
+
+
+
+    gap: 10px !important;
+
+  }
+
+
+
+  .modalHeader > div:first-child {
+
+    gap: 10px !important;
+
+  }
+
+
+
+  .modalIncomeIcon,
+
+  .modalExpenseIcon {
+
+    width: 40px !important;
+
+    height: 40px !important;
+
+    min-width: 40px !important;
+
+
+
+    border-radius: 11px !important;
+
+
+
+    font-size: 19px !important;
+
+  }
+
+
+
+  .modalHeader h2 {
+
+    font-size: 20px !important;
+
+  }
+
+
+
+  .modalHeader p {
+
+    font-size: 11px !important;
+
+    margin-top: 3px !important;
+
+  }
+
+
+
+  .closeButton {
+
+    width: 36px !important;
+
+    height: 36px !important;
+
+    min-width: 36px !important;
+
+
+
+    border-radius: 10px !important;
+
+
+
+    font-size: 21px !important;
+
+  }
+
+
+
+  /* FORM */
+
+
+
+  .form {
+
+    padding: 18px !important;
+
+
+
+    gap: 15px !important;
+
+  }
+
+
+
+  .form label {
+
+    gap: 7px !important;
+
+
+
+    font-size: 12px !important;
+
+  }
+
+
+
+  .form input,
+
+  .form select {
+
+    height: 46px !important;
+
+
+
+    padding: 0 12px !important;
+
+
+
+    border-radius: 10px !important;
+
+
+
+    font-size: 13px !important;
+
+  }
+
+
+
+  .form textarea {
+
+    min-height: 82px !important;
+
+
+
+    padding: 11px 12px !important;
+
+
+
+    border-radius: 10px !important;
+
+
+
+    font-size: 13px !important;
+
+  }
+
+
+
+  /* CATEGORY + DATE */
+
+
+
+  .formRow {
+
+    grid-template-columns: 1fr !important;
+
+
+
+    gap: 15px !important;
+
+  }
+
+
+
+  /* BUTTONS */
+
+
+
+  .modalActions {
+
+    display: grid !important;
+
+
+
+    grid-template-columns: 1fr 1fr !important;
+
+
+
+    gap: 10px !important;
+
+
+
+    padding-top: 3px !important;
+
+  }
+
+
+
+  .cancelButton,
+
+  .saveIncome,
+
+  .saveExpense {
+
+    width: 100% !important;
+
+
+
+    min-height: 44px !important;
+
+
+
+    padding: 0 12px !important;
+
+
+
+    border-radius: 10px !important;
+
+
+
+    font-size: 13px !important;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================
+
+   SMALL MOBILE
+
+   ========================================= */
+
+
+
+@media (max-width: 380px) {
+
+
+
+  .modalOverlay {
+
+    padding: 7px !important;
+
+  }
+
+
+
+  .modal {
+
+    max-height: calc(100dvh - 14px) !important;
+
+
+
+    border-radius: 16px !important;
+
+  }
+
+
+
+  .modalHeader {
+
+    padding: 14px !important;
+
+  }
+
+
+
+  .modalHeader h2 {
+
+    font-size: 18px !important;
+
+  }
+
+
+
+  .modalHeader p {
+
+    font-size: 10px !important;
+
+  }
+
+
+
+  .modalIncomeIcon,
+
+  .modalExpenseIcon {
+
+    width: 36px !important;
+
+    height: 36px !important;
+
+    min-width: 36px !important;
+
+  }
+
+
+
+  .closeButton {
+
+    width: 34px !important;
+
+    height: 34px !important;
+
+    min-width: 34px !important;
+
+  }
+
+
+
+  .form {
+
+    padding: 15px !important;
+
+    gap: 13px !important;
+
+  }
+
+
+
+  .form input,
+
+  .form select {
+
+    height: 44px !important;
+
+  }
+
+
+
+  .modalActions {
+
+    grid-template-columns: 1fr !important;
+
+  }
+
+}
+
+
+
+/* =========================================================
+
+   FINAL PAGE RESPONSIVE FIX
+
+   INCOME / EXPENSE
+
+   ========================================================= */
+
+
+
+/* Prevent horizontal overflow */
+
+.page {
+
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  min-width: 0 !important;
+
+  box-sizing: border-box !important;
+
+  overflow-x: hidden !important;
+
+}
+
+
+
+/* Main page containers */
+
+.pageHeader,
+
+.statsGrid,
+
+.directory,
+
+.content,
+
+.section,
+
+.panel {
+
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+}
+
+
+
+/* =========================================================
+
+   TABLET
+
+   ========================================================= */
+
+
+
+@media (max-width: 1024px) {
+
+
+
+  .page {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    overflow-x: hidden !important;
+
+  }
+
+
+
+  .pageHeader {
+
+    padding: 28px 24px !important;
+
+  }
+
+
+
+  .pageHeader h1 {
+
+    font-size: 38px !important;
+
+  }
+
+
+
+  .pageHeader p {
+
+    max-width: 700px !important;
+
+  }
+
+
+
+  .headerActions {
+
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+    gap: 12px !important;
+
+
+
+    width: 100% !important;
+
+  }
+
+
+
+  .headerActions button {
+
+    width: 100% !important;
+
+  }
+
+
+
+  .statsGrid {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 16px !important;
+
+  }
+
+
+
+  .statCard {
+
+    min-width: 0 !important;
+
+    width: 100% !important;
+
+  }
+
+
+
+  .directory {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  .directoryHeader {
+
+    gap: 18px !important;
+
+  }
+
+
+
+  .filterBar {
+
+    flex-wrap: wrap !important;
+
+    gap: 12px !important;
+
+  }
+
+
+
+  .filters {
+
+    width: 100% !important;
+
+  }
+
+
+
+  .select,
+
+  .search {
+
+    flex: 1 !important;
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  /* Transaction cards */
+
+  .transactionCard,
+
+  .recordCard,
+
+  .incomeCard,
+
+  .expenseCard {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    box-sizing: border-box !important;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================================
+
+   MOBILE
+
+   ========================================================= */
+
+
+
+@media (max-width: 640px) {
+
+
+
+  .page {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    min-width: 0 !important;
+
+    overflow-x: hidden !important;
+
+  }
+
+
+
+  .pageHeader {
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 24px 16px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 20px !important;
+
+  }
+
+
+
+  .pageHeader > div {
+
+    min-width: 0 !important;
+
+    max-width: 100% !important;
+
+  }
+
+
+
+  .pageHeader h1 {
+
+    font-size: 30px !important;
+
+    line-height: 1.15 !important;
+
+  }
+
+
+
+  .pageHeader p {
+
+    font-size: 13px !important;
+
+    line-height: 1.6 !important;
+
+    max-width: 100% !important;
+
+  }
+
+
+
+  .headerActions {
+
+    width: 100% !important;
+
+
+
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+
+
+    gap: 10px !important;
+
+  }
+
+
+
+  .headerActions button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    height: 48px !important;
+
+    padding: 0 10px !important;
+
+  }
+
+
+
+  .statsGrid {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+
+
+    grid-template-columns: 1fr !important;
+
+
+
+    gap: 12px !important;
+
+
+
+    padding: 0 16px !important;
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .statCard {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    box-sizing: border-box !important;
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .directory {
+
+    width: calc(100% - 32px) !important;
+
+
+
+    margin-left: 16px !important;
+
+    margin-right: 16px !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    min-width: 0 !important;
+
+    max-width: calc(100% - 32px) !important;
+
+
+
+    border-radius: 18px !important;
+
+  }
+
+
+
+  .directoryHeader {
+
+    width: 100% !important;
+
+
+
+    padding: 20px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+
+
+    align-items: stretch !important;
+
+
+
+    gap: 16px !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .directoryHeader > div {
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  .recordButton {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  .filterBar {
+
+    width: 100% !important;
+
+
+
+    padding: 16px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+
+
+    gap: 12px !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .filters {
+
+    width: 100% !important;
+
+
+
+    display: grid !important;
+
+    grid-template-columns: repeat(4, 1fr) !important;
+
+
+
+    gap: 6px !important;
+
+  }
+
+
+
+  .filters button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    padding: 9px 4px !important;
+
+    font-size: 11px !important;
+
+  }
+
+
+
+  .select,
+
+  .search {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .emptyState {
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+    padding: 50px 20px !important;
+
+    text-align: center !important;
+
+  }
+
+
+
+  .transactionCard,
+
+  .recordCard,
+
+  .incomeCard,
+
+  .expenseCard {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    min-width: 0 !important;
+
+    box-sizing: border-box !important;
+
+    margin: 0 !important;
+
+  }
+
+
+
+  .transactionGrid,
+
+  .recordGrid,
+
+  .incomeExpenseGrid {
+
+    grid-template-columns: 1fr !important;
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+  }
+
+}
+
+
+
+
+
+  /* PAGE HEADER */
+
+
+
+  .pageHeader {
+
+    width: 100% !important;
+
+    box-sizing: border-box !important;
+
+
+
+    padding: 24px 16px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+
+
+    gap: 20px !important;
+
+  }
+
+
+
+  .pageHeader > div {
+
+    min-width: 0 !important;
+
+    max-width: 100% !important;
+
+  }
+
+
+
+  .pageHeader h1 {
+
+    font-size: 30px !important;
+
+    line-height: 1.15 !important;
+
+
+
+    word-break: normal !important;
+
+  }
+
+
+
+  .pageHeader p {
+
+    font-size: 13px !important;
+
+    line-height: 1.6 !important;
+
+
+
+    max-width: 100% !important;
+
+  }
+
+
+
+  /* HEADER BUTTONS */
+
+
+
+  .headerActions {
+
+    width: 100% !important;
+
+
+
+    display: grid !important;
+
+    grid-template-columns: 1fr 1fr !important;
+
+
+
+    gap: 10px !important;
+
+  }
+
+
+
+  .headerActions button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+
+
+    padding: 0 10px !important;
+
+
+
+    height: 48px !important;
+
+  }
+
+
+
+  /* STATS */
+
+
+
+  .statsGrid {
+
+    width: 100% !important;
+
+
+
+    grid-template-columns: 1fr !important;
+
+
+
+    gap: 12px !important;
+
+
+
+    padding: 0 16px !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .statCard {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    padding: 20px !important;
+
+  }
+
+
+
+  .statCard strong {
+
+    font-size: 26px !important;
+
+  }
+
+
+
+  /* DIRECTORY */
+
+
+
+  .directory {
+
+    width: calc(100% - 32px) !important;
+
+
+
+    margin-left: 16px !important;
+
+    margin-right: 16px !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    min-width: 0 !important;
+
+
+
+    border-radius: 18px !important;
+
+  }
+
+
+
+  .directoryHeader {
+
+    width: 100% !important;
+
+
+
+    padding: 20px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+
+
+    align-items: stretch !important;
+
+
+
+    gap: 16px !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .directoryHeader > div {
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  .directoryHeader h2 {
+
+    font-size: 23px !important;
+
+  }
+
+
+
+  .recordButton {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+  }
+
+
+
+  /* FILTER */
+
+
+
+  .filterBar {
+
+    width: 100% !important;
+
+
+
+    padding: 16px !important;
+
+
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+
+
+    gap: 12px !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  .filters {
+
+    width: 100% !important;
+
+
+
+    display: grid !important;
+
+    grid-template-columns: repeat(4, 1fr) !important;
+
+
+
+    gap: 6px !important;
+
+  }
+
+
+
+  .filters button {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+
+
+    padding: 9px 4px !important;
+
+
+
+    font-size: 11px !important;
+
+  }
+
+
+
+  .select,
+
+  .search {
+
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    max-width: 100% !important;
+
+
+
+    box-sizing: border-box !important;
+
+  }
+
+
+
+  /* EMPTY STATE */
+
+
+
+  .emptyState {
+
+    width: 100% !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    padding: 50px 20px !important;
+
+
+
+    text-align: center !important;
+
+  }
+
+
+
+  .emptyState h3 {
+
+    font-size: 20px !important;
+
+  }
+
+
+
+  .emptyState p {
+
+    max-width: 100% !important;
+
+    font-size: 13px !important;
+
+  }
+
+
+
+  /* TRANSACTION / RECORD CARDS */
+
+
+
+  .transactionCard,
+
+  .recordCard,
+
+  .incomeCard,
+
+  .expenseCard {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+
+
+    min-width: 0 !important;
+
+
+
+    box-sizing: border-box !important;
+
+
+
+    margin: 0 !important;
+
+  }
+
+
+
+  /* Any two-column record layout */
+
+
+
+  .transactionGrid,
+
+  .recordGrid,
+
+  .incomeExpenseGrid {
+
+    grid-template-columns: 1fr !important;
+
+
+
+    width: 100% !important;
+
+
+
+    min-width: 0 !important;
+
+  }
+
+
+
+
+
+
+/* =========================================================
+
+   VERY SMALL PHONES
+
+   ========================================================= */
+
+
+
+@media (max-width: 380px) {
+
+
+
+  .pageHeader {
+
+    padding: 20px 12px !important;
+
+  }
+
+
+
+  .pageHeader h1 {
+
+    font-size: 27px !important;
+
+  }
+
+
+
+  .headerActions {
+
+    grid-template-columns: 1fr !important;
+
+  }
+
+
+
+  .statsGrid {
+
+    padding: 0 12px !important;
+
+  }
+
+
+
+  .directory {
+
+    width: calc(100% - 24px) !important;
+
+
+
+    margin-left: 12px !important;
+
+    margin-right: 12px !important;
+
+  }
+
+
+
+  .directoryHeader {
+
+    padding: 17px !important;
+
+  }
+
+
+
+  .filters {
+
+    grid-template-columns: repeat(2, 1fr) !important;
+
+  }
+
+
+
+  .filterBar {
+
+    padding: 12px !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   FINAL VIEWPORT / MOBILE OVERFLOW FIX
+   ========================================================= */
+
+.page {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box !important;
+  max-width: 100%;
+}
+
+.header,
+.headerLeft,
+.titleRow,
+.headerActions,
+.statsGrid,
+.todayGrid,
+.recentGrid,
+.categoryGrid,
+.transactionsCard,
+.listCard,
+.categoryCard,
+.statCard,
+.todayCard {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.headerLeft {
+  flex: 1 1 auto;
+}
+
+.headerActions {
+  flex: 0 1 auto;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 18px !important;
+    overflow-x: hidden !important;
+  }
+
+  .header {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .headerActions {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .incomeButton,
+  .expenseButton {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .statsGrid,
+  .todayGrid,
+  .recentGrid,
+  .categoryGrid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .statCard,
+  .todayCard,
+  .listCard,
+  .categoryCard,
+  .transactionsCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .recentItem {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .recentItem > div {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .recentItem strong,
+  .recentItem span {
+    overflow-wrap: anywhere !important;
+  }
+
+  .modalOverlay {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .modal {
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 14px !important;
+    overflow-x: hidden !important;
+  }
+
+  .header {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+
+  .headerLeft {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .titleRow {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .titleRow > div:last-child {
+    min-width: 0 !important;
+    max-width: calc(100% - 60px) !important;
+  }
+
+  .titleRow h1 {
+    font-size: 27px !important;
+    line-height: 1.15 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .titleRow p {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .headerActions {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .incomeButton,
+  .expenseButton {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 12px 8px !important;
+  }
+
+  .statsGrid,
+  .todayGrid,
+  .recentGrid,
+  .categoryGrid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .profitCard {
+    grid-column: auto !important;
+  }
+
+  .statCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 155px !important;
+    padding: 18px !important;
+  }
+
+  .todayCard,
+  .listCard,
+  .categoryCard,
+  .transactionsCard {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .transactionsHeader,
+  .listHeader {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .recentItem {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 10px !important;
+  }
+
+  .recentItem > div {
+    min-width: 0 !important;
+  }
+
+  .incomeAmount,
+  .expenseAmount {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  .modalOverlay {
+    padding: 10px !important;
+  }
+
+  .modal {
+    width: 100% !important;
+    max-width: calc(100vw - 20px) !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px !important;
+  }
+
+  .headerActions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .incomeButton,
+  .expenseButton {
+    width: 100% !important;
+  }
+
+  .statCard {
+    padding: 16px !important;
+  }
+
+  .statCard strong {
+    font-size: 26px !important;
+  }
+
+  .modalOverlay {
+    padding: 7px !important;
+  }
+
+  .modal {
+    max-width: calc(100vw - 14px) !important;
+  }
+}
+
+
+.errorMessage,
+.successMessage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 14px 16px;
+  border: 1px solid #e0e6f0;
+  border-radius: 12px;
+}
+
+.errorMessage {
+  color: #b42332;
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.successMessage {
+  color: #087f5b;
+  background: #e9fbf3;
+  border-color: #b7efd8;
+}
+
+.errorMessage p {
+  flex-basis: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.errorMessage button,
+.successMessage button {
+  padding: 7px 11px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.resultsCount {
+  margin: 14px 0 0;
+  color: #7b869b;
+  font-size: 12px;
+}
+
+.page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+#transactions {
+  scroll-margin-top: 100px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page button {
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+}
+
+
+/* Remove decorative round shapes from finance cards */
+.statCard::before,
+.statCard::after,
+.incomeCard::before,
+.incomeCard::after,
+.expenseCard::before,
+.expenseCard::after,
+.profitCard::before,
+.profitCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Keep card content above any remaining decorations */
+.statCard {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.statTop,
+.statCard > strong,
+.statCard > small,
+.statCard > button {
+  position: relative;
+  z-index: 1;
+}

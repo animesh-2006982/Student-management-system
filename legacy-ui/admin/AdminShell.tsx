@@ -1,0 +1,13 @@
+"use client";
+import Link from "next/link";import {usePathname} from "next/navigation";import {useState} from "react";
+const groups=[
+ {name:"Overview",items:[["/admin","Dashboard","⌂"]]},
+ {name:"Academics",items:[["/admin/students","Students","◎"],["/admin/families","Families","⌂"],["/admin/batches","Batches","▦"],["/admin/attendance","Attendance","✓"],["/admin/performance","Performance","↗"],["/admin/exams","Exams","✎"],["/admin/online-exams","Online Exams","⌁"],["/admin/homework","Homework","☑"],["/admin/assignments","Assignments","▤"],["/admin/study-material","Study Material","▤"],["/admin/timetable","Timetable","▥"]]},
+ {name:"Finance",items:[["/admin/tuition-fees","Tuition Fees","₹"],["/admin/income","Income","+"],["/admin/expenses","Expenses","−"],["/admin/payroll","Payroll","₹"]]},
+ {name:"Admissions",items:[["/admin/enquiries","Enquiries","↗"]]},
+ {name:"People",items:[["/admin/staff","Staff","♙"],["/admin/staff-attendance","Staff Attendance","✓"],["/admin/leave-manager","Leave Manager","⌂"],["/admin/users","Users","◎"],["/admin/roles-permissions","Roles & Permissions","◇"]]},
+ {name:"Operations",items:[["/admin/library","Library","▥"],["/admin/inventory","Inventory","▣"],["/admin/calendar","Calendar","□"],["/admin/notice-board","Notice Board","!"],["/admin/communications","Communications","✉"],["/admin/notifications","Notifications","◉"]]},
+ {name:"Reports",items:[["/admin/reports","Reports","▥"],["/admin/academic-reports","Academic Reports","↗"],["/admin/attendance-reports","Attendance Reports","✓"],["/admin/fees-reports","Fees Reports","₹"]]},
+ {name:"System",items:[["/admin/certificates","Certificates","▤"],["/admin/id-cards","ID Cards","▣"],["/admin/audit-logs","Audit Logs","⌁"],["/admin/settings","Settings","⚙"]]}
+];
+export default function AdminShell({children}:{children:React.ReactNode}){const path=usePathname();const [open,setOpen]=useState(true);return <div className="adminApp"><aside className={`sidebar ${open?'':'collapsed'}`}><div className="sideBrand"><span>S</span>{open&&<b>StudentFlow</b>}</div><nav>{groups.map(g=><div className="navGroup" key={g.name}><small>{open?g.name:"•"}</small>{g.items.map(([href,label,icon])=><Link key={href} className={path===href?"active":""} href={href}><i>{icon}</i>{open&&<span>{label}</span>}</Link>)}</div>)}</nav><button className="collapse" onClick={()=>setOpen(v=>!v)}>{open?"←":"→"}</button></aside><div className="adminMain"><header className="adminTop"><button className="mobileMenu" onClick={()=>setOpen(v=>!v)}>☰</button><div><b>Institute Management</b><small>Admin workspace</small></div><div className="topActions"><Link href="/">Home</Link><Link href="/login">Logout</Link></div></header>{children}</div></div>}

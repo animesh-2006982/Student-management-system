@@ -1,0 +1,3101 @@
+/* =========================================================
+
+   STUDENTFLOW MAIN PAGE
+
+   STABLE PREMIUM LIGHT UI
+
+   No experimental CSS functions required
+
+========================================================= */
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+html,
+
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  min-height: 100%;
+
+}
+
+body {
+
+  background: #f6f8fc;
+
+  color: #111827;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+}
+
+button,
+
+a {
+
+  font: inherit;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+a {
+
+  color: inherit;
+
+}
+
+.studentFlowPage {
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background:
+
+    radial-gradient(circle at 10% 5%, rgba(99, 82, 246, .09), transparent 28%),
+
+    radial-gradient(circle at 90% 10%, rgba(45, 156, 245, .08), transparent 25%),
+
+    #f7f9fd;
+
+}
+
+/* NAVBAR */
+
+.siteNav {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  min-height: 76px;
+
+  padding: 0 5vw;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  background: rgba(255, 255, 255, .94);
+
+  border-bottom: 1px solid #e7ebf3;
+
+  box-shadow: 0 8px 30px rgba(22, 31, 55, .04);
+
+}
+
+.brand,
+
+.footerBrand {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  text-decoration: none;
+
+}
+
+.brand {
+
+  font-size: 18px;
+
+  font-weight: 850;
+
+  letter-spacing: -.03em;
+
+}
+
+.brandMark {
+
+  width: 40px;
+
+  height: 40px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 12px;
+
+  color: #fff;
+
+  background: linear-gradient(135deg, #6355f5, #2e96ef);
+
+  box-shadow: 0 10px 24px rgba(91, 80, 245, .22);
+
+  font-weight: 900;
+
+}
+
+.navLinks {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+}
+
+.navLinks button,
+
+.navLogin,
+
+.footerLinks button {
+
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+
+}
+
+.navLinks button,
+
+.navLogin {
+
+  color: #5f6b83;
+
+  font-size: 14px;
+
+  font-weight: 650;
+
+}
+
+.navLinks button:hover,
+
+.navLogin:hover,
+
+.footerLinks button:hover {
+
+  color: #5e50e9;
+
+}
+
+.navActions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+}
+
+.navSignup {
+
+  padding: 11px 17px;
+
+  border-radius: 12px;
+
+  color: #fff;
+
+  background: #151d34;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 750;
+
+}
+
+.navSignup:hover {
+
+  transform: translateY(-1px);
+
+  background: #242f4d;
+
+}
+
+/* HERO */
+
+.hero {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 92px 5vw 65px;
+
+  border-bottom: 1px solid #e8ecf3;
+
+}
+
+.heroInner {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1240px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1.03fr .97fr;
+
+  align-items: center;
+
+  gap: 65px;
+
+}
+
+.heroGlow {
+
+  position: absolute;
+
+  width: 360px;
+
+  height: 360px;
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  opacity: .22;
+
+  pointer-events: none;
+
+}
+
+.heroGlowOne {
+
+  left: -160px;
+
+  top: 40px;
+
+  background: #7565f5;
+
+}
+
+.heroGlowTwo {
+
+  right: -150px;
+
+  bottom: -120px;
+
+  background: #39b8ef;
+
+}
+
+.eyebrow,
+
+.sectionKicker {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #6355ed;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  letter-spacing: .19em;
+
+  text-transform: uppercase;
+
+}
+
+.eyebrow {
+
+  padding: 9px 13px;
+
+  border: 1px solid #dedbff;
+
+  border-radius: 999px;
+
+  background: #f2f0ff;
+
+}
+
+.eyebrowDot {
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #6656f3;
+
+  box-shadow: 0 0 12px rgba(102, 86, 243, .65);
+
+}
+
+.hero h1 {
+
+  margin: 25px 0 20px;
+
+  color: #11182d;
+
+  font-size: clamp(52px, 6.5vw, 84px);
+
+  line-height: .98;
+
+  letter-spacing: -.065em;
+
+}
+
+.hero h1 span,
+
+.sectionHeading h2 span,
+
+.workflowCopy h2 span,
+
+.aboutCard h2 span,
+
+.ctaContent h2 span {
+
+  color: #6555ed;
+
+}
+
+.heroCopy > p {
+
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #66728b;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+}
+
+.heroActions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+  margin-top: 31px;
+
+}
+
+.buttonPrimary,
+
+.buttonSecondary {
+
+  min-height: 54px;
+
+  padding: 0 21px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  font-weight: 750;
+
+  transition: .25s ease;
+
+}
+
+.buttonPrimary {
+
+  color: #fff;
+
+  background: linear-gradient(135deg, #6254f1, #348eea);
+
+  box-shadow: 0 16px 35px rgba(88, 78, 232, .22);
+
+}
+
+.buttonPrimary span {
+
+  margin-left: 12px;
+
+}
+
+.buttonSecondary {
+
+  color: #1b2439;
+
+  background: #fff;
+
+  border: 1px solid #dce2ec;
+
+}
+
+.buttonPrimary:hover,
+
+.buttonSecondary:hover {
+
+  transform: translateY(-3px);
+
+}
+
+.heroTrust {
+
+  margin-top: 23px;
+
+  color: #8791a6;
+
+  font-size: 12px;
+
+}
+
+.heroTrust span {
+
+  color: #17b78e;
+
+  margin-right: 6px;
+
+}
+
+/* DASHBOARD PREVIEW */
+
+.heroDashboard {
+
+  position: relative;
+
+  padding: 25px;
+
+  border: 1px solid #dfe4ee;
+
+  border-radius: 26px;
+
+  background: rgba(255,255,255,.94);
+
+  box-shadow: 0 30px 75px rgba(38, 48, 82, .12);
+
+}
+
+.dashboardTop {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+}
+
+.miniLabel {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #9099aa;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+}
+
+.dashboardTop strong {
+
+  font-size: 17px;
+
+  color: #172038;
+
+}
+
+.livePill {
+
+  padding: 7px 10px;
+
+  border-radius: 999px;
+
+  color: #13906f;
+
+  background: #e8faf4;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+}
+
+.livePill i {
+
+  display: inline-block;
+
+  width: 6px;
+
+  height: 6px;
+
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  background: #16bf91;
+
+}
+
+.dashboardStats {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+}
+
+.dashStat {
+
+  min-height: 110px;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+}
+
+.dashStat span,
+
+.dashStat small {
+
+  display: block;
+
+}
+
+.dashStat span {
+
+  color: #68758d;
+
+  font-size: 11px;
+
+  font-weight: 650;
+
+}
+
+.dashStat strong {
+
+  display: block;
+
+  margin: 9px 0 5px;
+
+  color: #182139;
+
+  font-size: 22px;
+
+  letter-spacing: -.04em;
+
+}
+
+.dashStat small {
+
+  color: #8490a5;
+
+  font-size: 9px;
+
+}
+
+.purpleStat { background: #f1efff; }
+
+.blueStat { background: #ebf7ff; }
+
+.greenStat { background: #e9faf5; }
+
+.dashboardChart {
+
+  margin-top: 13px;
+
+  padding: 17px;
+
+  border: 1px solid #e7eaf1;
+
+  border-radius: 17px;
+
+  background: #fbfcfe;
+
+}
+
+.chartHeader {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #68748a;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+}
+
+.chartBars {
+
+  height: 105px;
+
+  margin-top: 14px;
+
+  display: flex;
+
+  align-items: end;
+
+  gap: 10px;
+
+}
+
+.chartBars i {
+
+  flex: 1;
+
+  min-width: 10px;
+
+  border-radius: 7px 7px 3px 3px;
+
+  background: linear-gradient(180deg, #7668f5, #b5adff);
+
+}
+
+.dashboardBottom {
+
+  display: flex;
+
+  gap: 18px;
+
+  margin-top: 17px;
+
+  color: #7c879a;
+
+  font-size: 9px;
+
+}
+
+.dashboardBottom b {
+
+  display: inline-block;
+
+  width: 6px;
+
+  height: 6px;
+
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  background: #6a5af2;
+
+}
+
+/* HERO STATS */
+
+.heroStats {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1240px;
+
+  margin: 65px auto 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid #dfe4ed;
+
+}
+
+.heroStats > div {
+
+  padding: 19px 25px 0 0;
+
+}
+
+.heroStats > div + div {
+
+  padding-left: 25px;
+
+  border-left: 1px solid #dfe4ed;
+
+}
+
+.heroStats strong {
+
+  display: block;
+
+  color: #182139;
+
+  font-size: 25px;
+
+}
+
+.heroStats span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: #8993a7;
+
+  font-size: 11px;
+
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 105px 5vw;
+
+}
+
+.sectionHeading {
+
+  max-width: 820px;
+
+  margin: 0 auto 50px;
+
+  text-align: center;
+
+}
+
+.sectionHeading h2,
+
+.workflowCopy h2,
+
+.aboutCard h2,
+
+.ctaContent h2 {
+
+  margin: 16px 0;
+
+  color: #121a31;
+
+  font-size: clamp(39px, 5vw, 61px);
+
+  line-height: 1.03;
+
+  letter-spacing: -.055em;
+
+}
+
+.sectionHeading p {
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: #758198;
+
+  line-height: 1.8;
+
+}
+
+/* MODULE CARDS */
+
+.moduleGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 19px;
+
+}
+
+.moduleCard {
+
+  --accent: #6555ef;
+
+  min-height: 345px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 25px;
+
+  border: 1px solid #dfe4ed;
+
+  border-radius: 24px;
+
+  background: #fff;
+
+  box-shadow: 0 15px 45px rgba(42, 53, 85, .06);
+
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+
+}
+
+.moduleCard:hover {
+
+  transform: translateY(-8px);
+
+  border-color: var(--accent);
+
+  box-shadow: 0 25px 60px rgba(42, 53, 85, .12);
+
+}
+
+.moduleCard.purple { --accent: #6656ef; }
+
+.moduleCard.blue { --accent: #268eea; }
+
+.moduleCard.green { --accent: #16b98d; }
+
+.moduleCard.orange { --accent: #f28a25; }
+
+.moduleCard.pink { --accent: #ed3b9c; }
+
+.moduleCard.indigo { --accent: #7959df; }
+
+.moduleCardTop {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #9099aa;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .13em;
+
+}
+
+.moduleStatus {
+
+  color: #58647b;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+
+}
+
+.moduleStatus i {
+
+  display: inline-block;
+
+  width: 6px;
+
+  height: 6px;
+
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  background: #16bf91;
+
+}
+
+.moduleVisual {
+
+  width: 82px;
+
+  height: 82px;
+
+  margin: 28px 0 24px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 23px;
+
+  color: var(--accent);
+
+  background: #f1efff;
+
+  font-size: 35px;
+
+  font-weight: 800;
+
+}
+
+.blue .moduleVisual { background: #ebf7ff; }
+
+.green .moduleVisual { background: #e9faf5; }
+
+.orange .moduleVisual { background: #fff3e5; }
+
+.pink .moduleVisual { background: #ffedf7; }
+
+.indigo .moduleVisual { background: #f0edff; }
+
+.moduleCategory {
+
+  color: #8a94a7;
+
+  font-size: 9px;
+
+  font-weight: 850;
+
+  letter-spacing: .16em;
+
+}
+
+.moduleCard h3 {
+
+  margin: 9px 0 8px;
+
+  color: #172038;
+
+  font-size: 21px;
+
+  letter-spacing: -.025em;
+
+}
+
+.moduleCard p {
+
+  max-width: 330px;
+
+  margin: 0;
+
+  color: #6d7890;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+}
+
+.moduleTag {
+
+  display: inline-flex;
+
+  margin-top: 19px;
+
+  padding: 7px 10px;
+
+  border-radius: 9px;
+
+  color: var(--accent);
+
+  background: #f3f1ff;
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+}
+
+.blue .moduleTag { background: #edf8ff; }
+
+.green .moduleTag { background: #eafaf5; }
+
+.orange .moduleTag { background: #fff3e5; }
+
+.pink .moduleTag { background: #ffedf7; }
+
+.indigo .moduleTag { background: #f0edff; }
+
+/* WORKFLOW */
+
+.workflowSection {
+
+  padding: 110px 5vw;
+
+  background: linear-gradient(180deg, #f3f6fb, #eef2f9);
+
+}
+
+.workflowInner {
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr .9fr;
+
+  gap: 80px;
+
+  align-items: center;
+
+}
+
+.workflowCopy > p {
+
+  max-width: 580px;
+
+  color: #6f7b91;
+
+  line-height: 1.8;
+
+}
+
+.featureChecks {
+
+  margin-top: 27px;
+
+}
+
+.featureChecks div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin: 13px 0;
+
+}
+
+.featureChecks b {
+
+  width: 25px;
+
+  height: 25px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #10a77e;
+
+  background: #e2faf2;
+
+  font-size: 11px;
+
+}
+
+.featureChecks span {
+
+  color: #28334a;
+
+  font-size: 14px;
+
+}
+
+.workflowCard {
+
+  padding: 27px;
+
+  border: 1px solid #dce2ec;
+
+  border-radius: 25px;
+
+  background: #fff;
+
+  box-shadow: 0 25px 65px rgba(44, 54, 85, .09);
+
+}
+
+.workflowCardHeader {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #7a859a;
+
+  font-size: 10px;
+
+  font-weight: 850;
+
+  letter-spacing: .13em;
+
+}
+
+.workflowCardHeader em {
+
+  color: #6555ed;
+
+  font-style: normal;
+
+  letter-spacing: 0;
+
+}
+
+.workflowRow {
+
+  display: grid;
+
+  grid-template-columns: 42px 1fr auto;
+
+  gap: 14px;
+
+  align-items: center;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid #edf0f5;
+
+}
+
+.workflowRow:last-child {
+
+  border-bottom: 0;
+
+  padding-bottom: 3px;
+
+}
+
+.workflowNumber {
+
+  color: #6555ed;
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+}
+
+.workflowRow strong {
+
+  color: #1b253c;
+
+  font-size: 14px;
+
+}
+
+.workflowRow p {
+
+  margin: 4px 0 0;
+
+  color: #8993a5;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+}
+
+.workflowArrow {
+
+  color: #6555ed;
+
+  font-weight: 800;
+
+}
+
+/* PROCESS */
+
+.processSection {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 110px 5vw;
+
+}
+
+.processGrid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+}
+
+.processCard {
+
+  position: relative;
+
+  min-height: 245px;
+
+  padding: 27px;
+
+  border: 1px solid #dfe4ed;
+
+  border-radius: 23px;
+
+  background: #fff;
+
+  box-shadow: 0 14px 40px rgba(44, 54, 85, .05);
+
+}
+
+.processNumber {
+
+  color: #8c96a8;
+
+  font-size: 10px;
+
+  font-weight: 850;
+
+  letter-spacing: .13em;
+
+}
+
+.processIcon {
+
+  width: 50px;
+
+  height: 50px;
+
+  margin: 22px 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 15px;
+
+  color: #6254ef;
+
+  background: #efedff;
+
+  font-weight: 850;
+
+}
+
+.processCard h3 {
+
+  margin: 0 0 9px;
+
+  color: #1a2339;
+
+  font-size: 18px;
+
+}
+
+.processCard p {
+
+  margin: 0;
+
+  color: #748097;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+}
+
+/* ABOUT */
+
+.aboutSection {
+
+  padding: 10px 5vw 110px;
+
+}
+
+.aboutCard {
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 60px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 65px;
+
+  border: 1px solid #dce2eb;
+
+  border-radius: 30px;
+
+  background: #fff;
+
+  box-shadow: 0 25px 70px rgba(44, 54, 85, .07);
+
+}
+
+.aboutCard h2 {
+
+  margin-bottom: 0;
+
+}
+
+.aboutContent {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+.aboutContent p {
+
+  margin: 0 0 25px;
+
+  color: #6e7990;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+}
+
+.darkButton {
+
+  align-self: flex-start;
+
+  padding: 14px 19px;
+
+  border: 0;
+
+  border-radius: 13px;
+
+  color: #fff;
+
+  background: #151e35;
+
+  font-weight: 750;
+
+  transition: .25s ease;
+
+}
+
+.darkButton span {
+
+  margin-left: 10px;
+
+}
+
+.darkButton:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 30px rgba(21, 30, 53, .18);
+
+}
+
+/* CTA */
+
+.ctaSection {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 120px 5vw;
+
+  color: #fff;
+
+  background: linear-gradient(135deg, #10182d, #202650);
+
+}
+
+.ctaGlow {
+
+  position: absolute;
+
+  width: 340px;
+
+  height: 340px;
+
+  right: -120px;
+
+  top: -120px;
+
+  border-radius: 50%;
+
+  background: #6657f1;
+
+  filter: blur(70px);
+
+  opacity: .27;
+
+}
+
+.ctaContent {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+}
+
+.lightKicker {
+
+  color: #aaa1ff;
+
+}
+
+.ctaContent h2 {
+
+  color: #fff;
+
+}
+
+.ctaContent h2 span {
+
+  color: #9185ff;
+
+}
+
+.ctaContent p {
+
+  max-width: 560px;
+
+  margin: 0 auto;
+
+  color: #b4bdd1;
+
+  line-height: 1.8;
+
+}
+
+.ctaButton {
+
+  margin-top: 28px;
+
+  padding: 15px 22px;
+
+  border: 0;
+
+  border-radius: 13px;
+
+  color: #141b31;
+
+  background: #fff;
+
+  font-weight: 800;
+
+  transition: .25s ease;
+
+}
+
+.ctaButton span {
+
+  margin-left: 10px;
+
+}
+
+.ctaButton:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 18px 40px rgba(255,255,255,.12);
+
+}
+
+/* FOOTER */
+
+.siteFooter {
+
+  padding: 42px 5vw 22px;
+
+  color: #fff;
+
+  background: #0b1224;
+
+}
+
+.footerMain,
+
+.footerBottom {
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+}
+
+.footerMain {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 30px;
+
+}
+
+.footerBrand strong {
+
+  display: block;
+
+  font-size: 15px;
+
+}
+
+.footerBrand > div > span {
+
+  display: block;
+
+  margin-top: 3px;
+
+  color: #7f8ba4;
+
+  font-size: 11px;
+
+}
+
+.footerLinks {
+
+  display: flex;
+
+  gap: 23px;
+
+}
+
+.footerLinks button {
+
+  color: #aab3c6;
+
+  font-size: 12px;
+
+}
+
+.footerBottom {
+
+  margin-top: 30px;
+
+  padding-top: 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  color: #68738c;
+
+  font-size: 10px;
+
+}
+
+/* =========================================================
+
+   RESPONSIVE
+
+========================================================= */
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 1050px) {
+
+  .siteNav {
+
+    display: grid;
+
+    grid-template-columns: auto minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    min-height: 76px;
+
+    padding: 0 28px;
+
+    gap: 18px;
+
+  }
+
+  .brand {
+
+    min-width: max-content;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+  }
+
+  .brandMark {
+
+    flex: 0 0 42px;
+
+    width: 42px;
+
+    height: 42px;
+
+  }
+
+  .brand > span:last-child {
+
+    white-space: nowrap;
+
+    font-size: 18px;
+
+  }
+
+  .navLinks {
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: clamp(14px, 2.1vw, 24px);
+
+  }
+
+  .navLinks button,
+
+  .navLogin {
+
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+  }
+
+  .navActions {
+
+    flex: 0 0 auto;
+
+    gap: 10px;
+
+  }
+
+  .navSignup {
+
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    border-radius: 12px;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+  }
+
+  .heroInner,
+
+  .workflowInner {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .heroCopy {
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+  }
+
+  .heroActions,
+
+  .heroTrust {
+
+    justify-content: center;
+
+  }
+
+  .heroDashboard {
+
+    max-width: 720px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+  }
+
+  .moduleGrid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .workflowInner {
+
+    gap: 45px;
+
+  }
+
+}
+
+/* ---------- SMALL TABLET ---------- */
+
+@media (max-width: 850px) and (min-width: 721px) {
+
+  .siteNav {
+
+    padding: 0 18px;
+
+    gap: 12px;
+
+  }
+
+  .brand {
+
+    gap: 9px;
+
+  }
+
+  .brandMark {
+
+    flex-basis: 40px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 11px;
+
+  }
+
+  .brand > span:last-child {
+
+    font-size: 16px;
+
+  }
+
+  .navLinks {
+
+    gap: clamp(10px, 1.7vw, 16px);
+
+  }
+
+  .navLinks button,
+
+  .navLogin {
+
+    font-size: 12px;
+
+  }
+
+  .navActions {
+
+    gap: 7px;
+
+  }
+
+  .navSignup {
+
+    min-height: 42px;
+
+    padding: 0 12px;
+
+    font-size: 12px;
+
+  }
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 720px) {
+
+  .siteNav {
+
+    min-height: 68px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+  }
+
+  .brand {
+
+    min-width: 0;
+
+    gap: 9px;
+
+  }
+
+  .brandMark {
+
+    flex: 0 0 40px;
+
+    width: 40px;
+
+    height: 40px;
+
+  }
+
+  .brand > span:last-child {
+
+    font-size: 17px;
+
+    white-space: nowrap;
+
+  }
+
+  .navLinks {
+
+    display: none;
+
+  }
+
+  .navActions {
+
+    gap: 9px;
+
+  }
+
+  .navLogin {
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+  }
+
+  .navSignup {
+
+    min-height: 42px;
+
+    padding: 9px 12px;
+
+    border-radius: 11px;
+
+    font-size: 12px;
+
+  }
+
+  .hero {
+
+    padding: 70px 18px 50px;
+
+  }
+
+  .hero h1 {
+
+    font-size: 48px;
+
+  }
+
+  .heroCopy > p {
+
+    font-size: 15px;
+
+  }
+
+  .dashboardStats {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .dashStat {
+
+    min-height: auto;
+
+  }
+
+  .heroStats {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .heroStats > div,
+
+  .heroStats > div + div {
+
+    padding: 14px 0;
+
+    border-left: 0;
+
+    border-bottom: 1px solid #dfe4ed;
+
+  }
+
+  .heroStats > div:last-child {
+
+    border-bottom: 0;
+
+  }
+
+  .section,
+
+  .workflowSection,
+
+  .processSection {
+
+    padding: 75px 18px;
+
+  }
+
+  .sectionHeading h2,
+
+  .workflowCopy h2,
+
+  .aboutCard h2,
+
+  .ctaContent h2 {
+
+    font-size: 39px;
+
+  }
+
+  .moduleGrid,
+
+  .processGrid,
+
+  .aboutCard {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .moduleGrid {
+
+    gap: 15px;
+
+  }
+
+  .moduleCard {
+
+    min-height: 320px;
+
+  }
+
+  .aboutSection {
+
+    padding: 0 18px 75px;
+
+  }
+
+  .aboutCard {
+
+    padding: 35px 25px;
+
+    gap: 35px;
+
+  }
+
+  .ctaSection {
+
+    padding: 85px 18px;
+
+  }
+
+  .footerMain,
+
+  .footerBottom {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+  .footerLinks {
+
+    flex-wrap: wrap;
+
+  }
+
+}
+
+/* ---------- REDUCE MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: .01ms !important;
+
+    transition-duration: .01ms !important;
+
+  }
+
+}
+
+/* =========================================================
+
+   AUTH PAGES
+
+========================================================= */
+
+.authPage {
+
+  min-height: 100vh;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  background:
+
+    radial-gradient(circle at 10% 10%, #6b5ce71c, transparent 35%),
+
+    #f5f7fb;
+
+}
+
+.authCard {
+
+  width: min(430px, 100%);
+
+  background: #fff;
+
+  border: 1px solid #e1e6ef;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow: 0 25px 80px #1b284012;
+
+}
+
+.authBrand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+
+  font-size: 18px;
+
+}
+
+.authBrand span {
+
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 11px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: linear-gradient(135deg, #6655ef, #318fe9);
+
+  color: #fff;
+
+  font-weight: 900;
+
+}
+
+.authCard h1 {
+
+  margin: 0;
+
+  font-size: 26px;
+
+}
+
+.authCard > p {
+
+  margin: 7px 0 22px;
+
+  color: #7d8799;
+
+  font-size: 12px;
+
+}
+
+.authCard label:not(.check) {
+
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #667188;
+
+  margin: 13px 0;
+
+}
+
+.authCard label input:not([type="checkbox"]) {
+
+  width: 100%;
+
+  display: block;
+
+  margin-top: 6px;
+
+  border: 1px solid #dfe4ec;
+
+  border-radius: 10px;
+
+  padding: 11px;
+
+  outline: 0;
+
+}
+
+.authCard .primary {
+
+  width: 100%;
+
+  margin-top: 8px;
+
+}
+
+.check {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7d8799;
+
+  font-size: 11px;
+
+}
+
+.authFoot {
+
+  text-align: center;
+
+  color: #7d8799;
+
+  font-size: 11px;
+
+  margin-top: 18px;
+
+}
+
+.authFoot a,
+
+.backHome {
+
+  color: #6254ef;
+
+  text-decoration: none;
+
+}
+
+.backHome {
+
+  display: block;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  margin-top: 15px;
+
+}
+
+/* =========================================================
+
+   LEGACY DARK AUTH SUPPORT
+
+========================================================= */
+
+.auth-page {
+
+  min-height: 100vh;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 24px;
+
+  background:
+
+    radial-gradient(
+
+      circle at 15% 15%,
+
+      rgba(58, 197, 214, .12),
+
+      transparent 28%
+
+    ),
+
+    radial-gradient(
+
+      circle at 85% 85%,
+
+      rgba(90, 85, 210, .12),
+
+      transparent 30%
+
+    ),
+
+    #05090d;
+
+  color: #e8f1f4;
+
+}
+
+.auth-card {
+
+  width: min(430px, 94vw);
+
+  padding: 32px;
+
+  border: 1px solid #17323a;
+
+  border-radius: 18px;
+
+  background: rgba(8, 18, 23, .94);
+
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .35);
+
+}
+
+.auth-brand {
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+
+  margin-bottom: 28px;
+
+}
+
+.auth-brand > span {
+
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(145deg, #f6fbfc, #8ad8e4);
+
+  color: #092027;
+
+  display: grid;
+
+  place-items: center;
+
+  font-weight: 900;
+
+}
+
+.auth-brand strong {
+
+  display: block;
+
+  font-size: 13px;
+
+  letter-spacing: .08em;
+
+}
+
+.auth-brand small {
+
+  display: block;
+
+  color: #6e8991;
+
+  font-size: 9px;
+
+  margin-top: 2px;
+
+}
+
+.auth-kicker {
+
+  color: #4fd0db;
+
+  font-size: 8px;
+
+  letter-spacing: .18em;
+
+  font-weight: 800;
+
+  margin: 0 0 8px;
+
+}
+
+.auth-card h1 {
+
+  font-size: 27px;
+
+  margin: 0 0 6px;
+
+}
+
+.auth-sub {
+
+  color: #6e878e;
+
+  font-size: 10px;
+
+  margin: 0 0 23px;
+
+}
+
+.auth-card form {
+
+  display: grid;
+
+  gap: 13px;
+
+}
+
+.auth-card label {
+
+  font-size: 8px;
+
+  color: #789198;
+
+}
+
+.auth-card input {
+
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin-top: 6px;
+
+  background: #061015;
+
+  border: 1px solid #1b3740;
+
+  border-radius: 8px;
+
+  color: #d8e8eb;
+
+  padding: 11px;
+
+  font-size: 10px;
+
+  outline: none;
+
+}
+
+.auth-card input:focus {
+
+  border-color: #1aa1b1;
+
+}
+
+.auth-button {
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #0e8799, #1ba8b8);
+
+  color: #efffff;
+
+  padding: 11px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-top: 5px;
+
+}
+
+.auth-error {
+
+  padding: 8px;
+
+  border-radius: 7px;
+
+  background: #321d20;
+
+  color: #f18787;
+
+  font-size: 8px;
+
+}
+
+.auth-hint {
+
+  margin: 16px 0;
+
+  padding: 10px;
+
+  border: 1px solid #18353e;
+
+  border-radius: 8px;
+
+  background: #071116;
+
+  color: #5e7b83;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+
+}
+
+.auth-card > a {
+
+  display: block;
+
+  margin-top: 17px;
+
+  color: #61bec8;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+}
+
+.admin-main {
+
+  min-width: 0 !important;
+
+  width: 100%;
+
+  max-width: 100%;
+
+  overflow-x: hidden;
+
+}
+
+.admin-content {
+
+  min-width: 0 !important;
+
+  width: 100%;
+
+  max-width: 100%;
+
+  overflow-x: hidden;
+
+}
+
+/* Theme toggle button */
+
+.theme-toggle {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+}
+
+/* =========================================================
+   STUDY ARENA — GLOBAL ADMIN THEME
+   The theme class is applied to <html> by AdminShell.
+   Existing light design is preserved when dark-more is absent.
+========================================================= */
+
+:root {
+  --sa-bg: #f6f7fb;
+  --sa-surface: #ffffff;
+  --sa-surface-alt: #f8faff;
+  --sa-text: #182033;
+  --sa-muted: #68758f;
+  --sa-border: #e1e6f0;
+  --sa-input: #ffffff;
+  --sa-hover: #f0f3fa;
+  --sa-shadow: rgba(17, 24, 39, 0.08);
+  --sa-primary: #5145e5;
+}
+
+html.dark-more {
+  color-scheme: dark;
+  --sa-bg: #101522;
+  --sa-surface: #182132;
+  --sa-surface-alt: #1d293d;
+  --sa-text: #edf2ff;
+  --sa-muted: #b2bfd4;
+  --sa-border: #303d54;
+  --sa-input: #1b2639;
+  --sa-hover: #26334a;
+  --sa-shadow: rgba(0, 0, 0, 0.24);
+  --sa-primary: #6558ed;
+}
+
+html:not(.dark-more) {
+  color-scheme: light;
+}
+
+/* Global document background */
+html.dark-more body,
+html.dark-more #__next,
+html.dark-more .admin-shell,
+html.dark-more .admin-main,
+html.dark-more .admin-content,
+html.dark-more main.admin-content,
+html.dark-more [class*="adminLayout"],
+html.dark-more [class*="admin-layout"] {
+  background-color: var(--sa-bg);
+  color: var(--sa-text);
+}
+
+/* Shared shell: header, sidebar, navigation */
+html.dark-more .admin-header,
+html.dark-more .admin-sidebar,
+html.dark-more .admin-topbar,
+html.dark-more [class*="header"],
+html.dark-more [class*="Header"],
+html.dark-more [class*="sidebar"],
+html.dark-more [class*="Sidebar"],
+html.dark-more [class*="topbar"],
+html.dark-more [class*="Topbar"] {
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-header,
+html.dark-more .admin-sidebar,
+html.dark-more .admin-topbar {
+  background-color: var(--sa-surface);
+  color: var(--sa-text);
+}
+
+/* Typography inside the admin application */
+html.dark-more .admin-content h1,
+html.dark-more .admin-content h2,
+html.dark-more .admin-content h3,
+html.dark-more .admin-content h4,
+html.dark-more .admin-content h5,
+html.dark-more .admin-content strong,
+html.dark-more .admin-content b,
+html.dark-more .admin-content th,
+html.dark-more .admin-header h1,
+html.dark-more .admin-header h2 {
+  color: var(--sa-text);
+}
+
+html.dark-more .admin-content p,
+html.dark-more .admin-content small,
+html.dark-more .admin-content label,
+html.dark-more .admin-content caption,
+html.dark-more .admin-content .muted,
+html.dark-more .admin-content [class*="subtitle"],
+html.dark-more .admin-content [class*="Subtitle"],
+html.dark-more .admin-content [class*="description"],
+html.dark-more .admin-content [class*="Description"] {
+  color: var(--sa-muted);
+}
+
+/* CSS-module class names for common cards and panels across all routes */
+html.dark-more .admin-content [class*="card"],
+html.dark-more .admin-content [class*="Card"],
+html.dark-more .admin-content [class*="panel"],
+html.dark-more .admin-content [class*="Panel"],
+html.dark-more .admin-content [class*="widget"],
+html.dark-more .admin-content [class*="Widget"],
+html.dark-more .admin-content [class*="stat"],
+html.dark-more .admin-content [class*="Stat"],
+html.dark-more .admin-content [class*="tableWrap"],
+html.dark-more .admin-content [class*="table-wrap"],
+html.dark-more .admin-content [class*="formSection"],
+html.dark-more .admin-content [class*="form-section"],
+html.dark-more .admin-content [class*="emptyState"],
+html.dark-more .admin-content [class*="empty-state"] {
+  border-color: var(--sa-border);
+}
+
+/* Common surface elements in modules */
+html.dark-more .admin-content article,
+html.dark-more .admin-content [class*="card"],
+html.dark-more .admin-content [class*="Card"],
+html.dark-more .admin-content [class*="panel"],
+html.dark-more .admin-content [class*="Panel"],
+html.dark-more .admin-content [class*="statCard"],
+html.dark-more .admin-content [class*="stat-card"],
+html.dark-more .admin-content [class*="emptyState"],
+html.dark-more .admin-content [class*="empty-state"] {
+  background-color: var(--sa-surface);
+  color: var(--sa-text);
+}
+
+/* Inputs and controls on every admin route */
+html.dark-more .admin-content input,
+html.dark-more .admin-content select,
+html.dark-more .admin-content textarea,
+html.dark-more .admin-content [contenteditable="true"] {
+  color: var(--sa-text);
+  background-color: var(--sa-input);
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-content input::placeholder,
+html.dark-more .admin-content textarea::placeholder {
+  color: #8998b1;
+}
+
+html.dark-more .admin-content option {
+  color: var(--sa-text);
+  background-color: var(--sa-surface);
+}
+
+/* Tables */
+html.dark-more .admin-content table {
+  color: var(--sa-text);
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-content thead,
+html.dark-more .admin-content th {
+  color: var(--sa-text);
+  background-color: var(--sa-surface-alt);
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-content td,
+html.dark-more .admin-content tbody tr {
+  color: var(--sa-text);
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-content tbody tr:hover {
+  background-color: var(--sa-hover);
+}
+
+/* Secondary buttons; primary/purple buttons retain their identity */
+html.dark-more .admin-content button:not([class*="primary"]):not([class*="Primary"]),
+html.dark-more .admin-content button:not([class*="save"]):not([class*="Save"]),
+html.dark-more .admin-content [class*="secondary"],
+html.dark-more .admin-content [class*="Secondary"],
+html.dark-more .admin-content [class*="cancel"],
+html.dark-more .admin-content [class*="Cancel"] {
+  border-color: var(--sa-border);
+}
+
+/* Menus, notification popovers and dialogs */
+html.dark-more [role="menu"],
+html.dark-more [role="listbox"],
+html.dark-more [role="dialog"],
+html.dark-more .dropdown,
+html.dark-more .notification-box,
+html.dark-more .profile-box,
+html.dark-more .popover-content,
+html.dark-more [data-radix-popper-content-wrapper] > * {
+  color: var(--sa-text);
+  background-color: var(--sa-surface-alt);
+  border-color: var(--sa-border);
+}
+
+/* Avoid forcing dark backgrounds on status badges and colorful indicators */
+html.dark-more .admin-content [class*="badge"],
+html.dark-more .admin-content [class*="Badge"],
+html.dark-more .admin-content [class*="status"],
+html.dark-more .admin-content [class*="Status"],
+html.dark-more .admin-content [class*="tag"],
+html.dark-more .admin-content [class*="Tag"] {
+  border-color: var(--sa-border);
+}
+
+/* Keep the notification count pinned to the bell's top-right */
+.notification-wrap,
+.notification-trigger {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.notification-count {
+  position: absolute !important;
+  top: -5px !important;
+  right: -5px !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 20 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  padding: 0 4px !important;
+  box-sizing: border-box !important;
+  border: 2px solid #fff !important;
+  border-radius: 999px !important;
+  background: #ef4444 !important;
+  color: #fff !important;
+  font: 800 10px/1 Arial, sans-serif !important;
+}
+
+html.dark-more .notification-count {
+  border-color: var(--sa-surface) !important;
+}
+
+html.dark-more .admin-content hr {
+  border-color: var(--sa-border);
+}
+
+html.dark-more .admin-content,
+html.dark-more .admin-header,
+html.dark-more .admin-sidebar,
+html.dark-more .admin-content article,
+html.dark-more .admin-content input,
+html.dark-more .admin-content select,
+html.dark-more .admin-content textarea {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.dark-more *,
+  html.dark-more *::before,
+  html.dark-more *::after {
+    transition-duration: .01ms !important;
+  }
+}
+
+
+
+/* =====================================================
+   STUDY ARENA — ADMIN ALL-PAGES DARK THEME OVERRIDE
+   Paste at the VERY END of src/app/globals.css
+===================================================== */
+
+html.dark-more {
+  color-scheme: dark;
+  --sa-bg: #101522;
+  --sa-surface: #182132;
+  --sa-surface-2: #202b40;
+  --sa-text: #edf2ff;
+  --sa-muted: #b2bfd4;
+  --sa-border: #354057;
+}
+
+/* Main admin workspace */
+html.dark-more body,
+html.dark-more .admin-shell,
+html.dark-more .admin-main,
+html.dark-more .admin-content,
+html.dark-more main,
+html.dark-more .module-page {
+  background-color: var(--sa-bg) !important;
+  color: var(--sa-text) !important;
+}
+
+/* Page-level wrappers and heroes */
+html.dark-more .admin-content [class*="page"],
+html.dark-more .admin-content [class*="Page"],
+html.dark-more .admin-content [class*="hero"],
+html.dark-more .admin-content [class*="Hero"],
+html.dark-more .admin-content [class*="workspace"],
+html.dark-more .admin-content [class*="Workspace"],
+html.dark-more .admin-content [class*="content"],
+html.dark-more .admin-content [class*="Content"] {
+  color: var(--sa-text);
+  border-color: var(--sa-border);
+}
+
+/* Common cards, panels and statistics */
+html.dark-more .admin-content [class*="card"],
+html.dark-more .admin-content [class*="Card"],
+html.dark-more .admin-content [class*="panel"],
+html.dark-more .admin-content [class*="Panel"],
+html.dark-more .admin-content [class*="stat"],
+html.dark-more .admin-content [class*="Stat"],
+html.dark-more .admin-content [class*="summary"],
+html.dark-more .admin-content [class*="Summary"],
+html.dark-more .admin-content [class*="tableWrap"],
+html.dark-more .admin-content [class*="table-wrap"] {
+  background-color: var(--sa-surface) !important;
+  color: var(--sa-text) !important;
+  border-color: var(--sa-border) !important;
+  box-shadow: none;
+}
+
+/* Make headings readable on dark backgrounds */
+html.dark-more .admin-content h1,
+html.dark-more .admin-content h2,
+html.dark-more .admin-content h3,
+html.dark-more .admin-content h4,
+html.dark-more .admin-content h5,
+html.dark-more .admin-content h6,
+html.dark-more .admin-content [class*="title"],
+html.dark-more .admin-content [class*="Title"] {
+  color: var(--sa-text) !important;
+}
+
+/* Body copy, descriptions and labels */
+html.dark-more .admin-content p,
+html.dark-more .admin-content label,
+html.dark-more .admin-content small,
+html.dark-more .admin-content [class*="description"],
+html.dark-more .admin-content [class*="Description"],
+html.dark-more .admin-content [class*="subtitle"],
+html.dark-more .admin-content [class*="Subtitle"],
+html.dark-more .admin-content [class*="muted"],
+html.dark-more .admin-content [class*="Muted"] {
+  color: var(--sa-muted) !important;
+}
+
+/* Tables */
+html.dark-more .admin-content table,
+html.dark-more .admin-content thead,
+html.dark-more .admin-content tbody,
+html.dark-more .admin-content tr,
+html.dark-more .admin-content th,
+html.dark-more .admin-content td {
+  border-color: var(--sa-border) !important;
+}
+
+html.dark-more .admin-content table {
+  background: var(--sa-surface) !important;
+  color: var(--sa-text) !important;
+}
+
+html.dark-more .admin-content th {
+  background: var(--sa-surface-2) !important;
+  color: var(--sa-text) !important;
+}
+
+html.dark-more .admin-content td {
+  color: var(--sa-muted) !important;
+}
+
+html.dark-more .admin-content tbody tr:hover {
+  background: var(--sa-surface-2) !important;
+}
+
+/* Form fields */
+html.dark-more .admin-content input,
+html.dark-more .admin-content select,
+html.dark-more .admin-content textarea {
+  background: var(--sa-surface-2) !important;
+  color: var(--sa-text) !important;
+  border-color: var(--sa-border) !important;
+}
+
+html.dark-more .admin-content input::placeholder,
+html.dark-more .admin-content textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.dark-more .admin-content option {
+  background: var(--sa-surface);
+  color: var(--sa-text);
+}
+
+/* Header and sidebar */
+html.dark-more .admin-header,
+html.dark-more .admin-sidebar {
+  background: #151c2b !important;
+  color: var(--sa-text) !important;
+  border-color: var(--sa-border) !important;
+}
+
+/* Menus, popovers and dialogs */
+html.dark-more .dropdown,
+html.dark-more .notification-box,
+html.dark-more .profile-box,
+html.dark-more [role="dialog"],
+html.dark-more [role="menu"],
+html.dark-more .modal,
+html.dark-more .modal-content {
+  background: var(--sa-surface) !important;
+  color: var(--sa-text) !important;
+  border-color: var(--sa-border) !important;
+}
+
+/* Secondary buttons */
+html.dark-more .admin-content .secondary,
+html.dark-more .admin-content .cancel-btn,
+html.dark-more .admin-content .reset-btn {
+  background: var(--sa-surface-2) !important;
+  color: var(--sa-text) !important;
+  border-color: var(--sa-border) !important;
+}
+
+/* Preserve primary action buttons */
+html.dark-more .admin-content .primary,
+html.dark-more .admin-content .primary-btn,
+html.dark-more .admin-content .save-btn,
+html.dark-more .admin-content button[type="submit"] {
+  background: #5145e5 !important;
+  color: #ffffff !important;
+  border-color: #5145e5 !important;
+}
+
+/* Keep notification badge visible */
+html.dark-more .notification-count {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: var(--sa-surface) !important;
+}
+
+
+/* ==========================================================
+   STUDY ARENA — LIGHT CLASSIC DESIGN SYSTEM
+   Global typography, controls and accessible defaults
+========================================================== */
+
+:root {
+  --sa-bg: #f3f6fb;
+  --sa-surface: #ffffff;
+  --sa-surface-muted: #f7f9fd;
+  --sa-text: #17243d;
+  --sa-muted: #687893;
+  --sa-border: #d9e2ef;
+  --sa-primary: #3269e9;
+  --sa-primary-hover: #2455c7;
+  --sa-success: #139b70;
+  --sa-danger: #dc4657;
+  --sa-warning: #c98516;
+  --sa-radius: 8px;
+  --sa-shadow: 0 3px 12px rgba(27, 47, 82, 0.045);
+  --sa-shadow-hover: 0 9px 22px rgba(27, 47, 82, 0.085);
+}
+
+html:not(.dark-more) body {
+  color: var(--sa-text);
+  background: var(--sa-bg);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html:not(.dark-more) button,
+html:not(.dark-more) input,
+html:not(.dark-more) select,
+html:not(.dark-more) textarea {
+  font: inherit;
+}
+
+html:not(.dark-more) button {
+  cursor: pointer;
+}
+
+html:not(.dark-more) button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+html:not(.dark-more) a {
+  color: var(--sa-primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+html:not(.dark-more) :focus-visible {
+  outline: 3px solid rgba(50, 105, 233, 0.32);
+  outline-offset: 2px;
+}
+
+html:not(.dark-more) input,
+html:not(.dark-more) select,
+html:not(.dark-more) textarea {
+  color: var(--sa-text);
+  background: #ffffff;
+  border: 1px solid var(--sa-border);
+  border-radius: 6px;
+}
+
+html:not(.dark-more) input::placeholder,
+html:not(.dark-more) textarea::placeholder {
+  color: #8a97ac;
+}
+
+html:not(.dark-more) input:focus,
+html:not(.dark-more) select:focus,
+html:not(.dark-more) textarea:focus {
+  border-color: #7197ef;
+  outline: 2px solid rgba(50, 105, 233, 0.12);
+}
+
+html:not(.dark-more) ::selection {
+  color: #17243d;
+  background: #dbe7ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.dark-more) *,
+  html:not(.dark-more) *::before,
+  html:not(.dark-more) *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* Hide the unwanted moon/theme toggle button */
+html:not(.dark-more) .admin-header button[aria-label*="theme" i],
+html:not(.dark-more) .admin-header button[aria-label*="dark" i],
+html:not(.dark-more) .admin-header button[title*="theme" i],
+html:not(.dark-more) .admin-header button[title*="dark" i] {
+  display: none !important;
+}

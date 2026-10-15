@@ -1,0 +1,35 @@
+export const MODULES = [
+  { key: "dashboard", label: "Dashboard" },
+  { key: "batches", label: "Batches" },
+  { key: "students", label: "Students" },
+  { key: "families", label: "Families" },
+  { key: "attendance", label: "Attendance" },
+  { key: "tuition-fees", label: "Tuition Fees" },
+  { key: "income-expense", label: "Income / Expense" },
+  { key: "staff", label: "Staff Manager" },
+  { key: "staff-attendance", label: "Staff Attendance" },
+  { key: "exams", label: "Manage Exams" },
+  { key: "performance", label: "Performance" },
+  { key: "enquiries", label: "Enquiry Manager" },
+  { key: "transport", label: "Transport" },
+  { key: "study-material", label: "Study Material" },
+  { key: "online-exams", label: "Online Exams" },
+  { key: "homework", label: "Homework" },
+  { key: "leave-manager", label: "Leave Manager" },
+  { key: "reports", label: "Reports" },
+  { key: "library", label: "Library" },
+  { key: "inventory", label: "Inventory" },
+  { key: "communications", label: "Communications" },
+  { key: "calendar", label: "Calendar" },
+  { key: "timetable", label: "Timetable" },
+  { key: "id-cards", label: "ID Cards" },
+  { key: "academy-profile", label: "Academy Profile" },
+  { key: "settings", label: "Settings" },
+  { key: "users", label: "Users" },
+  { key: "roles-permissions", label: "Roles & Permissions" },
+  { key: "audit-logs", label: "Audit Logs" },
+] as const;
+
+export type ModuleKey = (typeof MODULES)[number]["key"];
+
+export type PermissionAction = "view" | "add" | "edit" | "delete";

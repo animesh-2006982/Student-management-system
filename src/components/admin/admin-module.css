@@ -1,0 +1,483 @@
+/* =========================================================
+   NEW ADMIN MODULES
+   Existing admin CSS is intentionally untouched.
+========================================================= */
+
+.addonPage {
+  min-height: 100vh;
+  padding: 34px;
+  background: #f6f8fc;
+  color: #172038;
+}
+
+.addonHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.addonTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.addonIcon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  color: #6254ef;
+  background: #eeecff;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.addonBreadcrumb {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: #929caf;
+  font-size: 11px;
+}
+
+.addonBreadcrumb a {
+  color: #6254ef;
+  text-decoration: none;
+}
+
+.addonHeader h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -.04em;
+}
+
+.addonHeader p {
+  margin: 6px 0 0;
+  color: #7b869b;
+  font-size: 13px;
+}
+
+.addonPrimary {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 17px;
+  color: #fff;
+  background: linear-gradient(135deg, #6254ef, #328fe9);
+  box-shadow: 0 12px 28px rgba(91,80,235,.2);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.addonStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.addonStat {
+  padding: 19px;
+  border: 1px solid #e1e6ef;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(30,42,70,.04);
+}
+
+.addonStat span {
+  display: block;
+  color: #7e899e;
+  font-size: 11px;
+}
+
+.addonStat strong {
+  display: block;
+  margin-top: 7px;
+  font-size: 24px;
+}
+
+.addonStat.purple strong { color: #6254ef; }
+.addonStat.blue strong { color: #268eea; }
+.addonStat.green strong { color: #16ae87; }
+.addonStat.orange strong { color: #ef8a27; }
+
+.addonToolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.addonSearch {
+  flex: 1;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  border: 1px solid #dde3ed;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.addonSearch span {
+  color: #8994a8;
+  font-size: 19px;
+}
+
+.addonSearch input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #172038;
+  background: transparent;
+}
+
+.addonFilter,
+.addonExport {
+  padding: 0 16px;
+  border: 1px solid #dce2eb;
+  border-radius: 12px;
+  background: #fff;
+  color: #59657c;
+  cursor: pointer;
+}
+
+.addonTable {
+  overflow: hidden;
+  border: 1px solid #dfe4ed;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(35,45,70,.05);
+}
+
+.addonTableHead,
+.addonTableRow {
+  display: grid;
+  grid-template-columns: 1.3fr 1.4fr .8fr .8fr;
+  gap: 20px;
+  align-items: center;
+  padding: 17px 20px;
+}
+
+.addonTableHead {
+  color: #8b95a8;
+  background: #fafbfc;
+  border-bottom: 1px solid #edf0f4;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .13em;
+}
+
+.addonTableRow {
+  min-height: 70px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.addonTableRow:last-child {
+  border-bottom: 0;
+}
+
+.addonTableRow strong,
+.addonTableRow small {
+  display: block;
+}
+
+.addonTableRow strong {
+  color: #1c263d;
+  font-size: 13px;
+}
+
+.addonTableRow small {
+  margin-top: 4px;
+  color: #99a2b2;
+  font-size: 10px;
+}
+
+.addonTableRow > div > span {
+  color: #66728a;
+  font-size: 12px;
+}
+
+.addonStatus {
+  display: inline-block !important;
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #159775 !important;
+  background: #e8f9f3;
+  font-size: 10px !important;
+  font-weight: 750;
+}
+
+.addonActions {
+  display: flex;
+  gap: 6px;
+}
+
+.addonActions button {
+  padding: 7px 9px;
+  border: 1px solid #e0e5ed;
+  border-radius: 8px;
+  background: #fff;
+  color: #606c82;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.addonEmpty {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.addonEmpty > div {
+  font-size: 35px;
+  color: #6254ef;
+}
+
+.addonEmpty h3 {
+  margin: 12px 0 5px;
+}
+
+.addonEmpty p {
+  margin: 0 0 18px;
+  color: #8a94a6;
+  font-size: 13px;
+}
+
+.addonEmpty button {
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: #6254ef;
+  cursor: pointer;
+}
+
+.addonOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(12,18,34,.48);
+}
+
+.addonPanel {
+  width: min(620px, 100%);
+  padding: 25px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(10,18,40,.25);
+}
+
+.addonPanelHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.addonPanelHead span {
+  color: #7669ef;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .15em;
+}
+
+.addonPanelHead h2 {
+  margin: 6px 0 20px;
+}
+
+.addonPanelHead > button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 9px;
+  background: #f2f4f8;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.addonFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.addonFormGrid label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #657188;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.addonFormGrid label:last-child {
+  grid-column: 1 / -1;
+}
+
+.addonFormGrid input,
+.addonFormGrid select,
+.addonFormGrid textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #dce2eb;
+  border-radius: 10px;
+  outline: 0;
+  background: #fbfcfe;
+  color: #1a243a;
+}
+
+.addonFormGrid textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.addonPanelActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.addonCancel {
+  padding: 11px 15px;
+  border: 1px solid #dce2eb;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .addonPage {
+    padding: 22px 16px;
+  }
+
+  .addonHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .addonStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .addonTable {
+    overflow-x: auto;
+  }
+
+  .addonTableHead,
+  .addonTableRow {
+    min-width: 720px;
+  }
+}
+
+@media (max-width: 520px) {
+  .addonStats {
+    grid-template-columns: 1fr;
+  }
+
+  .addonToolbar {
+    flex-wrap: wrap;
+  }
+
+  .addonSearch {
+    min-width: 100%;
+  }
+
+  .addonFormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .addonFormGrid label:last-child {
+    grid-column: auto;
+  }
+}
+
+
+
+/* =====================================================
+   STUDY ARENA — ADDON MODULE DARK THEME
+===================================================== */
+
+html.dark-more .addonPage {
+  background: #0e1422 !important;
+  color: #edf2ff !important;
+}
+
+html.dark-more .addonPage .addonHeader h1,
+html.dark-more .addonPage .addonPanelHead h2,
+html.dark-more .addonPage .addonTableRow strong,
+html.dark-more .addonPage .addonEmpty h3 {
+  color: #edf2ff !important;
+}
+
+html.dark-more .addonPage .addonHeader p,
+html.dark-more .addonPage .addonBreadcrumb,
+html.dark-more .addonPage .addonStat span,
+html.dark-more .addonPage .addonTableRow small,
+html.dark-more .addonPage .addonTableRow > div > span,
+html.dark-more .addonPage .addonEmpty p,
+html.dark-more .addonPage .addonFormGrid label {
+  color: #b0bdd3 !important;
+}
+
+html.dark-more .addonPage .addonStat,
+html.dark-more .addonPage .addonSearch,
+html.dark-more .addonPage .addonFilter,
+html.dark-more .addonPage .addonExport,
+html.dark-more .addonPage .addonTable,
+html.dark-more .addonPage .addonTableRow,
+html.dark-more .addonPage .addonPanel,
+html.dark-more .addonPage .addonActions button,
+html.dark-more .addonPage .addonCancel {
+  background: #172133 !important;
+  color: #edf2ff !important;
+  border-color: #34425c !important;
+}
+
+html.dark-more .addonPage .addonTableHead {
+  background: #202b40 !important;
+  color: #b0bdd3 !important;
+  border-color: #34425c !important;
+}
+
+html.dark-more .addonPage .addonSearch input,
+html.dark-more .addonPage .addonFormGrid input,
+html.dark-more .addonPage .addonFormGrid select,
+html.dark-more .addonPage .addonFormGrid textarea {
+  background: #202b40 !important;
+  color: #edf2ff !important;
+  border-color: #34425c !important;
+}
+
+html.dark-more .addonPage .addonSearch input::placeholder,
+html.dark-more .addonPage .addonFormGrid input::placeholder,
+html.dark-more .addonPage .addonFormGrid textarea::placeholder {
+  color: #94a3bd !important;
+}
+
+html.dark-more .addonPage .addonOverlay {
+  background: rgba(4, 8, 18, .76) !important;
+}
+
+html.dark-more .addonPage .addonPanelHead > button {
+  background: #202b40 !important;
+  color: #edf2ff !important;
+}
+
+html.dark-more .addonPage .addonPrimary,
+html.dark-more .addonPage .addonEmpty button {
+  background: linear-gradient(135deg, #6254ef, #328fe9) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+html.dark-more .addonPage .addonStatus {
+  color: #70e0bd !important;
+  background: #173c38 !important;
+}

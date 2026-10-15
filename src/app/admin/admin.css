@@ -1,0 +1,1461 @@
+/* STUDENTFLOW — ORIGINAL LIGHT ADMIN THEME
+   UI-only stylesheet. Existing TSX/functionality remains unchanged. */
+*{box-sizing:border-box}
+:root{--bg:#f7f8fc;--surface:#fff;--surface-2:#fbfcff;--border:#dfe4ef;--text:#172039;--muted:#71809e;--muted-2:#96a0b8;--primary:#5b5ff5;--primary-2:#3f7cf4;--green:#12a77f;--orange:#f0a329;--red:#ef6b72;--blue:#36a8df;--yellow:#e3b34c}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a,button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.admin-shell{min-height:100vh;display:flex;background:var(--bg);color:var(--text)}
+.admin-sidebar{width:244px;position:fixed;inset:0 auto 0 0;background:#fff;border-right:1px solid #e5e8f0;display:flex;flex-direction:column;z-index:50;box-shadow:8px 0 35px rgba(36,48,80,.035)}
+.brand-row{height:78px;display:flex;align-items:center;gap:11px;padding:0 20px;border-bottom:1px solid #eef0f5}
+.brand-logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#eff1ff,#dfe5ff);color:#554cf0;display:grid;place-items:center;font-weight:900;box-shadow:0 8px 22px rgba(91,95,245,.12)}
+.brand-row strong{display:block;font-size:15px;letter-spacing:.08em;color:#172039}.brand-row span{display:block;color:#929cb4;font-size:9px;margin-top:3px}
+.close-mobile{display:none;margin-left:auto;background:none;border:0;color:#6f7d99;font-size:24px}
+.institution-card{margin:16px 13px 10px;padding:13px;border:1px solid #e4e8f1;border-radius:14px;background:#f8f9fd;display:flex;gap:10px;align-items:center}
+.institution-avatar{width:34px;height:34px;border-radius:10px;background:#edf0ff;color:#5b5ff5;display:grid;place-items:center;font-weight:800}.institution-card strong{display:block;font-size:11px;color:#24304a}.institution-card span{display:block;font-size:9px;color:#8d98b0;margin-top:3px}
+.sidebar-nav{overflow:auto;padding:9px 11px 18px;flex:1}.nav-group{margin-bottom:15px}.nav-group-title{padding:10px 10px 6px;color:#9aa3b8;font-size:8px;letter-spacing:.18em;font-weight:800}.nav-item{position:relative;display:flex;align-items:center;gap:10px;height:38px;padding:0 12px;border-radius:9px;color:#687590;text-decoration:none;font-size:10px;margin:3px 0;transition:.2s}.nav-item span{width:18px;text-align:center;color:#8b97ae}.nav-item:hover{background:#f1f3fb;color:#38435d}.nav-item.active{background:linear-gradient(90deg,#eef0ff,#f4f5ff);color:#4f54e9;box-shadow:inset 3px 0 #5b5ff5}.nav-item.active span{color:#5b5ff5}
+.sidebar-premium{margin:10px 12px;padding:15px;border-radius:15px;background:linear-gradient(145deg,#f7f5ff,#f0f7ff);border:1px solid #e1e3f7}.premium-icon{font-size:18px;color:#c89a35}.sidebar-premium strong{display:block;font-size:11px;margin-top:5px;color:#27324b}.sidebar-premium p{font-size:9px;color:#8994ad;line-height:1.5;margin:5px 0 10px}.sidebar-premium button{border:0;background:linear-gradient(135deg,#6256f5,#3e86f4);color:#fff;border-radius:8px;padding:8px 10px;font-size:9px;cursor:pointer;box-shadow:0 8px 18px rgba(91,95,245,.18)}
+.sidebar-status{padding:13px 15px;border-top:1px solid #edf0f5;display:flex;gap:8px;align-items:center}.sidebar-status i{width:7px;height:7px;background:#22bd91;border-radius:50%;box-shadow:0 0 0 4px rgba(34,189,145,.08)}.sidebar-status strong{display:block;font-size:9px;color:#29334b}.sidebar-status span{display:block;font-size:8px;color:#9aa4b9;margin-top:2px}
+.admin-main{margin-left:244px;min-height:100vh;flex:1;background:radial-gradient(circle at 88% 2%,rgba(102,93,245,.08),transparent 25%),var(--bg)}
+.admin-header{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid #e8ebf2;background:rgba(255,255,255,.88);position:sticky;top:0;z-index:40;backdrop-filter:blur(16px)}
+.header-left{display:flex;align-items:center;gap:14px}.menu-button{display:none;background:#fff;border:1px solid #dfe4ee;border-radius:9px;width:36px;height:36px}.menu-button span{display:block;width:16px;height:1px;background:#65728c;margin:3px auto}.crumb{font-size:9px;color:#9aa4b9;letter-spacing:.05em}.crumb b{color:#65728d;font-weight:500}.header-left h1{font-size:20px;margin:5px 0 0;letter-spacing:-.03em;color:#172039}.header-right{display:flex;align-items:center;gap:9px}.global-search{display:flex;width:260px;background:#fff;border:1px solid #e0e5ee;border-radius:10px;overflow:hidden;box-shadow:0 5px 18px rgba(36,48,80,.03)}.global-search input{min-width:0;flex:1;border:0;background:transparent;color:#26324c;padding:10px 12px;font-size:10px;outline:none}.global-search input::placeholder{color:#a2abc0}.global-search button{border:0;background:transparent;color:#6e7b95;cursor:pointer}.header-icon{position:relative;width:36px;height:36px;border-radius:10px;background:#fff;border:1px solid #e0e5ee;color:#6e7b95;cursor:pointer}.header-icon b{position:absolute;right:-3px;top:-5px;background:#ef7d55;color:#fff;border-radius:10px;padding:2px 4px;font-size:7px}.profile-btn{display:flex;align-items:center;gap:8px;background:transparent;border:0;color:#25304a;cursor:pointer;text-align:left}.profile-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#6256f5,#2f9cf0);display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff}.profile-btn strong{display:block;font-size:9px}.profile-btn span{display:block;color:#8792aa;font-size:8px;margin-top:2px}.profile-btn em{font-style:normal;color:#8994aa;margin-left:3px}.profile-wrap,.notification-wrap{position:relative}.dropdown{position:absolute;right:0;top:45px;width:210px;background:#fff;border:1px solid #e1e5ee;border-radius:12px;box-shadow:0 20px 60px rgba(31,41,55,.14);padding:10px;z-index:100}.dropdown strong{font-size:10px}.dropdown p{font-size:9px;color:#7c88a2;line-height:1.5}.dropdown button{display:block;width:100%;text-align:left;border:0;background:none;color:#65718b;padding:8px;border-radius:7px;font-size:9px}.dropdown button:hover{background:#f3f5fb}
+.admin-content{padding:32px 42px 60px;max-width:1500px;margin:0 auto}
+.dashboard-welcome{display:flex;justify-content:space-between;gap:25px;padding:26px 28px;border:1px solid #dfe4ee;background:linear-gradient(120deg,#fff,#f9faff);border-radius:20px;box-shadow:0 18px 50px rgba(42,53,91,.055);margin-bottom:18px}.eyebrow{font-size:9px;color:#5b5ff5;letter-spacing:.18em;font-weight:800}.dashboard-welcome h2{font-size:30px;margin:10px 0 7px;letter-spacing:-.045em;color:#172039}.dashboard-welcome h2 span{background:linear-gradient(100deg,#5b5ff5,#3f7cf4);-webkit-background-clip:text;background-clip:text;color:transparent}.dashboard-welcome p{margin:0;color:#7a86a1;font-size:11px;line-height:1.65;max-width:650px}.trial-card{min-width:230px;padding:15px;border-radius:12px;background:#fff;border:1px solid #e1e6ef;box-shadow:0 8px 24px rgba(31,41,55,.04)}.trial-card small,.trial-card span{display:block;color:#8d98b0;font-size:8px}.trial-card strong{display:block;font-size:11px;margin:7px 0;color:#26314a}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.kpi{position:relative;padding:20px;border:1px solid #dfe4ee;border-radius:18px;background:#fff;text-decoration:none;color:#172039;min-height:150px;overflow:hidden;transition:.25s;box-shadow:0 10px 30px rgba(31,41,55,.035)}.kpi:hover{transform:translateY(-4px);border-color:#cfd5ff;box-shadow:0 18px 38px rgba(79,70,229,.08)}.kpi:after{content:"";position:absolute;right:-30px;bottom:-50px;width:130px;height:130px;border-radius:50%;background:rgba(91,95,245,.045)}.kpi-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:16px;margin-bottom:16px}.kpi span{display:block;color:#7c88a3;font-size:10px}.kpi strong{display:block;font-size:27px;margin:5px 0;color:#172039}.kpi small{color:#9aa4b9;font-size:8px}.kpi>b{position:absolute;right:15px;top:15px;color:#9aa5bb;font-size:10px}.kpi.purple .kpi-icon{background:#efedff;color:#5b54ef}.kpi.orange .kpi-icon{background:#fff1d9;color:#e9961e}.kpi.green .kpi-icon{background:#e1f8f1;color:#10a97b}.kpi.red .kpi-icon{background:#ffe9eb;color:#e96a73}
+.quick-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:13px 0}.quick-stat{background:#fff;border:1px solid #e0e5ee;border-radius:12px;padding:14px;text-decoration:none;color:#26314a;box-shadow:0 6px 20px rgba(31,41,55,.025)}.quick-stat strong{display:block;font-size:17px}.quick-stat span{display:block;font-size:8px;color:#8792ab;margin-top:3px}.quick-stat.dark{border-left:3px solid #94a0b5}.quick-stat.blue{border-left:3px solid #43a9e5}.quick-stat.green{border-left:3px solid #39c99b}.quick-stat.red{border-left:3px solid #ef7078}.quick-stat.yellow{border-left:3px solid #e9bd55}.quick-stat.orange{border-left:3px solid #ee8b45}
+.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:13px}.panel{background:#fff;border:1px solid #dfe4ee;border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(31,41,55,.035)}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panel-head span,.panel-head>div>span{font-size:8px;color:#5b5ff5;letter-spacing:.16em}.panel-head h3{margin:5px 0 0;font-size:15px}.panel-head a,.panel-head>span{font-size:8px;color:#5b5ff5;text-decoration:none}.list-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #edf0f5}.avatar-mini{width:31px;height:31px;border-radius:9px;background:#eef0ff;display:grid;place-items:center;color:#5b5ff5;font-size:10px;font-weight:800}.list-row div:nth-child(2){flex:1}.list-row strong{display:block;font-size:10px}.list-row span{display:block;color:#8a95ad;font-size:8px;margin-top:2px}.list-row>b{font-size:7px;color:#16ad84}.bar-row{padding:9px 0;border-top:1px solid #edf0f5}.bar-row>div{display:flex;justify-content:space-between;font-size:9px;color:#77839d}.bar-row b{color:#34405a}.bar-row i{display:block;height:5px;border-radius:10px;background:#edf0f6;margin-top:6px;overflow:hidden}.bar-row em{display:block;height:100%;background:linear-gradient(90deg,#5b5ff5,#45a7f4);border-radius:10px}.finance-summary{margin-top:13px}.finance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.finance-grid div{padding:14px;border-radius:11px;background:#f8f9fd;border:1px solid #e5e8f0}.finance-grid small{display:block;color:#8b96ae;font-size:8px}.finance-grid strong{display:block;margin-top:6px;font-size:14px}.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick-actions a{display:flex;align-items:center;gap:10px;border:1px solid #e1e6ef;border-radius:11px;padding:12px;text-decoration:none;color:#29344e;transition:.2s;background:#fff}.quick-actions a:hover{background:#f8f9ff;border-color:#cfd5ff;transform:translateY(-2px)}.quick-actions a>span{width:31px;height:31px;border-radius:8px;background:#efedff;color:#5b54ef;display:grid;place-items:center}.quick-actions a div{flex:1}.quick-actions strong{display:block;font-size:9px}.quick-actions small{display:block;color:#97a1b6;font-size:7px;margin-top:3px}.quick-actions b{color:#9ba5ba;font-size:9px}.empty{text-align:center;padding:38px 15px;color:#8792aa}.empty>div{margin:0 auto 10px;width:38px;height:38px;border-radius:10px;background:#f0f2f8;display:grid;place-items:center;color:#7a86a1}.empty strong{display:block;color:#27324b;font-size:11px}.empty span{display:block;font-size:8px;margin:5px 0 11px}.empty a{display:inline-block;background:linear-gradient(135deg,#5b5ff5,#3e86f4);color:#fff;padding:8px 12px;border-radius:7px;text-decoration:none;font-size:8px}
+
+/* MODULE PAGES — target light theme */
+.module-page{padding:12px 0 40px}.module-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:30px;padding:0 1px}.module-hero h2{margin:9px 0 8px;font-size:42px;line-height:1.05;letter-spacing:-.055em;color:#172039;font-weight:800}.module-hero h2{background:linear-gradient(100deg,#172039 0%,#172039 38%,#5b5ff5 60%,#3f7cf4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.module-hero p{margin:0;color:#8190ac;font-size:14px;line-height:1.65}.hero-actions{display:flex;gap:12px}.primary-btn{border:0;border-radius:15px;background:linear-gradient(135deg,#6256f5,#3d83f4);color:#fff;padding:14px 22px;font-size:14px;font-weight:750;cursor:pointer;box-shadow:0 13px 28px rgba(91,95,245,.18)}.primary-btn:hover{filter:brightness(1.04);transform:translateY(-2px)}.secondary-btn{border:1px solid #dce2ec;border-radius:15px;background:#fff;color:#55627d;padding:14px 22px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(31,41,55,.035)}.secondary-btn:hover{background:#f8f9fd;border-color:#cfd5df}
+.module-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}.module-metrics>div{position:relative;padding:22px 24px;min-height:145px;background:#fff;border:1px solid #dfe4ee;border-radius:20px;box-shadow:0 10px 30px rgba(31,41,55,.035);overflow:hidden}.module-metrics>div:after{content:"";position:absolute;right:-32px;bottom:-45px;width:110px;height:110px;border-radius:50%;background:#f1f2ff}.module-metrics span,.module-metrics small{display:block;color:#8792ab;font-size:11px}.module-metrics strong{display:block;color:#172039;font-size:28px;margin:8px 0;font-weight:750}.module-metrics small{font-size:10px}
+.context-actions{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.context-actions a{display:flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid #dfe4ee;border-radius:11px;background:#fff;color:#66738e;text-decoration:none;font-size:10px;box-shadow:0 5px 16px rgba(31,41,55,.025)}.context-actions a:hover{background:#f7f8ff;color:#5b5ff5;border-color:#cfd5ff}.context-actions b{font-size:9px;color:#9aa4b9}
+.data-panel{background:#fff;border:1px solid #dfe4ee;border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(31,41,55,.04)}.data-toolbar{padding:16px;border-bottom:1px solid #edf0f5;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff}.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button,.toolbar-right button,.toolbar-right select{border:1px solid #dfe4ee;background:#fff;color:#71809b;border-radius:9px;padding:9px 12px;font-size:10px;cursor:pointer}.tabs button.on{background:#efedff;color:#5b54ef;border-color:#d9d5ff}.toolbar-right{display:flex;gap:7px}.toolbar-right input{width:240px;background:#fbfcff;border:1px solid #dfe4ee;border-radius:9px;color:#26314b;padding:9px 11px;font-size:10px;outline:none}.toolbar-right input::placeholder{color:#a2abc0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:850px}th,td{padding:14px 13px;border-bottom:1px solid #edf0f5;text-align:left;font-size:10px;vertical-align:middle}th{color:#8a95ab;font-size:8px;letter-spacing:.1em;background:#fbfcfe;cursor:pointer}td{color:#55627d}td:first-child{color:#9aa4b9}.pill{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:8px;background:#f1f3f8;color:#78849e}.pill.active,.pill.paid,.pill.present,.pill.published,.pill.received,.pill.issued{background:#e5f8f1;color:#11956f}.pill.inactive,.pill.absent,.pill.cancelled,.pill.rejected,.pill.lost,.pill.blocked{background:#ffe9eb;color:#d85e68}.pill.pending,.pill.partial,.pill.follow-up,.pill.new{background:#fff2da;color:#c78618}.pill.completed,.pill.converted,.pill.interested{background:#e5f3fb;color:#2488bd}.row-actions{display:flex;gap:5px}.row-actions button{width:30px;height:30px;border-radius:8px;border:1px solid #dfe4ee;background:#fff;color:#71809b;font-size:10px;cursor:pointer}.row-actions button:hover{background:#f3f5fb;color:#5b5ff5;border-color:#cfd5ff}.row-actions .danger:hover{color:#d95863;border-color:#f0bcc1;background:#fff5f6}
+.modal-backdrop{position:fixed;inset:0;background:rgba(31,41,55,.25);backdrop-filter:blur(4px);display:grid;place-items:center;z-index:200;padding:18px}.modal{width:min(760px,96vw);max-height:90vh;overflow:auto;background:#fff;border:1px solid #dfe4ee;border-radius:18px;box-shadow:0 35px 100px rgba(31,41,55,.18)}.modal-head{padding:18px 20px;border-bottom:1px solid #edf0f5;display:flex;justify-content:space-between;align-items:center}.modal-head span{font-size:8px;color:#5b5ff5;letter-spacing:.16em}.modal-head h3{margin:5px 0 0;font-size:18px;color:#172039}.modal-head>button{background:none;border:0;color:#8994aa;font-size:22px;cursor:pointer}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:20px}.form-grid label{display:block;color:#71809a;font-size:10px}.form-grid label.full{grid-column:1/-1}.form-grid input,.form-grid select,.form-grid textarea,.settings-card input,.settings-card select{width:100%;box-sizing:border-box;margin-top:7px;background:#fbfcff;border:1px solid #dfe4ee;border-radius:9px;color:#29344e;padding:11px;font-size:10px;outline:none}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus,.settings-card input:focus,.settings-card select:focus{border-color:#bfc5ff;box-shadow:0 0 0 3px rgba(91,95,245,.08)}.modal-actions{display:flex;justify-content:flex-end;gap:9px;padding:15px 20px;border-top:1px solid #edf0f5}.modal-actions>button:not(.primary-btn){border:1px solid #dfe4ee;background:#fff;color:#71809a;border-radius:9px;padding:9px 12px;font-size:10px;cursor:pointer}.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:20px}.detail-grid div{background:#f8f9fd;border:1px solid #e7eaf1;border-radius:9px;padding:12px}.detail-grid span{display:block;color:#8994aa;font-size:8px}.detail-grid strong{display:block;color:#29344e;font-size:10px;margin-top:5px;word-break:break-word}.report-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}.report-summary>div{padding:18px;background:#fff;border:1px solid #dfe4ee;border-radius:15px}.report-summary b{display:block;color:#172039;font-size:20px}.report-summary span{display:block;color:#8a95ab;font-size:9px;margin-top:5px}.report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.report-card{padding:18px;background:#fff;border:1px solid #dfe4ee;border-radius:16px}.report-card>span{font-size:8px;color:#5b5ff5;letter-spacing:.12em}.report-card h3{font-size:13px;margin:7px 0 14px;color:#27324b}.report-card>div{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.report-card a{display:flex;justify-content:space-between;padding:9px;background:#f8f9fd;border:1px solid #e5e8f0;border-radius:7px;color:#687590;text-decoration:none;font-size:8px}.report-card a:hover{color:#5b5ff5;border-color:#cfd5ff}.report-card button{margin-top:12px;border:1px solid #dfe4ee;background:#fff;color:#687590;border-radius:7px;padding:8px 10px;font-size:8px;cursor:pointer}.settings-card{background:#fff;border:1px solid #dfe4ee;border-radius:16px;padding:20px;box-shadow:0 10px 28px rgba(31,41,55,.035)}.settings-title{margin-bottom:15px}.settings-title span{font-size:8px;color:#5b5ff5;letter-spacing:.15em}.settings-title h3{margin:5px 0 0;font-size:15px}.notification-list{padding:0}.notification-row{display:flex;gap:12px;align-items:flex-start;padding:16px;border-bottom:1px solid #edf0f5}.notification-row>div{width:32px;height:32px;border-radius:9px;background:#efedff;color:#5b54ef;display:grid;place-items:center}.notification-row section{flex:1}.notification-row strong{font-size:10px}.notification-row p{font-size:9px;color:#7e89a3;margin:5px 0 0}.notification-row>span{font-size:8px;color:#c28722}.large{padding:90px 20px}.dark-more{filter:none}
+
+@media(max-width:1100px){.admin-sidebar{width:220px}.admin-main{margin-left:220px}.kpi-grid{grid-template-columns:repeat(2,1fr)}.quick-stats{grid-template-columns:repeat(3,1fr)}.global-search{width:190px}.report-grid{grid-template-columns:1fr}.module-metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.admin-sidebar{transform:translateX(-100%);transition:.25s;width:250px}.admin-sidebar.open{transform:translateX(0)}.admin-main{margin-left:0}.menu-button{display:block}.close-mobile{display:block}.mobile-overlay{position:fixed;inset:0;background:rgba(31,41,55,.25);z-index:45;border:0}.admin-header{padding:0 14px}.global-search{display:none}.profile-btn>div:nth-child(2),.profile-btn em{display:none}.admin-content{padding:20px 18px 35px}.dashboard-welcome{display:block}.trial-card{margin-top:15px}.dashboard-grid{grid-template-columns:1fr}.finance-grid{grid-template-columns:repeat(2,1fr)}.quick-actions{grid-template-columns:1fr 1fr}.module-metrics{grid-template-columns:repeat(2,1fr)}.report-summary{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.module-hero{align-items:flex-start;flex-direction:column}.module-hero h2{font-size:34px}.hero-actions{width:100%}.primary-btn,.secondary-btn{padding:12px 16px}}
+@media(max-width:520px){.kpi-grid,.quick-stats,.finance-grid,.quick-actions,.module-metrics,.report-summary{grid-template-columns:1fr}.dashboard-welcome h2{font-size:23px}.dashboard-welcome{padding:18px}.panel{padding:15px}.toolbar-right{width:100%}.toolbar-right input{flex:1}.data-toolbar{padding:11px}.admin-header{height:64px}.header-left h1{font-size:16px}.module-hero h2{font-size:30px}.module-hero p{font-size:12px}.hero-actions{flex-wrap:wrap}.report-card>div{grid-template-columns:1fr}.module-page{padding-top:4px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{.admin-sidebar,.admin-header,.module-hero .hero-actions,.data-toolbar,.row-actions{display:none!important}.admin-main{margin-left:0}.admin-content{padding:0}.data-panel,.panel,.kpi,.module-metrics>div{border-color:#ddd!important;background:#fff!important;color:#111!important}body{background:#fff!important}}
+
+
+/* =====================================================
+   STUDY ARENA — GLOBAL DARK THEME
+   Applies to all admin pages when html has dark-more
+===================================================== */
+
+html.dark-more {
+  color-scheme: dark;
+  --bg: #0e1422;
+  --surface: #172133;
+  --surface-2: #202b40;
+  --border: #34425c;
+  --text: #edf2ff;
+  --muted: #b0bdd3;
+  --muted-2: #94a3bd;
+  --primary: #6254ef;
+  --primary-2: #328fe9;
+}
+
+html.dark-more body,
+html.dark-more .admin-shell,
+html.dark-more .admin-main,
+html.dark-more .admin-content {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Header and sidebar */
+html.dark-more .admin-sidebar,
+html.dark-more .admin-header {
+  background: #151e2e !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark-more .brand-row,
+html.dark-more .sidebar-status {
+  border-color: var(--border) !important;
+}
+
+html.dark-more .brand-row strong,
+html.dark-more .institution-card strong,
+html.dark-more .sidebar-status strong,
+html.dark-more .header-left h1 {
+  color: var(--text) !important;
+}
+
+html.dark-more .brand-row span,
+html.dark-more .institution-card span,
+html.dark-more .sidebar-status span,
+html.dark-more .nav-group-title,
+html.dark-more .crumb {
+  color: var(--muted) !important;
+}
+
+html.dark-more .institution-card,
+html.dark-more .sidebar-premium {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark-more .nav-item {
+  color: var(--muted) !important;
+}
+
+html.dark-more .nav-item:hover,
+html.dark-more .nav-item.active {
+  background: #283452 !important;
+  color: #c8ccff !important;
+}
+
+/* Main page backgrounds */
+html.dark-more .admin-content > *,
+html.dark-more .admin-content [class*="page"],
+html.dark-more .admin-content [class*="Page"],
+html.dark-more .admin-content [class*="module"],
+html.dark-more .admin-content [class*="Module"],
+html.dark-more .admin-content [class*="workspace"],
+html.dark-more .admin-content [class*="Workspace"] {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* Common cards */
+html.dark-more .admin-content .panel,
+html.dark-more .admin-content .kpi,
+html.dark-more .admin-content .quick-stat,
+html.dark-more .admin-content .trial-card,
+html.dark-more .admin-content .data-panel,
+html.dark-more .admin-content .settings-card,
+html.dark-more .admin-content .report-card,
+html.dark-more .admin-content .dashboard-welcome,
+html.dark-more .admin-content [class*="card"],
+html.dark-more .admin-content [class*="Card"],
+html.dark-more .admin-content [class*="stat"],
+html.dark-more .admin-content [class*="Stat"],
+html.dark-more .admin-content [class*="panel"],
+html.dark-more .admin-content [class*="Panel"],
+html.dark-more .admin-content [class*="summary"],
+html.dark-more .admin-content [class*="Summary"],
+html.dark-more .admin-content [class*="directory"],
+html.dark-more .admin-content [class*="Directory"] {
+  background-color: var(--surface) !important;
+  background-image: none;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* Readable text */
+html.dark-more .admin-content h1,
+html.dark-more .admin-content h2,
+html.dark-more .admin-content h3,
+html.dark-more .admin-content h4,
+html.dark-more .admin-content h5,
+html.dark-more .admin-content h6,
+html.dark-more .admin-content strong,
+html.dark-more .admin-content b,
+html.dark-more .admin-content th {
+  color: var(--text) !important;
+}
+
+html.dark-more .admin-content p,
+html.dark-more .admin-content small,
+html.dark-more .admin-content label,
+html.dark-more .admin-content td,
+html.dark-more .admin-content li {
+  color: var(--muted) !important;
+}
+
+/* Forms and search fields */
+html.dark-more .admin-content input,
+html.dark-more .admin-content select,
+html.dark-more .admin-content textarea,
+html.dark-more .global-search,
+html.dark-more .global-search input {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark-more .admin-content input::placeholder,
+html.dark-more .admin-content textarea::placeholder,
+html.dark-more .global-search input::placeholder {
+  color: var(--muted-2) !important;
+}
+
+html.dark-more .admin-content option {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Tables and separators */
+html.dark-more .admin-content table,
+html.dark-more .admin-content thead,
+html.dark-more .admin-content tbody,
+html.dark-more .admin-content tr,
+html.dark-more .admin-content th,
+html.dark-more .admin-content td {
+  border-color: var(--border) !important;
+}
+
+html.dark-more .admin-content thead,
+html.dark-more .admin-content th {
+  background: var(--surface-2) !important;
+}
+
+html.dark-more .admin-content hr,
+html.dark-more .admin-content [class*="divider"],
+html.dark-more .admin-content [class*="Divider"] {
+  border-color: var(--border) !important;
+}
+
+/* Dropdowns and dialogs */
+html.dark-more .dropdown,
+html.dark-more .notification-box,
+html.dark-more .profile-box,
+html.dark-more [role="dialog"],
+html.dark-more [role="menu"],
+html.dark-more .modal,
+html.dark-more .modal-content,
+html.dark-more [class*="modal"],
+html.dark-more [class*="Modal"],
+html.dark-more [class*="popover"],
+html.dark-more [class*="Popover"] {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* Secondary buttons */
+html.dark-more .admin-content .secondary-btn,
+html.dark-more .admin-content .cancel-btn,
+html.dark-more .admin-content .reset-btn,
+html.dark-more .admin-content .row-actions button,
+html.dark-more .admin-content .modal-actions button:not(.primary-btn) {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* Keep primary buttons purple/blue */
+html.dark-more .admin-content .primary-btn,
+html.dark-more .admin-content .primary-button,
+html.dark-more .admin-content .addonPrimary,
+html.dark-more .admin-content button[type="submit"] {
+  color: #fff !important;
+}
+
+/* Empty states */
+html.dark-more .admin-content .empty,
+html.dark-more .admin-content [class*="empty"],
+html.dark-more .admin-content [class*="Empty"] {
+  background: var(--surface) !important;
+  color: var(--muted) !important;
+  border-color: var(--border) !important;
+}
+
+
+/* =====================================================
+   STUDY ARENA — DESIGN 6: LIGHT CLASSIC
+   Shared styling for all admin routes
+===================================================== */
+
+/* Light theme tokens */
+html:not(.dark-more) {
+  color-scheme: light;
+  --lc-page: #f4f7fc;
+  --lc-surface: #ffffff;
+  --lc-surface-soft: #f8faff;
+  --lc-hover: #edf3ff;
+  --lc-text: #17233c;
+  --lc-muted: #66748e;
+  --lc-border: #dce4f0;
+  --lc-primary: #3269e9;
+  --lc-primary-hover: #2455cc;
+  --lc-shadow: 0 5px 18px rgba(30, 55, 100, 0.055);
+}
+
+/* App background and base text */
+html:not(.dark-more) body,
+html:not(.dark-more) .admin-shell,
+html:not(.dark-more) .admin-main,
+html:not(.dark-more) .admin-content {
+  background: var(--lc-page);
+  color: var(--lc-text);
+}
+
+/* Sidebar */
+html:not(.dark-more) .admin-sidebar {
+  background: var(--lc-surface) !important;
+  color: var(--lc-text) !important;
+  border-right: 1px solid var(--lc-border) !important;
+  box-shadow: 2px 0 14px rgba(30, 55, 100, 0.025);
+}
+
+/* Brand area */
+html:not(.dark-more) .brand-row {
+  background: var(--lc-surface);
+  border-color: var(--lc-border);
+}
+
+html:not(.dark-more) .brand-logo {
+  color: #ffffff;
+  background: linear-gradient(135deg, #3269e9, #5794fa);
+  border-radius: 10px;
+}
+
+html:not(.dark-more) .brand-row strong,
+html:not(.dark-more) .institution-card strong,
+html:not(.dark-more) .sidebar-status strong {
+  color: var(--lc-text) !important;
+}
+
+html:not(.dark-more) .brand-row span,
+html:not(.dark-more) .institution-card span,
+html:not(.dark-more) .sidebar-status span {
+  color: var(--lc-muted) !important;
+}
+
+/* Institution profile */
+html:not(.dark-more) .institution-card {
+  background: var(--lc-surface-soft) !important;
+  border: 1px solid var(--lc-border) !important;
+  border-radius: 12px;
+}
+
+html:not(.dark-more) .institution-avatar {
+  color: #ffffff;
+  background: linear-gradient(135deg, #3269e9, #5794fa);
+}
+
+/* Navigation group labels */
+html:not(.dark-more) .nav-group-title {
+  color: #75839d !important;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.15px;
+}
+
+/* Navigation items */
+html:not(.dark-more) .nav-item {
+  color: #455572 !important;
+  background: transparent;
+  border-radius: 9px;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+html:not(.dark-more) .nav-item:hover {
+  color: var(--lc-primary) !important;
+  background: var(--lc-hover) !important;
+}
+
+html:not(.dark-more) .nav-item.active {
+  color: #ffffff !important;
+  background: linear-gradient(100deg, #3269e9, #4388f4) !important;
+  box-shadow: 0 4px 10px rgba(50, 105, 233, 0.17);
+}
+
+html:not(.dark-more) .nav-item.active span {
+  color: #ffffff !important;
+}
+
+/* Sidebar status */
+html:not(.dark-more) .sidebar-status {
+  color: var(--lc-text);
+  border-top: 1px solid var(--lc-border);
+}
+
+/* Header */
+html:not(.dark-more) .admin-header {
+  background: rgba(255, 255, 255, 0.97) !important;
+  color: var(--lc-text) !important;
+  border-bottom: 1px solid var(--lc-border) !important;
+  box-shadow: 0 2px 10px rgba(30, 55, 100, 0.025);
+}
+
+html:not(.dark-more) .header-left h1 {
+  color: var(--lc-text) !important;
+}
+
+html:not(.dark-more) .crumb {
+  color: var(--lc-muted) !important;
+}
+
+/* Header icon buttons */
+html:not(.dark-more) .header-icon,
+html:not(.dark-more) .menu-button,
+html:not(.dark-more) .close-mobile {
+  color: #50617e;
+  background: #ffffff;
+  border: 1px solid var(--lc-border);
+  border-radius: 10px;
+}
+
+html:not(.dark-more) .header-icon:hover,
+html:not(.dark-more) .menu-button:hover {
+  color: var(--lc-primary);
+  background: var(--lc-hover);
+  border-color: #c4d5fb;
+}
+
+/* Profile */
+html:not(.dark-more) .profile-btn {
+  color: var(--lc-text);
+  background: transparent;
+}
+
+html:not(.dark-more) .profile-btn strong {
+  color: var(--lc-text);
+}
+
+html:not(.dark-more) .profile-btn span {
+  color: var(--lc-muted);
+}
+
+html:not(.dark-more) .profile-avatar {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6558ed, #328fe9);
+}
+
+/* Admin page surfaces */
+html:not(.dark-more) .admin-content .panel,
+html:not(.dark-more) .admin-content .data-panel,
+html:not(.dark-more) .admin-content .kpi,
+html:not(.dark-more) .admin-content .quick-stat,
+html:not(.dark-more) .admin-content .report-card,
+html:not(.dark-more) .admin-content .settings-card,
+html:not(.dark-more) .admin-content .settings-editor,
+html:not(.dark-more) .admin-content .statCard,
+html:not(.dark-more) .admin-content .card,
+html:not(.dark-more) .admin-content .empty,
+html:not(.dark-more) .admin-content .module-metrics > div {
+  color: var(--lc-text);
+  background: var(--lc-surface);
+  border-color: var(--lc-border);
+  box-shadow: var(--lc-shadow);
+}
+
+/* Page headings */
+html:not(.dark-more) .admin-content h1,
+html:not(.dark-more) .admin-content h2,
+html:not(.dark-more) .admin-content h3,
+html:not(.dark-more) .admin-content h4 {
+  color: var(--lc-text);
+}
+
+/* Body text */
+html:not(.dark-more) .admin-content p,
+html:not(.dark-more) .admin-content small,
+html:not(.dark-more) .admin-content label {
+  color: var(--lc-muted);
+}
+
+/* Form fields */
+html:not(.dark-more) .admin-content input,
+html:not(.dark-more) .admin-content select,
+html:not(.dark-more) .admin-content textarea,
+html:not(.dark-more) .global-search input {
+  color: var(--lc-text);
+  background: #ffffff;
+  border-color: #d4deed;
+  border-radius: 9px;
+}
+
+html:not(.dark-more) .admin-content input::placeholder,
+html:not(.dark-more) .admin-content textarea::placeholder,
+html:not(.dark-more) .global-search input::placeholder {
+  color: #8996ac;
+}
+
+html:not(.dark-more) .admin-content input:focus,
+html:not(.dark-more) .admin-content select:focus,
+html:not(.dark-more) .admin-content textarea:focus {
+  outline: 2px solid rgba(50, 105, 233, 0.12);
+  border-color: #79a0f5;
+}
+
+/* Tables */
+html:not(.dark-more) .admin-content table {
+  color: var(--lc-text);
+  background: #ffffff;
+  border-color: var(--lc-border);
+}
+
+html:not(.dark-more) .admin-content thead,
+html:not(.dark-more) .admin-content th {
+  color: #455572;
+  background: #f7f9fd;
+  border-color: var(--lc-border);
+}
+
+html:not(.dark-more) .admin-content td {
+  color: #52617b;
+  border-color: var(--lc-border);
+}
+
+html:not(.dark-more) .admin-content tbody tr:hover {
+  background: #f5f8ff;
+}
+
+/* Secondary buttons */
+html:not(.dark-more) .admin-content .secondary-btn,
+html:not(.dark-more) .admin-content .cancel-btn,
+html:not(.dark-more) .admin-content .reset-btn {
+  color: #3d4e6b;
+  background: #ffffff;
+  border-color: var(--lc-border);
+}
+
+/* Primary buttons */
+html:not(.dark-more) .admin-content .primary-btn,
+html:not(.dark-more) .admin-content .primary-button,
+html:not(.dark-more) .admin-content .save-btn,
+html:not(.dark-more) .admin-content button[type="submit"] {
+  color: #ffffff;
+  background: linear-gradient(100deg, #3269e9, #4388f4);
+  border-color: transparent;
+}
+
+html:not(.dark-more) .admin-content .primary-btn:hover,
+html:not(.dark-more) .admin-content .primary-button:hover,
+html:not(.dark-more) .admin-content .save-btn:hover,
+html:not(.dark-more) .admin-content button[type="submit"]:hover {
+  background: var(--lc-primary-hover);
+}
+
+/* Dropdowns and popovers */
+html:not(.dark-more) .dropdown,
+html:not(.dark-more) .notification-box,
+html:not(.dark-more) .profile-box,
+html:not(.dark-more) [role="dialog"],
+html:not(.dark-more) [role="menu"],
+html:not(.dark-more) .modal,
+html:not(.dark-more) .modal-content {
+  color: var(--lc-text);
+  background: #ffffff;
+  border-color: var(--lc-border);
+  box-shadow: 0 12px 35px rgba(30, 55, 100, 0.12);
+}
+
+/* Notification count */
+html:not(.dark-more) .notification-count {
+  color: #ffffff;
+  background: #ef4444;
+  border-color: #ffffff;
+}
+
+/* Keep mobile layout usable */
+@media (max-width: 768px) {
+  html:not(.dark-more) .admin-sidebar {
+    box-shadow: 8px 0 30px rgba(30, 55, 100, 0.12);
+  }
+
+  html:not(.dark-more) .admin-content {
+    min-width: 0;
+  }
+}
+
+
+/* ==========================================================
+   STUDY ARENA — LIGHT CLASSIC KPI CARDS
+   Removes decorative circles and upgrades card appearance.
+   Append this block at the VERY END of admin.css.
+========================================================== */
+
+/* 1. Dashboard metric cards */
+html:not(.dark-more) .kpi-grid .kpi {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 178px;
+  padding: 22px;
+  border: 1px solid #e1e7f1;
+  border-radius: 16px;
+  background: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(28, 49, 87, 0.045);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* Remove the large circular decoration */
+html:not(.dark-more) .kpi-grid .kpi::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Thin colored accent at the top */
+html:not(.dark-more) .kpi-grid .kpi::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+  background: #6b72ef;
+  opacity: 0.9;
+}
+
+html:not(.dark-more) .kpi-grid .kpi.purple::before {
+  background: #7465ee;
+}
+
+html:not(.dark-more) .kpi-grid .kpi.orange::before {
+  background: #f2a83b;
+}
+
+html:not(.dark-more) .kpi-grid .kpi.green::before {
+  background: #18b58b;
+}
+
+html:not(.dark-more) .kpi-grid .kpi.red::before {
+  background: #f16f7b;
+}
+
+/* Refined hover */
+html:not(.dark-more) .kpi-grid .kpi:hover {
+  transform: translateY(-4px);
+  border-color: #cbd8f4;
+  box-shadow: 0 12px 28px rgba(38, 72, 132, 0.10);
+}
+
+/* Icon tile */
+html:not(.dark-more) .kpi-grid .kpi .kpi-icon {
+  position: relative;
+  z-index: 1;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+/* Labels */
+html:not(.dark-more) .kpi-grid .kpi > span {
+  position: relative;
+  z-index: 1;
+  color: #71809b;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Main values */
+html:not(.dark-more) .kpi-grid .kpi > strong {
+  position: relative;
+  z-index: 1;
+  margin: 7px 0 9px;
+  color: #192641 !important;
+  font-size: clamp(23px, 2vw, 29px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+
+/* Supporting text */
+html:not(.dark-more) .kpi-grid .kpi > small {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 8px;
+  color: #8390a8;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Top-right arrow */
+html:not(.dark-more) .kpi-grid .kpi > b {
+  z-index: 2;
+  color: #8292ad;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+html:not(.dark-more) .kpi-grid .kpi:hover > b {
+  color: #3269e9;
+  transform: translate(2px, -2px);
+}
+
+/* 2. Module metric cards */
+html:not(.dark-more) .admin-content .module-metrics > div {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 145px;
+  padding: 22px;
+  border: 1px solid #e1e7f1 !important;
+  border-radius: 16px;
+  background: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(28, 49, 87, 0.045);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* Remove circular decoration from module cards */
+html:not(.dark-more) .admin-content .module-metrics > div::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Subtle top accent */
+html:not(.dark-more) .admin-content .module-metrics > div::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3269e9, #7199f7);
+  opacity: 0.9;
+}
+
+/* Keep card content above accent */
+html:not(.dark-more) .admin-content .module-metrics > div > * {
+  position: relative;
+  z-index: 1;
+}
+
+html:not(.dark-more) .admin-content .module-metrics > div:hover {
+  transform: translateY(-3px);
+  border-color: #cbd8f4 !important;
+  box-shadow: 0 12px 28px rgba(38, 72, 132, 0.09);
+}
+
+html:not(.dark-more) .admin-content .module-metrics > div span,
+html:not(.dark-more) .admin-content .module-metrics > div small {
+  color: #71809b !important;
+}
+
+html:not(.dark-more) .admin-content .module-metrics > div strong {
+  color: #192641 !important;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+/* 3. Any reusable stat cards using this stylesheet */
+html:not(.dark-more) .statCard {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  border-color: #e1e7f1;
+  box-shadow: 0 4px 14px rgba(28, 49, 87, 0.045);
+}
+
+html:not(.dark-more) .statCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+html:not(.dark-more) .statCard:hover {
+  transform: translateY(-4px);
+  border-color: #cbd8f4;
+  box-shadow: 0 12px 28px rgba(38, 72, 132, 0.09);
+}
+
+/* 4. Preserve existing dark theme */
+html.dark-more .kpi-grid .kpi::after,
+html.dark-more .admin-content .module-metrics > div::after,
+html.dark-more .statCard::after {
+  content: "" !important;
+  display: block !important;
+}
+
+/* 5. Responsive layout */
+@media (max-width: 800px) {
+  html:not(.dark-more) .kpi-grid .kpi {
+    min-height: 160px;
+    padding: 19px;
+  }
+
+  html:not(.dark-more) .admin-content .module-metrics > div {
+    min-height: 135px;
+    padding: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.dark-more) .kpi-grid .kpi,
+  html:not(.dark-more) .admin-content .module-metrics > div,
+  html:not(.dark-more) .statCard {
+    transition: none !important;
+  }
+
+  html:not(.dark-more) .kpi-grid .kpi:hover,
+  html:not(.dark-more) .admin-content .module-metrics > div:hover,
+  html:not(.dark-more) .statCard:hover {
+    transform: none !important;
+  }
+}
+
+
+
+/* ==========================================================
+   STUDY ARENA — GLOBAL CARD REDESIGN
+   Light Classic • All Admin Modules
+   UI only: no route, data or functionality changes
+========================================================== */
+
+html:not(.dark-more) {
+  --sa-card-bg: #ffffff;
+  --sa-card-border: #dce5f2;
+  --sa-card-text: #182641;
+  --sa-card-muted: #71819d;
+  --sa-card-shadow: 0 5px 18px rgba(35, 57, 95, 0.045);
+  --sa-card-shadow-hover: 0 13px 30px rgba(35, 57, 95, 0.10);
+}
+
+/* 1. Dashboard and reusable metric cards */
+html:not(.dark-more) .admin-content .kpi,
+html:not(.dark-more) .admin-content .quick-stat,
+html:not(.dark-more) .admin-content .module-metrics > div,
+html:not(.dark-more) .admin-content .report-summary > div,
+html:not(.dark-more) .admin-content .finance-grid > div,
+html:not(.dark-more) .admin-content .statCard,
+html:not(.dark-more) .admin-content .stat-card,
+html:not(.dark-more) .admin-content .metric-card,
+html:not(.dark-more) .admin-content .metricCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--sa-card-text);
+  background: var(--sa-card-bg) !important;
+  border: 1px solid var(--sa-card-border) !important;
+  border-radius: 15px !important;
+  box-shadow: var(--sa-card-shadow) !important;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+/* 2. Remove large decorative circles from known card styles */
+html:not(.dark-more) .admin-content .kpi::after,
+html:not(.dark-more) .admin-content .module-metrics > div::after,
+html:not(.dark-more) .admin-content .statCard::after,
+html:not(.dark-more) .admin-content .stat-card::after,
+html:not(.dark-more) .admin-content .metric-card::after,
+html:not(.dark-more) .admin-content .metricCard::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 3. Dashboard KPI cards */
+html:not(.dark-more) .admin-content .kpi {
+  min-height: 165px;
+  padding: 21px;
+}
+
+html:not(.dark-more) .admin-content .kpi::before,
+html:not(.dark-more) .admin-content .module-metrics > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6266f1, #4388f4);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+html:not(.dark-more) .admin-content .kpi.purple::before {
+  background: linear-gradient(90deg, #7664ed, #a18cf9);
+}
+
+html:not(.dark-more) .admin-content .kpi.orange::before {
+  background: linear-gradient(90deg, #f2a333, #ffd078);
+}
+
+html:not(.dark-more) .admin-content .kpi.green::before {
+  background: linear-gradient(90deg, #14ac83, #6bd9b6);
+}
+
+html:not(.dark-more) .admin-content .kpi.red::before {
+  background: linear-gradient(90deg, #ed6474, #ffa0a7);
+}
+
+html:not(.dark-more) .admin-content .kpi .kpi-icon {
+  position: relative;
+  z-index: 1;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+html:not(.dark-more) .admin-content .kpi > span,
+html:not(.dark-more) .admin-content .module-metrics > div > span {
+  display: block;
+  position: relative;
+  z-index: 1;
+  color: var(--sa-card-muted) !important;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+html:not(.dark-more) .admin-content .kpi > strong,
+html:not(.dark-more) .admin-content .module-metrics > div > strong {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 7px 0;
+  color: var(--sa-card-text) !important;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  overflow-wrap: anywhere;
+}
+
+html:not(.dark-more) .admin-content .kpi > small,
+html:not(.dark-more) .admin-content .module-metrics > div > small {
+  display: block;
+  position: relative;
+  z-index: 1;
+  color: var(--sa-card-muted) !important;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* 4. Batch, student, staff and other module metrics */
+html:not(.dark-more) .admin-content .module-metrics {
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+html:not(.dark-more) .admin-content .module-metrics > div {
+  min-width: 0;
+  min-height: 135px;
+  padding: 22px;
+}
+
+/* 5. Quick statistics */
+html:not(.dark-more) .admin-content .quick-stats {
+  gap: 12px;
+}
+
+html:not(.dark-more) .admin-content .quick-stat {
+  min-width: 0;
+  padding: 16px;
+  border-left: 3px solid #8294b5 !important;
+  text-decoration: none;
+}
+
+html:not(.dark-more) .admin-content .quick-stat.blue {
+  border-left-color: #4388f4 !important;
+}
+
+html:not(.dark-more) .admin-content .quick-stat.green {
+  border-left-color: #17b58a !important;
+}
+
+html:not(.dark-more) .admin-content .quick-stat.red {
+  border-left-color: #ed6474 !important;
+}
+
+html:not(.dark-more) .admin-content .quick-stat.yellow {
+  border-left-color: #e9ad3f !important;
+}
+
+html:not(.dark-more) .admin-content .quick-stat.orange {
+  border-left-color: #f28a45 !important;
+}
+
+html:not(.dark-more) .admin-content .quick-stat strong {
+  color: var(--sa-card-text) !important;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+html:not(.dark-more) .admin-content .quick-stat span {
+  margin-top: 5px;
+  color: var(--sa-card-muted) !important;
+  font-size: 10px;
+}
+
+/* 6. Tuition fees, finance and report summary cards */
+html:not(.dark-more) .admin-content .report-summary > div,
+html:not(.dark-more) .admin-content .finance-grid > div {
+  min-width: 0;
+  padding: 19px;
+}
+
+html:not(.dark-more) .admin-content .report-summary b,
+html:not(.dark-more) .admin-content .finance-grid strong {
+  color: var(--sa-card-text) !important;
+  font-size: 23px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+html:not(.dark-more) .admin-content .report-summary span,
+html:not(.dark-more) .admin-content .finance-grid small {
+  color: var(--sa-card-muted) !important;
+  font-size: 10px;
+}
+
+/* 7. Income / Expense cards with colored side accents */
+html:not(.dark-more) .admin-content .income-card,
+html:not(.dark-more) .admin-content .expense-card,
+html:not(.dark-more) .admin-content .profit-card,
+html:not(.dark-more) .admin-content .balance-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 1px solid var(--sa-card-border) !important;
+  border-left: 4px solid #6266f1 !important;
+  border-radius: 15px !important;
+  box-shadow: var(--sa-card-shadow) !important;
+}
+
+html:not(.dark-more) .admin-content .income-card {
+  border-left-color: #18b77f !important;
+}
+
+html:not(.dark-more) .admin-content .expense-card {
+  border-left-color: #f05f70 !important;
+}
+
+html:not(.dark-more) .admin-content .profit-card,
+html:not(.dark-more) .admin-content .balance-card {
+  border-left-color: #6266f1 !important;
+}
+
+/* 8. Common card containers */
+html:not(.dark-more) .admin-content .panel,
+html:not(.dark-more) .admin-content .report-card,
+html:not(.dark-more) .admin-content .settings-card,
+html:not(.dark-more) .admin-content .data-panel,
+html:not(.dark-more) .admin-content .dashboard-welcome {
+  background-color: #ffffff;
+  border-color: var(--sa-card-border);
+  box-shadow: var(--sa-card-shadow);
+}
+
+/* 9. Shared card hover effects */
+html:not(.dark-more) .admin-content .kpi:hover,
+html:not(.dark-more) .admin-content .quick-stat:hover,
+html:not(.dark-more) .admin-content .module-metrics > div:hover,
+html:not(.dark-more) .admin-content .report-summary > div:hover,
+html:not(.dark-more) .admin-content .finance-grid > div:hover,
+html:not(.dark-more) .admin-content .statCard:hover,
+html:not(.dark-more) .admin-content .stat-card:hover,
+html:not(.dark-more) .admin-content .metric-card:hover,
+html:not(.dark-more) .admin-content .metricCard:hover {
+  transform: translateY(-3px);
+  border-color: #c8d7f4 !important;
+  box-shadow: var(--sa-card-shadow-hover) !important;
+}
+
+/* 10. Card text contrast */
+html:not(.dark-more) .admin-content .kpi strong,
+html:not(.dark-more) .admin-content .quick-stat strong,
+html:not(.dark-more) .admin-content .report-card h3,
+html:not(.dark-more) .admin-content .panel h3 {
+  color: var(--sa-card-text);
+}
+
+html:not(.dark-more) .admin-content .kpi small,
+html:not(.dark-more) .admin-content .quick-stat span {
+  color: var(--sa-card-muted);
+}
+
+/* 11. Responsive layout */
+@media (max-width: 800px) {
+  html:not(.dark-more) .admin-content .kpi {
+    min-height: 145px;
+    padding: 18px;
+  }
+
+  html:not(.dark-more) .admin-content .module-metrics > div {
+    min-height: 125px;
+    padding: 18px;
+  }
+
+  html:not(.dark-more) .admin-content .quick-stat {
+    padding: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  html:not(.dark-more) .admin-content .kpi > strong,
+  html:not(.dark-more) .admin-content .module-metrics > div > strong {
+    font-size: 24px;
+  }
+}
+
+/* 12. Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  html:not(.dark-more) .admin-content .kpi,
+  html:not(.dark-more) .admin-content .quick-stat,
+  html:not(.dark-more) .admin-content .module-metrics > div,
+  html:not(.dark-more) .admin-content .report-summary > div,
+  html:not(.dark-more) .admin-content .finance-grid > div {
+    transition: none !important;
+  }
+
+  html:not(.dark-more) .admin-content .kpi:hover,
+  html:not(.dark-more) .admin-content .quick-stat:hover,
+  html:not(.dark-more) .admin-content .module-metrics > div:hover {
+    transform: none !important;
+  }
+}
+
+
+/* ==========================================================
+   STUDY ARENA — COMPLETE LIGHT CLASSIC ADMIN OVERRIDES
+   Sharp cards • No decorative circles • Bold arrow icons
+========================================================== */
+
+/* Admin shell */
+html:not(.dark-more) .admin-shell,
+html:not(.dark-more) .admin-main,
+html:not(.dark-more) .admin-content {
+  color: #17243d;
+  background: #f3f6fb;
+}
+
+/* Sidebar */
+html:not(.dark-more) .admin-sidebar {
+  color: #24334e !important;
+  background: #ffffff !important;
+  border-right: 1px solid #d9e2ef !important;
+  box-shadow: none !important;
+}
+
+html:not(.dark-more) .brand-row,
+html:not(.dark-more) .sidebar-status {
+  background: #ffffff;
+  border-color: #e0e7f1;
+}
+
+html:not(.dark-more) .brand-row strong,
+html:not(.dark-more) .institution-card strong,
+html:not(.dark-more) .sidebar-status strong,
+html:not(.dark-more) .header-left h1 {
+  color: #17243d !important;
+}
+
+html:not(.dark-more) .brand-row span,
+html:not(.dark-more) .institution-card span,
+html:not(.dark-more) .sidebar-status span,
+html:not(.dark-more) .nav-group-title,
+html:not(.dark-more) .crumb {
+  color: #687893 !important;
+}
+
+/* Sidebar navigation */
+html:not(.dark-more) .nav-item {
+  color: #43536f !important;
+  background: transparent !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  transition: background-color .16s ease, color .16s ease;
+}
+
+html:not(.dark-more) .nav-item:hover {
+  color: #2455c7 !important;
+  background: #edf3ff !important;
+}
+
+html:not(.dark-more) .nav-item.active {
+  color: #2455c7 !important;
+  background: #eaf0ff !important;
+  box-shadow: inset 3px 0 #3269e9 !important;
+  font-weight: 750;
+}
+
+html:not(.dark-more) .nav-item.active span {
+  color: #2455c7 !important;
+}
+
+/* Header */
+html:not(.dark-more) .admin-header {
+  color: #17243d !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #d9e2ef !important;
+  box-shadow: none !important;
+}
+
+html:not(.dark-more) .header-icon,
+html:not(.dark-more) .menu-button,
+html:not(.dark-more) .close-mobile {
+  color: #405471 !important;
+  background: #ffffff !important;
+  border: 1px solid #d9e2ef !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+html:not(.dark-more) .header-icon:hover,
+html:not(.dark-more) .menu-button:hover {
+  color: #2455c7 !important;
+  background: #edf3ff !important;
+}
+
+html:not(.dark-more) .profile-avatar {
+  color: #ffffff;
+  background: #3269e9;
+}
+
+/* Main content typography */
+html:not(.dark-more) .admin-content h1,
+html:not(.dark-more) .admin-content h2,
+html:not(.dark-more) .admin-content h3,
+html:not(.dark-more) .admin-content h4 {
+  color: #17243d;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+html:not(.dark-more) .admin-content p,
+html:not(.dark-more) .admin-content small,
+html:not(.dark-more) .admin-content label {
+  color: #687893;
+}
+
+/* Common card containers */
+html:not(.dark-more) .admin-content .kpi,
+html:not(.dark-more) .admin-content .quick-stat,
+html:not(.dark-more) .admin-content .module-metrics > div,
+html:not(.dark-more) .admin-content .statCard,
+html:not(.dark-more) .admin-content .stat-card,
+html:not(.dark-more) .admin-content .metric-card,
+html:not(.dark-more) .admin-content .metricCard,
+html:not(.dark-more) .admin-content .report-card,
+html:not(.dark-more) .admin-content .settings-card,
+html:not(.dark-more) .admin-content .data-panel,
+html:not(.dark-more) .admin-content .panel,
+html:not(.dark-more) .admin-content .dashboard-welcome {
+  color: #17243d;
+  background: #ffffff !important;
+  border: 1px solid #d9e2ef !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 12px rgba(27, 47, 82, 0.045) !important;
+}
+
+/* Remove decorative circles and pseudo-element shapes */
+html:not(.dark-more) .admin-content .kpi::after,
+html:not(.dark-more) .admin-content .quick-stat::after,
+html:not(.dark-more) .admin-content .module-metrics > div::after,
+html:not(.dark-more) .admin-content .statCard::after,
+html:not(.dark-more) .admin-content .stat-card::after,
+html:not(.dark-more) .admin-content .metric-card::after,
+html:not(.dark-more) .admin-content .metricCard::after,
+html:not(.dark-more) .admin-content .report-card::after,
+html:not(.dark-more) .admin-content .settings-card::after,
+html:not(.dark-more) .admin-content .data-panel::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove other oversized decorative pseudo-shapes on metric cards */
+html:not(.dark-more) .admin-content .kpi::before,
+html:not(.dark-more) .admin-content .module-metrics > div::before,
+html:not(.dark-more) .admin-content .statCard::before,
+html:not(.dark-more) .admin-content .stat-card::before,
+html:not(.dark-more) .admin-content .metric-card::before,
+html:not(.dark-more) .admin-content .metricCard::before {
+  border-radius: 0 !important;
+}
+
+/* Card content remains readable and above decorative layers */
+html:not(.dark-more) .admin-content .kpi > *,
+html:not(.dark-more) .admin-content .module-metrics > div > *,
+html:not(.dark-more) .admin-content .statCard > *,
+html:not(.dark-more) .admin-content .stat-card > *,
+html:not(.dark-more) .admin-content .metric-card > *,
+html:not(.dark-more) .admin-content .metricCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+html:not(.dark-more) .admin-content .kpi > strong,
+html:not(.dark-more) .admin-content .module-metrics > div > strong,
+html:not(.dark-more) .admin-content .statCard strong,
+html:not(.dark-more) .admin-content .stat-card strong,
+html:not(.dark-more) .admin-content .metric-card strong,
+html:not(.dark-more) .admin-content .metricCard strong {
+  color: #17243d !important;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  overflow-wrap: anywhere;
+}
+
+html:not(.dark-more) .admin-content .kpi > span,
+html:not(.dark-more) .admin-content .kpi > small,
+html:not(.dark-more) .admin-content .module-metrics > div > span,
+html:not(.dark-more) .admin-content .module-metrics > div > small {
+  color: #687893 !important;
+}
+
+/* Purposeful hover instead of exaggerated animation */
+html:not(.dark-more) .admin-content .kpi:hover,
+html:not(.dark-more) .admin-content .quick-stat:hover,
+html:not(.dark-more) .admin-content .module-metrics > div:hover,
+html:not(.dark-more) .admin-content .statCard:hover,
+html:not(.dark-more) .admin-content .stat-card:hover,
+html:not(.dark-more) .admin-content .metric-card:hover,
+html:not(.dark-more) .admin-content .metricCard:hover {
+  transform: translateY(-2px);
+  border-color: #bdcfee !important;
+  box-shadow: 0 8px 20px rgba(27, 47, 82, 0.075) !important;
+}
+
+/* Arrow/icon styling — icons must already exist in JSX */
+html:not(.dark-more) .admin-content .kpi svg,
+html:not(.dark-more) .admin-content .quick-stat svg,
+html:not(.dark-more) .admin-content .module-metrics svg {
+  flex-shrink: 0;
+  stroke-width: 2.5;
+}
+
+html:not(.dark-more) .admin-content .kpi > b {
+  color: #3269e9;
+  font-weight: 800;
+}
+
+/* Income and expense cards */
+html:not(.dark-more) .admin-content .income-card,
+html:not(.dark-more) .admin-content .expense-card,
+html:not(.dark-more) .admin-content .profit-card,
+html:not(.dark-more) .admin-content .balance-card {
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 1px solid #d9e2ef !important;
+  border-left: 3px solid #3269e9 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 12px rgba(27, 47, 82, 0.045) !important;
+}
+
+html:not(.dark-more) .admin-content .income-card {
+  border-left-color: #139b70 !important;
+}
+
+html:not(.dark-more) .admin-content .expense-card {
+  border-left-color: #dc4657 !important;
+}
+
+html:not(.dark-more) .admin-content .profit-card,
+html:not(.dark-more) .admin-content .balance-card {
+  border-left-color: #3269e9 !important;
+}
+
+/* Buttons */
+html:not(.dark-more) .admin-content button {
+  border-radius: 6px;
+  font-weight: 650;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+
+html:not(.dark-more) .admin-content .primary-btn,
+html:not(.dark-more) .admin-content .primary-button,
+html:not(.dark-more) .admin-content .save-btn,
+html:not(.dark-more) .admin-content button[type="submit"] {
+  color: #ffffff !important;
+  background: #3269e9 !important;
+  border-color: #3269e9 !important;
+  box-shadow: none !important;
+}
+
+html:not(.dark-more) .admin-content .primary-btn:hover,
+html:not(.dark-more) .admin-content .primary-button:hover,
+html:not(.dark-more) .admin-content .save-btn:hover,
+html:not(.dark-more) .admin-content button[type="submit"]:hover {
+  background: #2455c7 !important;
+}
+
+html:not(.dark-more) .admin-content .secondary-btn,
+html:not(.dark-more) .admin-content .cancel-btn,
+html:not(.dark-more) .admin-content .reset-btn {
+  color: #405471 !important;
+  background: #ffffff !important;
+  border: 1px solid #d9e2ef !important;
+}
+
+/* Inputs */
+html:not(.dark-more) .admin-content input,
+html:not(.dark-more) .admin-content select,
+html:not(.dark-more) .admin-content textarea {
+  color: #17243d;
+  background: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* Tables */
+html:not(.dark-more) .admin-content table {
+  width: 100%;
+  color: #17243d;
+  background: #ffffff;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+html:not(.dark-more) .admin-content thead th {
+  color: #52637f;
+  background: #f5f8fd;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+html:not(.dark-more) .admin-content th,
+html:not(.dark-more) .admin-content td {
+  padding: 13px 15px;
+  border-bottom: 1px solid #e5ebf4;
+  text-align: left;
+}
+
+html:not(.dark-more) .admin-content tbody tr:hover {
+  background: #f6f9ff;
+}
+
+/* Dialogs and dropdowns */
+html:not(.dark-more) .admin-content [role="dialog"],
+html:not(.dark-more) .admin-content [role="menu"],
+html:not(.dark-more) .admin-content .modal,
+html:not(.dark-more) .admin-content .modal-content,
+html:not(.dark-more) .admin-content .dropdown,
+html:not(.dark-more) .admin-content .notification-box,
+html:not(.dark-more) .admin-content .profile-box {
+  color: #17243d;
+  background: #ffffff;
+  border-color: #d9e2ef;
+  box-shadow: 0 12px 30px rgba(27, 47, 82, 0.12);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  html:not(.dark-more) .admin-content .kpi,
+  html:not(.dark-more) .admin-content .module-metrics > div,
+  html:not(.dark-more) .admin-content .statCard,
+  html:not(.dark-more) .admin-content .stat-card,
+  html:not(.dark-more) .admin-content .metric-card,
+  html:not(.dark-more) .admin-content .metricCard {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.dark-more) .admin-content .kpi,
+  html:not(.dark-more) .admin-content .quick-stat,
+  html:not(.dark-more) .admin-content .module-metrics > div {
+    transition: none !important;
+  }
+
+  html:not(.dark-more) .admin-content .kpi:hover,
+  html:not(.dark-more) .admin-content .quick-stat:hover,
+  html:not(.dark-more) .admin-content .module-metrics > div:hover {
+    transform: none !important;
+  }
+}
