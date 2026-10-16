@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -57,6 +58,7 @@ export default function StaffPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [staffLimit, setStaffLimit] = useState<number | null>(null);
 
   const loadStaff = async () => {
     setLoading(true);
@@ -80,6 +82,14 @@ export default function StaffPage() {
       if (profileError) throw profileError;
       if (!profile?.institute_id) {
         throw new Error("Unable to load your institute profile.");
+      }
+
+      const subscriptionResponse = await fetch("/api/my-subscription", { cache: "no-store" });
+      if (subscriptionResponse.ok) {
+        const subscriptionPayload = await subscriptionResponse.json();
+        setStaffLimit(typeof subscriptionPayload?.subscription?.staffLimit === "number" ? subscriptionPayload.subscription.staffLimit : null);
+      } else {
+        setStaffLimit(null);
       }
 
       const { data, error: staffError } = await supabase
@@ -195,6 +205,14 @@ export default function StaffPage() {
 
       if (profileError) throw profileError;
 
+      const subscriptionResponse = await fetch("/api/my-subscription", { cache: "no-store" });
+      if (subscriptionResponse.ok) {
+        const subscriptionPayload = await subscriptionResponse.json();
+        setStaffLimit(typeof subscriptionPayload?.subscription?.staffLimit === "number" ? subscriptionPayload.subscription.staffLimit : null);
+      } else {
+        setStaffLimit(null);
+      }
+
       const { data, error: staffError } = await supabase
         .from("staff")
         .select(
@@ -296,6 +314,20 @@ export default function StaffPage() {
 
         setSuccess("Staff record updated successfully.");
       } else {
+        const [countResult, subscriptionResponse] = await Promise.all([
+          supabase.from("staff").select("id", { count: "exact", head: true }).eq("institute_id", profile.institute_id),
+          fetch("/api/my-subscription", { cache: "no-store" }),
+        ]);
+        if (countResult.error) throw countResult.error;
+        const subscriptionPayload = subscriptionResponse.ok ? await subscriptionResponse.json() : null;
+        const limit = typeof subscriptionPayload?.subscription?.staffLimit === "number" ? subscriptionPayload.subscription.staffLimit : staffLimit;
+        if (limit === null || subscriptionPayload?.subscription?.status !== "confirmed") {
+          throw new Error("A confirmed subscription is required before adding staff. Please activate a plan first.");
+        }
+        if ((countResult.count ?? 0) >= limit) {
+          setStaffLimit(limit);
+          throw new Error(`Staff limit reached (${countResult.count ?? 0}/${limit}). Upgrade your plan or remove an existing staff record before adding another.`);
+        }
         const employeeId = `EMP-${Date.now().toString().slice(-6)}`;
 
         const { error: insertError } = await supabase.from("staff").insert({
@@ -399,12 +431,18 @@ export default function StaffPage() {
           type="button"
           className={styles.addButton}
           onClick={openAddModal}
+          disabled={staffLimit !== null && totalStaff >= staffLimit}
+          title={staffLimit !== null && totalStaff >= staffLimit ? "Staff limit reached for this plan" : "Add staff"}
         >
           <span>+</span>
           Add Staff
         </button>
       </section>
 
+      <div style={{ margin: "0 0 16px", padding: "12px 14px", border: "1px solid #d9e2f0", background: "#f5f8ff", color: "#243b64", fontSize: 14 }}>
+        Staff capacity: <strong>{loading ? "Loading…" : `${totalStaff}/${staffLimit ?? "—"}`}</strong>
+        {staffLimit !== null ? ` · ${Math.max(0, staffLimit - totalStaff)} slots remaining` : " · Activate a plan to view capacity"}
+      </div>
       {error && <div className={styles.error}>{error}</div>}
       {success && <div className={styles.success}>{success}</div>}
 

@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
@@ -7,6 +8,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const PLAN_LIMITS: Record<string, { name: string; months: number; students: number; staff: number }> = {
+  "free-demo": { name: "Free Demo", months: 0, students: 5, staff: 2 },
   "monthly-standard": { name: "Monthly Standard", months: 1, students: 200, staff: 10 },
   "monthly-professional": { name: "Monthly Professional", months: 1, students: 500, staff: 30 },
   "six-month-standard": { name: "6-Month Standard", months: 6, students: 200, staff: 10 },
@@ -84,11 +86,12 @@ export async function GET() {
 
     // The admin review timestamp is the activation date for manually confirmed payments.
     const activationValue = data.reviewed_at || data.payment_submitted_at;
-    const expiresAt = activationValue ? addMonths(String(activationValue), plan.months) : null;
+    const expiresAt = activationValue && plan.months > 0 ? addMonths(String(activationValue), plan.months) : null;
+    const expired = Boolean(expiresAt && new Date(`${expiresAt}T23:59:59.999Z`).getTime() < Date.now());
     return NextResponse.json({
       subscription: {
         planName: data.plan_name || plan.name,
-        status: "confirmed",
+        status: expired ? "expired" : "confirmed",
         expiresAt,
         studentLimit: plan.students,
         staffLimit: plan.staff,

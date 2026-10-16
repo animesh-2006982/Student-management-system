@@ -1,3 +1,4 @@
+
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
@@ -18,6 +19,8 @@ export default function AddStudentPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [studentLimit, setStudentLimit] = useState<number | null>(null);
+  const [studentCount, setStudentCount] = useState<number | null>(null);
 
   const [admissionNumber, setAdmissionNumber] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -58,6 +61,16 @@ export default function AddStudentPage() {
       setLoadingBatches(false);
       return;
     }
+
+    const [subscriptionResponse, studentCountResponse] = await Promise.all([
+      fetch("/api/my-subscription", { cache: "no-store" }),
+      supabase.from("students").select("id", { count: "exact", head: true }).eq("institute_id", profile.institute_id),
+    ]);
+    if (subscriptionResponse.ok) {
+      const subscriptionPayload = await subscriptionResponse.json();
+      setStudentLimit(typeof subscriptionPayload?.subscription?.studentLimit === "number" ? subscriptionPayload.subscription.studentLimit : null);
+    }
+    if (!studentCountResponse.error) setStudentCount(studentCountResponse.count ?? 0);
 
     const { data, error: batchError } = await supabase
       .from("batches")
@@ -114,6 +127,24 @@ export default function AddStudentPage() {
         return;
       }
 
+      const [{ count: currentCount, error: countError }, subscriptionResponse] = await Promise.all([
+        supabase.from("students").select("id", { count: "exact", head: true }).eq("institute_id", profile.institute_id),
+        fetch("/api/my-subscription", { cache: "no-store" }),
+      ]);
+      if (countError) throw countError;
+      const subscriptionPayload = subscriptionResponse.ok ? await subscriptionResponse.json() : null;
+      const limit = typeof subscriptionPayload?.subscription?.studentLimit === "number" ? subscriptionPayload.subscription.studentLimit : studentLimit;
+      if (limit === null || subscriptionPayload?.subscription?.status !== "confirmed") {
+        setError("A confirmed subscription is required before adding students. Please activate a plan first.");
+        return;
+      }
+      if ((currentCount ?? 0) >= limit) {
+        setStudentCount(currentCount ?? 0);
+        setStudentLimit(limit);
+        setError(`Student limit reached (${currentCount ?? 0}/${limit}). Upgrade your plan or remove an existing student before adding another.`);
+        return;
+      }
+
       const { error: insertError } = await supabase.from("students").insert({
         institute_id: profile.institute_id,
         admission_number: cleanAdmission,
@@ -132,6 +163,7 @@ export default function AddStudentPage() {
         return;
       }
 
+      setStudentCount((value) => value === null ? value : value + 1);
       setSuccess("Student added successfully.");
 
       setTimeout(() => {
@@ -164,6 +196,11 @@ export default function AddStudentPage() {
 
           {error && <div style={errorStyle}>{error}</div>}
           {success && <div style={successStyle}>{success}</div>}
+
+          <div style={usageStyle}>
+            Student capacity: <strong>{studentCount === null ? "Loading…" : studentCount}/{studentLimit ?? "—"}</strong>
+            {studentLimit !== null && studentCount !== null ? <span> · {Math.max(0, studentLimit - studentCount)} slots remaining</span> : null}
+          </div>
 
           <form onSubmit={submit}>
             <div style={gridStyle}>
@@ -198,7 +235,7 @@ export default function AddStudentPage() {
               <button type="button" onClick={() => router.push("/admin/students")} style={secondaryButtonStyle}>
                 Cancel
               </button>
-              <button type="submit" disabled={saving} style={{ ...primaryButtonStyle, opacity: saving ? 0.7 : 1 }}>
+              <button type="submit" disabled={saving || (studentLimit !== null && studentCount !== null && studentCount >= studentLimit)} style={{ ...primaryButtonStyle, opacity: saving || (studentLimit !== null && studentCount !== null && studentCount >= studentLimit) ? 0.7 : 1 }}>
                 {saving ? "Saving..." : "Add Student"}
               </button>
             </div>
@@ -354,3 +391,5 @@ const primaryButtonStyle: React.CSSProperties = {
   fontWeight: 700,
   cursor: "pointer",
 };
+
+const usageStyle: React.CSSProperties = { marginBottom: 18, padding: "12px 14px", border: "1px solid #d9e2f0", background: "#f5f8ff", color: "#243b64", fontSize: 14 };

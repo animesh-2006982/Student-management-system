@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
@@ -5,12 +6,13 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const PLANS = {
-  "monthly-standard": { name: "Monthly Standard", amount: 1499 },
-  "monthly-professional": { name: "Monthly Professional", amount: 2999 },
-  "six-month-standard": { name: "6-Month Standard", amount: 7999 },
-  "six-month-professional": { name: "6-Month Professional", amount: 16499 },
-  "yearly-standard": { name: "Yearly Standard", amount: 15499 },
-  "yearly-professional": { name: "Yearly Professional", amount: 30999 },
+  "free-demo": { name: "Free Demo", amount: 0, months: 0, students: 5, staff: 2, free: true },
+  "monthly-standard": { name: "Monthly Standard", amount: 1499, months: 1, students: 200, staff: 10, free: false },
+  "monthly-professional": { name: "Monthly Professional", amount: 2999, months: 1, students: 500, staff: 30, free: false },
+  "six-month-standard": { name: "6-Month Standard", amount: 7999, months: 6, students: 200, staff: 10, free: false },
+  "six-month-professional": { name: "6-Month Professional", amount: 16499, months: 6, students: 500, staff: 30, free: false },
+  "yearly-standard": { name: "Yearly Standard", amount: 15499, months: 12, students: 200, staff: 10, free: false },
+  "yearly-professional": { name: "Yearly Professional", amount: 30999, months: 12, students: 500, staff: 30, free: false },
 } as const;
 
 function getSupabaseAdmin() {
@@ -61,7 +63,8 @@ export async function POST(request: Request) {
         plan_name: plan.name,
         amount_inr: plan.amount,
         transaction_ref: transactionRef || null,
-        status: "pending",
+        status: plan.free ? "confirmed" : "pending",
+        ...(plan.free ? { reviewed_at: new Date().toISOString(), admin_note: "Free Demo activated automatically." } : {}),
       })
       .select("id")
       .single();
@@ -75,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { ok: true, id: data.id, status: "pending" },
+      { ok: true, id: data.id, status: plan.free ? "confirmed" : "pending", planName: plan.name, amount: plan.amount },
       { status: 201, headers: { "Cache-Control": "no-store, private" } },
     );
   } catch (error) {

@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { useMemo, useState } from "react";
@@ -9,7 +10,7 @@ import styles from "./subscription.module.css";
 type Plan = {
   id: string;
   name: string;
-  tier: "Standard" | "Professional";
+  tier: "Demo" | "Standard" | "Professional";
   description: string;
   amount: number;
   period: string;
@@ -19,6 +20,16 @@ type Plan = {
 };
 
 const plans: Plan[] = [
+  {
+    id: "free-demo",
+    name: "Free Demo",
+    tier: "Demo",
+    description: "Try STUDY ARENA with a small institute workspace.",
+    amount: 0,
+    period: "free demo",
+    studentLimit: 5,
+    staffLimit: 2,
+  },
   {
     id: "monthly-standard",
     name: "Monthly Standard",
@@ -120,15 +131,16 @@ const emptyForm: CustomerForm = {
 };
 
 export default function SubscriptionPage() {
-  const [selectedPlanId, setSelectedPlanId] = useState(plans[1].id);
+  const [selectedPlanId, setSelectedPlanId] = useState(plans[2].id);
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState<CustomerForm>(emptyForm);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [requestId, setRequestId] = useState("");
+  const [requestStatus, setRequestStatus] = useState<"pending" | "confirmed">("pending");
 
   const selected = useMemo(
-    () => plans.find((plan) => plan.id === selectedPlanId) ?? plans[1],
+    () => plans.find((plan) => plan.id === selectedPlanId) ?? plans[2],
     [selectedPlanId]
   );
 
@@ -188,6 +200,7 @@ export default function SubscriptionPage() {
       }
 
       setRequestId(result.id);
+      setRequestStatus(result.status === "confirmed" ? "confirmed" : "pending");
     } catch (e) {
       setError(
         e instanceof Error ? e.message : "Something went wrong."
@@ -227,15 +240,13 @@ export default function SubscriptionPage() {
         </h1>
 
         <p>
-          Choose a subscription plan and pay securely using your
-          UPI app. Your access will be prepared after manual payment
-          verification.
+          Choose a plan for your institute. Free Demo activates automatically; paid plans are activated after manual payment verification.
         </p>
 
         <div className={styles.proof}>
-          <span>✓ Six paid plan options</span>
-          <span>✓ 200 or 500 student capacity</span>
-          <span>✓ Manual payment verification</span>
+          <span>✓ Free Demo included</span>
+          <span>✓ 5, 200 or 500 student capacity</span>
+          <span>✓ Paid plans manually verified</span>
         </div>
       </section>
 
@@ -249,8 +260,7 @@ export default function SubscriptionPage() {
           </div>
 
           <p>
-            The QR is generated for the selected plan and includes
-            its payment amount.
+            Paid-plan QR codes use the selected plan amount. Free Demo requires no payment.
           </p>
         </div>
 
@@ -272,9 +282,10 @@ export default function SubscriptionPage() {
                 </span>
 
                 {plan.featured && (
-                  <span className={styles.popular}>
-                    POPULAR
-                  </span>
+                  <span className={styles.popular}>POPULAR</span>
+                )}
+                {plan.id === "free-demo" && (
+                  <span className={styles.popular}>FREE</span>
                 )}
               </div>
 
@@ -327,11 +338,7 @@ export default function SubscriptionPage() {
 
       <section className={styles.help}>
         <h2>Payment verification is manual</h2>
-        <p>
-          After submitting your payment request, our team will
-          verify the transaction. Your account is not created
-          automatically.
-        </p>
+        <p>Free Demo activates automatically. Paid subscriptions are activated only after manual payment verification.</p>
       </section>
 
       <footer className={styles.footer}>
@@ -376,17 +383,15 @@ export default function SubscriptionPage() {
                 </span>
 
                 <h2 id="payment-title">
-                  Payment submitted for verification
+                  {requestStatus === "confirmed" ? "Free Demo activated" : "Payment submitted for verification"}
                 </h2>
 
                 <p>
-                  Your request ID is <strong>{requestId}</strong>.
-                  Keep it for your records. Your account will only
-                  be created after the payment is manually verified.
+                  Your request ID is <strong>{requestId}</strong>. Keep it for your records. {requestStatus === "confirmed" ? "Your Free Demo is active. Sign in with this email after creating your account." : "Your paid plan will be activated only after payment is manually verified."}
                 </p>
 
                 <div className={styles.pending}>
-                  <span>●</span> Pending verification
+                  <span>●</span> {requestStatus === "confirmed" ? "Demo active" : "Pending verification"}
                 </div>
 
                 <button
@@ -410,8 +415,7 @@ export default function SubscriptionPage() {
                 </h2>
 
                 <p className={styles.modalIntro}>
-                  Fill in your details, scan the QR with any UPI
-                  app, then submit the request after paying.
+                  {selected.amount === 0 ? "Enter your details to activate the Free Demo. No payment is required." : "Fill in your details, scan the QR with any UPI app, then submit the request after paying."}
                 </p>
 
                 <div className={styles.modalGrid}>
@@ -472,7 +476,7 @@ export default function SubscriptionPage() {
 
                     <label>
                       UPI transaction/reference ID{" "}
-                      <small>(recommended)</small>
+                      <small>{selected.amount === 0 ? "(not required for Free Demo)" : "(recommended)"}</small>
                       <input
                         value={form.transactionRef}
                         onChange={(event) =>
@@ -504,17 +508,16 @@ export default function SubscriptionPage() {
                     >
                       {submitting
                         ? "Submitting…"
-                        : "I have paid — submit for verification"}{" "}
+                        : selected.amount === 0 ? "Activate Free Demo" : "I have paid — submit for verification"}{" "}
                       <span>→</span>
                     </button>
 
                     <small className={styles.formNote}>
-                      This submits a request only. It does not
-                      automatically verify the payment.
+                      {selected.amount === 0 ? "Free Demo activates automatically with 5 student and 2 staff slots." : "This submits a request only. Paid access is not activated until payment is verified."}
                     </small>
                   </form>
 
-                  <div className={styles.qrPanel}>
+                  {selected.amount > 0 ? <div className={styles.qrPanel}>
                     <div className={styles.qrAmount}>
                       {money(selected.amount)}
                       <small>Exact amount</small>
@@ -562,7 +565,11 @@ export default function SubscriptionPage() {
                       Check the recipient and amount in your UPI
                       app before paying. Payment is verified manually.
                     </p>
-                  </div>
+                  </div> : <div className={styles.qrPanel}>
+                    <div className={styles.qrAmount}>₹0<small>No payment required</small></div>
+                    <strong>Free Demo package</strong>
+                    <p>Includes up to 5 students and 2 staff members. You can upgrade to a paid plan later.</p>
+                  </div>}
                 </div>
               </>
             )}
